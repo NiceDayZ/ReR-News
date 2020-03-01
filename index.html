@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/ab4339cff3.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Candal|Lora&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>BearNews</title>
@@ -13,14 +14,18 @@
         <div class="logo">
             <h1 class="logo-text"><span>Bear</span>News</h1>
         </div>
-        <b class="nav-bars menu-toggle">&#9776;</b>
+        <i class="fas fa-bars menu-toggle"></i>
         <ul class="nav">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <!-- <li><a href="#">Sign Up</a></li>
             <li><a href="#">Login</a></li> -->
             <li>
-                <a href="#">Bear  <b>&#709;</b></a>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    Bear
+                    <i class="fas fa-chevron-down"></i>
+                </a>
                 <ul>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#" class="logout">Logout</a></li>
@@ -28,6 +33,74 @@
             </li>
         </ul>
     </header>
+
+    <div class="page-wrapper">
+        <!--Carouser-->
+        <div class="post-slider">
+            <h1 class="slider-title">Trending Posts</h1>
+            <i class="fas fa-chevron-left prev"></i>
+            <i class="fas fa-chevron-right next"></i>
+            <div class="post-wrapper">
+                
+                <div class="post">
+                    <img src="images/1.jpg" alt="postImage" class="slider-image">
+                    <div class="post-info">
+                        <h4><a href="single.html"></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                        <i class="far fa-user">Mike Bear</i>
+                        &nbsp;
+                        <i class="far fa-calendar">Mar 2, 2020</i>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="images/2.jpg" alt="postImage" class="slider-image">
+                    <div class="post-info">
+                        <h4><a href="single.html"></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                        <i class="far fa-user">Mike Bear</i>
+                        &nbsp;
+                        <i class="far fa-calendar">Mar 2, 2020</i>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="images/3.jpg" alt="postImage" class="slider-image">
+                    <div class="post-info">
+                        <h4><a href="single.html"></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                        <i class="far fa-user">Mike Bear</i>
+                        &nbsp;
+                        <i class="far fa-calendar">Mar 2, 2020</i>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="images/4.jpg" alt="postImage" class="slider-image">
+                    <div class="post-info">
+                        <h4><a href="single.html"></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                        <i class="far fa-user">Mike Bear</i>
+                        &nbsp;
+                        <i class="far fa-calendar">Mar 2, 2020</i>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="images/5.jpg" alt="postImage" class="slider-image">
+                    <div class="post-info">
+                        <h4><a href="single.html"></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                        <i class="far fa-user">Mike Bear</i>
+                        &nbsp;
+                        <i class="far fa-calendar">Mar 2, 2020</i>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+        </div>
+    </div>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!--Carousel-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- CustomJS -->
+    <script src="js/scripts.js"></script>
 </body>
 </html>
 

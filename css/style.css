@@ -8,6 +8,23 @@ body{
     background: #f6f6f6;
     font-family: 'Lora', serif;
 }
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6{
+    font-family: 'Candal', serif;
+    color: #444;
+    margin: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 header{
     background: #008489;
     height: 66px;
@@ -50,6 +67,7 @@ header ul li ul {
     right: 0px;
     width: 180px;
     display: none;
+    z-index: 88888;
 }
 
 header ul li:hover ul {
@@ -88,4 +106,128 @@ header ul li a:hover{
 
 header .menu-toggle{
     display: none;
+}
+
+.page-wrapper a:hover{
+    color: #006669;
+}
+
+header ul li a i.fa-chevron-down{
+    font-size: 0.9em;
+}
+
+/*POST SLIDER*/
+
+.post-slider{
+    position: relative;
+}
+
+.post-slider .slider-title{
+    text-align: center;
+    margin: 30px auto;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 2em;
+    color: #006669;
+    cursor: pointer;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    font-size: 2em;
+    color: #006669;
+    cursor: pointer;
+}
+
+.post-slider .post-wrapper{
+    width: 84%;
+    height: 350px;
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
+    margin: 0px auto;
+}
+
+.post-slider .post-wrapper .post{
+    height: 330px;
+    width: 300px;
+    margin: 0px 10px;
+    display: inline-block;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 1rem 1rem 1rem -1rem #a0a0a033;
+}
+
+.post-slider .post-wrapper .post .slider-image {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.post-slider .post-wrapper .post .post-info{
+    height: 130px;
+    padding: 0px 5px;
+}
+
+/*Media querie*/
+@media only screen and (max-width: 750px){
+    header{
+        position: relative;
+    }
+
+    header ul{
+        width: 100%;
+        background: #0E94A0;
+        max-height: 0px;
+        overflow: hidden;
+    }
+
+    .showing{
+        max-height: 100em;
+    }
+
+    header ul li{
+        width: 100%;
+    }
+
+    header ul li ul{
+        position: static;
+        display: block;
+        width: 100%;
+    }
+
+    header ul li ul li a{
+        padding: 10px;
+        background: #0E94A0;
+        color: white;
+        padding-left: 50px;
+    }
+
+    header ul li ul li a:hover{
+        background-color: #006669;
+    }
+
+    header ul li ul li a.logout{
+        color: red;
+    }
+
+    header .menu-toggle{
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 1.9em;
+    }
+
+    header .logo{
+
+        margin-left: .5em;
+    }
+
 }
