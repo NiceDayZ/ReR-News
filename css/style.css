@@ -175,6 +175,42 @@ header ul li a i.fa-chevron-down{
     padding: 0px 5px;
 }
 
+.content{
+    width:90%;
+    margin: 30px auto 30px auto;
+}
+
+.content .main-content{
+    width: 70%;
+    float: left;
+}
+
+.content .sidebar{
+    width: 30%;
+    float: left;
+    height: 300px;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.btn{
+    padding: .5rem 1rem;
+    background: #006669;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.btn:hover{
+    background-color: #005255;
+    color: white !important;
+}
+
+
 @media only screen and (max-width: 1400px){
     .post-slider .post-wrapper .post{
         width: 29.5%;
