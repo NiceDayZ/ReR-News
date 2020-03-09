@@ -204,6 +204,15 @@ header ul li a i.fa-chevron-down{
     float: left;
 }
 
+.content .images-container{
+    width: 70%;
+    float: left;
+    height: 200px;
+    margin-top: 70px;
+    border-radius: 0.8rem;
+    border: 1px solid red;
+}
+
 .content .sidebar{
     width: 30%;
     float: left;
@@ -387,7 +396,7 @@ header ul li a i.fa-chevron-down{
     color: rgba(0,0,0,.5);
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: .5rem 0px;
+    margin: .5rem 0rem;
 }
 
 .blog-post__title{
