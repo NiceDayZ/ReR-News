@@ -10,7 +10,7 @@
     <title>SignUpPage</title>
 </head>
 
-<body>
+<body class="background">
     <header>
         <div class="logo">
             <h1 class="logo-text"><span>Bear</span>News</h1>
@@ -18,22 +18,58 @@
     </header>
     <!-- Sign in box-->
     <div class="top">
-        <div class="box_sign_in">
-            <form>
-                <div class="container">
-                    <h2>Sign in now</h2>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                    <label class="forgot" for="password"><u>Forgot password?</u>
-                    </label>
+        <div class="top_left">
+            <div class="box_sign_in" id="login">
+                <form>
+                    <p style="font-family: 'Candal',serif;font-size: 200%; text-align: center; ">Sign in now<p>
+                            <input type="text" placeholder="Enter Username" name="username" required>
+                            <input type="password" placeholder="Enter Password" name="password" required>
+                            <label class="forgot" for="password"><u>Forgot password?</u></label>
+                            <br>
+                            <a class="button_sign_in">Sign in</a>
+                            <div class="line"></div>
+                            <a class="button_sign_up" id="change_login">Sign up</a>
+                </form>
+            </div>
+            <div class="box_sign_up" id="register">
+                <div class="show" id="onscreen">
+                    <form>
+                        <p style="font-family: 'Candal',serif;font-size: 200%; text-align: center; ">Sign up now</p>
+                        <input type="text" placeholder="Enter Your Name (e.g. Joe Stevens)" name="name" required>
+                        <input type="email" placeholder="Enter Your Email" name="email" required>
+                        <input type="text" placeholder="Choose Username" name="username" required>
+                        <input type="password" placeholder="Choose Password" name="password" required>
+                        <br>
+                        <a class="button_sign_in">Sign up</a>
+                        <div class="line"></div>
+                        <a class="button_sign_up" id="change_register">Sign in</a>
+                        <!--am pus aici butoanele invers pt ca pastreaza proprietatile de afisaj corespunzatoare-->
+                    </form>
                 </div>
-                <a href="#" class="button_sign_in">Sign in</a>
-            </form>
+            </div>
         </div>
-        <div class="register">
-            <h2>Create a new account now</h2>
+        <div class="top_right">
+            <div class="about">
+                <p style="font-family: 'Candal',serif;font-size: 200%; text-align: center; ">Read more about us</p>
+                <div class="text">
+                    <div class="media">
+                        <img src="images/media.jpg" alt="">
+                    </div>
+                    <p><i>"You tell us your preferences, we give you content"</i> - a browser extension that
+                        provides you data(video, images, news, documents &nbsp;<i>etc.</i>).</p>
+                    <p>Once installed you will be notified in real-time when something you might like
+                        has been posted on social media. Also, you can choose your own sites from which
+                        you can receive content.
+                    </p>
+                    <p>Cool, isn't it? No more feed scrolling, no more constant searching for something to
+                        watch, just friendly notifications to look forward to.
+                    </p>
+                    <p>Give it a go!</p>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="js/scriptsSign.js"></script>
 </body>
 
 </html>
