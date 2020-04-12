@@ -60,73 +60,6 @@ header .logo-text span{
     display: flex;
     flex-direction: row;
 }
-.view {
-   
-    margin: 5%;
-    margin-top: 7%;
-    width: 25%;
-    border : 1px solid #bfbfbf;    
-    background-image: url("../images/statistic.jpg");
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px grey;
-    padding: 5%;
-
-}
-.text{
-    transition: .5s ease;
-    opacity: 0;
-    font-family: 'Candal',serif;
-    font-size: 200%; 
-    text-align: center;
-}
-.view:hover .text{
-    opacity: 1;
-}
-.view:hover {
-    opacity: 0.7;
-    transform: scale(1.1);
-    transition:  .5s ease;
-    box-shadow: 10px 10px 10px grey;
-}
-.request {
-    margin: 5%;
-    margin-top: 7%;
-    width: 25%;
-    border : 1px solid #bfbfbf;    
-    background-image: url("../images/rsz_box.png");
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px grey;
-    padding: 5%;
-}
-.request:hover .text{
-    opacity: 1;
-}
-.request:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-    transition:  .5s ease;
-    box-shadow: 10px 10px 10px grey;
-}
-.mailbox{
-    margin: 5%;
-    margin-top: 7%;
-    width: 25%;
-    border : 1px solid #bfbfbf;    
-    background-image: url("../images/mailbox.jpg");
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px grey;
-    padding: 5%;
-
-}
-.mailbox:hover .text{
-    opacity: 1;
-}
-.mailbox:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-    transition:  .5s ease;
-    box-shadow: 10px 10px 10px grey;
-}
 .menu{
     height: 70%;
     width: 15%;
@@ -165,7 +98,119 @@ header .logo-text span{
 .stat:hover{
     background-image: linear-gradient(to bottom, #0E94A0 0%, #006669 100%);
 }
-
+/*body */
+.body-mail {
+    text-align: left;
+    margin: 0 15% 10% 10%;
+    width: 55%;
+}
+.body-mail h2{
+    margin-top :5%;
+    text-align: center;
+}
+.mail-table{
+    margin-top: 3%;
+    overflow-y: auto;
+    text-align: left;
+    height: 100%; 
+    padding-left: 3%;
+}
+#mails img{
+    width: 16px;
+}
+#mails td{
+    column-span: all;
+    font-size: 1.3em;
+    padding: 2px 10px;
+    border: 1px solid #ddd;
+    font-family: 'Roboto', sans-serif;
+    color: #666666;
+    padding-right: 200px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+#mails tr:hover{
+    transform: scale(1.03);
+    transition:  .5s ease;
+}
+.Mail-text{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 5%;
+    left :0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+}
+.Mail-text h2,h3{
+    text-align: left;
+}
+.content{
+    background-color: #fefefe;
+    margin: auto;
+    font-size: 1.5em;
+    padding: 5% 10%;
+    border: 2px solid gray;
+    width: 80%;
+}
+.content #reply{
+    display: block;
+    float: right;
+    font-size: 1.5em;
+    font-family: 'Candal',sans-serif;
+    padding: 0 3% 1%;
+    color:white;
+    background-image: linear-gradient(to top, #006669 0%, #0E94A0 100%);
+}
+.content #reply:hover{
+    transform: scale(1.02);
+    transition:  .5s ease;
+}
+.reply-text{
+    display: block;
+    margin-top: 3%;
+}
+.close{
+    color: #FA6F6F;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+}
+.close:hover,.close:focus{
+    color : red;
+    text-decoration: none;
+    cursor: pointer;
+}
+.mail-menu{
+    float: right;
+    margin-top: 8%;
+    margin-right: 10%;
+    width: 15%;
+    height: 30%;
+}
+.mail-menu img{
+    width: 30px;
+    position: relative;
+    top:7px;
+}
+.mail-menu #button-menu{
+    width: 100%;
+    font-family: 'Candal',sans-serif;
+    font-size: 1.5em;
+    color: white;
+    background-color: teal;
+    opacity: 0.7;
+    padding: 1%;
+    border-radius: 25px;
+}
+.mail-menu #button-menu:hover{
+    background-color: #00ace6;
+    border-radius: 25px;
+}
 .footer{
     background: #303036;
     color: #dedede;
