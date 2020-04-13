@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ab4339cff3.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap" rel="stylesheet">
-    <link href="adminStyle.css" rel="stylesheet">
-    <title>AdminPage</title>
+    <link href="adminStatistic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <title>Admin statistics</title>
 </head>
 
 <body>
@@ -36,28 +37,20 @@
                 <label class="stat">Logout</label>
             </div>
         </div>
+        <div id="statistic-area">
+            <h2>ReR News Statistic</h2>
+            <div class="chart_wrapper">
+                <h3 id="chart_title">Your application usage.</h3>
 
-        <div class=" view">
-            <form>
-                <div class="text">
-                    <p>View Statistics
-                        <p>
+                <div class="profit_box">
+                    <canvas id="chart_profit"></canvas>
                 </div>
-            </form>
-        </div>
-        <div class="request">
-            <form>
-                <div class="text">
-                    <p>Check Requests<p>
+                <div id="chart_options">
+                    <button id="weekly_profit_btn">Weekly Usage</button>
+                    <button id="monthly_profit_btn">Monthly Usage</button>
+                    <button id="annual_profit_btn">Annual Usage</button>
                 </div>
-            </form>
-        </div>
-        <div class="mailbox">
-            <form>
-                <div class=text>
-                    <p>Check Mailbox<p>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -118,7 +111,8 @@
         </div>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="adminStatistic.js"></script>
 </body>
 
 </html>

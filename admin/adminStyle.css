@@ -67,6 +67,9 @@ header .logo-text span{
     width: 25%;
     border : 1px solid #bfbfbf;    
     background-image: url("../images/statistic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 20px;
     box-shadow: 5px 5px 5px grey;
     padding: 5%;
@@ -94,6 +97,9 @@ header .logo-text span{
     width: 25%;
     border : 1px solid #bfbfbf;    
     background-image: url("../images/rsz_box.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 20px;
     box-shadow: 5px 5px 5px grey;
     padding: 5%;
@@ -113,6 +119,9 @@ header .logo-text span{
     width: 25%;
     border : 1px solid #bfbfbf;    
     background-image: url("../images/mailbox.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 20px;
     box-shadow: 5px 5px 5px grey;
     padding: 5%;

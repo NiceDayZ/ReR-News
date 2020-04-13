@@ -197,7 +197,7 @@ header .logo-text span{
     position: relative;
     top:7px;
 }
-.mail-menu #button-menu{
+.mail-menu button{
     width: 100%;
     font-family: 'Candal',sans-serif;
     font-size: 1.5em;
@@ -207,7 +207,7 @@ header .logo-text span{
     padding: 1%;
     border-radius: 25px;
 }
-.mail-menu #button-menu:hover{
+.mail-menu button:hover{
     background-color: #00ace6;
     border-radius: 25px;
 }
