@@ -228,6 +228,7 @@ header ul li a:hover .name span{
     height: 100%;
     width: 100%;
     padding-bottom: 10px;
+    border: none;
 }
 /* de aici incepe codul pt pagina popup-docs */
 
