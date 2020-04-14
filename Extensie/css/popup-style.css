@@ -124,6 +124,8 @@ header ul li a:hover .name span{
     position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
     top: 70px;
     left: 0;
+    height:auto;
+    width: 100%;
 }
 
 .news-block{  
@@ -227,3 +229,160 @@ header ul li a:hover .name span{
     width: 100%;
     padding-bottom: 10px;
 }
+/* de aici incepe codul pt pagina popup-docs */
+
+#docs-container{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 70px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.doc-box{
+    height: 60px;
+    width: 100%;
+    display: block;
+    background-color:white;   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding-right: 7px;
+    overflow: hidden;
+   
+}
+.doc-box i{
+    float:left;
+    padding: 5px 10px 5px 10px;
+    font-size: 50px;
+    
+}
+.doc-box .word-doc{
+    color: rgb(20, 20, 139);
+}
+.doc-box .excel-doc{
+    color: rgb(4, 112, 4);
+}
+.doc-box .ppt-doc{
+    color: rgb(241, 75, 14);
+}
+
+.doc-box .pdf-doc{
+    color: red;
+}
+.doc-box .other-doc{
+    color: black;
+}
+.doc-box h2{
+    margin-left: 45px;
+    padding: 7px;
+   
+}
+
+.doc-box h2 a{
+    color: black;
+    font-size: 80%;
+}
+
+.doc-box p{
+    margin-left: 50px;
+    padding: 0px 5px 5px 5px;
+    color:grey;
+
+}
+
+/* de aici incepe css pt pagina popup-settings */
+
+#settings-container{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 70px;
+    left: 0;
+    height: auto;
+    width: 100%;
+}
+
+#settings-container .login{
+    height: auto;
+    min-height: 100px;
+    width: 100%;
+    display: block;
+    background-color:white;   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+#settings-container .login input{
+    margin: 10px;
+    width: 90%;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #008489; 
+}
+
+#settings-container  input[type='submit']{
+    border: none;
+    background: #008489;
+    color: white;
+    border-radius: 2px;
+    transition: 1s;
+    font-size: 14px;
+    width: 70px;
+    height: 30px;
+}
+
+#settings-container input[type='submit']:hover{
+    background-color: rgb(103, 141, 158);
+}
+
+#settings-container .button{
+    text-align: center;
+    padding: 5px;
+}
+
+#settings-container .choices
+{
+    height: auto;
+    min-height: 100px;
+    width: 100%;
+    display: block;
+    background-color:white;   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;   
+}
+#settings-container .news-choices,
+#settings-container .image-choices,
+#settings-container .video-choices,
+#settings-container .docs-choices
+{
+    padding-top: 10px;
+}
+
+
+#settings-container .choices h2
+{
+    font-size: 15px;
+}
+
+#settings-container .areas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#settings-container .area{
+    margin: 5px;
+}
+
+#settings-container .area label{
+    font-size: 13px;
+}
+
+#settings-container .choices .add-site-news{
+    padding: 10px 5px;
+}
+
