@@ -72,12 +72,15 @@ header .logo-text span{
     margin-top: 20%;
     margin-left: 20%;
     margin-bottom: 20%;
-    padding: 0 0 20% 8%;
+    padding: 0 0 20% 3%;
     border-radius: 20px;
     border : 1px solid #bfbfbf;
     box-shadow: 5px 5px 5px grey;
     display: flex;
     flex-direction: column;
+    font-family: 'Candal',serif;
+    text-align: center;
+    font-size: 2em;
 }
 
 
@@ -88,33 +91,33 @@ header .logo-text span{
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: 0.5em;
     
   }
 
   .box_sign_in input[type=password]{
     width: 90%;
-    padding : 2%;
+    padding : 2% ;
     margin: 12px 10px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: 0.5em;
   }
   .box_sign_in .forgot
   {
       color : #99c2ff;
       padding-left: 3%;
-      font-size: 1.1em;
+      font-size: 0.5em;
       
   }
  .button_sign_in{
 
      width: 90%;
      display: inline-block;
-     margin : 10% 0 0 ;
+     margin : 10% 0 0  ;
      padding: 2% 35%;
-     font-size: 1.5em;
+     font-size: 0.7em;
      color: white;
      letter-spacing: 1px;
      background-image: linear-gradient(to right, #006669 0%, #0E94A0 100%);
@@ -126,8 +129,10 @@ header .logo-text span{
     color: white !important;
 }
 .line{
-    width: 90%;
+    width: 95%;
     border-bottom: 1px solid black;
+    margin-left: 2%;
+    margin-top: 5%;
 }
 .button_sign_up{
 
@@ -135,11 +140,12 @@ header .logo-text span{
     display: inline-block;
     margin : 3% 0 0 ;
     padding: 2% 35%;
-    font-size: 1.5em;
+    font-size: 0.7em;
     color: white;
     letter-spacing: 1px;
     background-image: linear-gradient(to left, #006669 0%, #0E94A0 100%);
     border-radius: 5px;
+    
 }
 .button_sign_up:hover{
    background-image: linear-gradient(to right, #006669 0%, #0E94A0 100%);
@@ -149,19 +155,21 @@ header .logo-text span{
 
 .box_sign_up{
     display: none;
-
 }
 .show{
     width: 100%;
     margin-top: 20%;
     margin-left: 20%;
     margin-bottom: 20%;
-    padding: 0 0 20% 8%;
+    padding: 0 0 20% 3%;
     border-radius: 20px;
     border : 1px solid #bfbfbf;
     box-shadow: 5px 5px 5px grey;
     display: flex;
     flex-direction: column;
+    font-family: 'Candal',serif;
+    text-align: center;
+    font-size: 2em;
 }
 .show input[type=text], .show input[type=email] {
     width: 90%;
@@ -170,7 +178,7 @@ header .logo-text span{
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: 0.7em;
     
   }
 
@@ -181,12 +189,15 @@ header .logo-text span{
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: 0.7em;
   }
   .about{
       margin-top: 10%;
       width: 100%;
       margin-left: 10%;
+      font-family: 'Candal',serif;
+      font-size: 2em; 
+      text-align: center; 
   }
  .media{
      float:right;
@@ -195,5 +206,6 @@ header .logo-text span{
  .text{
      float: left;
      margin-left: 20%;
-     font-size: 1.5em;
+     font-size: 0.9em;
+     font-family: Arial, Helvetica, sans-serif;
  }
