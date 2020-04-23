@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    background: #f6f6f6;
+    font-family: 'Lora', serif;
+
+    
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6{
+    font-family: 'Candal', serif;
+    color: #444;
+    margin :15px;
+    text-align: center;
+}
+
+label{
+    color: #444;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    background: #008489;
+    height: 66px;
+}
+
+header * {
+    color: white;
+}
+
+header .logo{
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+
+}
+
+header .logo-text {
+    margin: 9px;
+    font-family: 'Candal', serif;
+}
+
+header .logo-text span{
+    color: #05f7ff;
+}
+.top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.top_left{
+    width: 30%;
+}
+.top_right{
+    width: 60%;
+}
+.box_sign_in{
+    width: 100%;
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-bottom: 20%;
+    padding: 0 0 20% 8%;
+    border-radius: 20px;
+    border : 1px solid #bfbfbf;
+    box-shadow: 5px 5px 5px grey;
+    display: flex;
+    flex-direction: column;
+}
+
+
+ .box_sign_in input[type=text] {
+    width: 90%;
+    padding : 2%;
+    margin: 12px 10px 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    
+  }
+
+  .box_sign_in input[type=password]{
+    width: 90%;
+    padding : 2%;
+    margin: 12px 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1.2em;
+  }
+  .box_sign_in .forgot
+  {
+      color : #99c2ff;
+      padding-left: 3%;
+      font-size: 1.1em;
+      
+  }
+ .button_sign_in{
+
+     width: 90%;
+     display: inline-block;
+     margin : 10% 0 0 ;
+     padding: 2% 35%;
+     font-size: 1.5em;
+     color: white;
+     letter-spacing: 1px;
+     background-image: linear-gradient(to right, #006669 0%, #0E94A0 100%);
+     border-radius: 5px;
+}
+.button_sign_in:hover{
+    background-image: linear-gradient(to right, #0E94A0 0%, #006669 100%);
+    transition: 0.5s;
+    color: white !important;
+}
+.line{
+    width: 90%;
+    border-bottom: 1px solid black;
+}
+.button_sign_up{
+
+    width: 90%;
+    display: inline-block;
+    margin : 3% 0 0 ;
+    padding: 2% 35%;
+    font-size: 1.5em;
+    color: white;
+    letter-spacing: 1px;
+    background-image: linear-gradient(to left, #006669 0%, #0E94A0 100%);
+    border-radius: 5px;
+}
+.button_sign_up:hover{
+   background-image: linear-gradient(to right, #006669 0%, #0E94A0 100%);
+   transition: 0.5s;
+   color: white !important;
+}
+
+.box_sign_up{
+    display: none;
+
+}
+.show{
+    width: 100%;
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-bottom: 20%;
+    padding: 0 0 20% 8%;
+    border-radius: 20px;
+    border : 1px solid #bfbfbf;
+    box-shadow: 5px 5px 5px grey;
+    display: flex;
+    flex-direction: column;
+}
+.show input[type=text], .show input[type=email] {
+    width: 90%;
+    padding : 2%;
+    margin: 12px 10px 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    
+  }
+
+  .show input[type=password]{
+    width: 90%;
+    padding : 2%;
+    margin: 12px 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1.2em;
+  }
+  .about{
+      margin-top: 10%;
+      width: 100%;
+      margin-left: 10%;
+  }
+ .media{
+     float:right;
+     margin: 1%;
+ }
+ .text{
+     float: left;
+     margin-left: 20%;
+     font-size: 1.5em;
+ }
