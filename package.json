@@ -17,9 +17,13 @@
   },
   "homepage": "https://github.com/NiceDayZ/ReR-News#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "feed-reader": "^1.1.6",
     "finalhandler": "^1.1.2",
     "http-status-codes": "^1.4.0",
+    "mongoose": "^5.9.10",
     "newsapi": "^2.4.0",
     "nodemon": "^2.0.3",
     "pug": "^2.0.4",

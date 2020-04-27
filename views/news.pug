@@ -62,54 +62,11 @@ html(lang='en')
         i#nextButton.fas.fa-chevron-right.next
         |             
         .post-wrapper
-          each val in carousel
-            - var imgUrl = val.urlToImage
-            .post
-              img.slider-image(src=imgUrl alt="postImage")
-              .post-info
-                h4
-                  a(href="single.html")
-                  | #{val.title}
-                i.far.fa-user #{val.author}
-                i.far.fa-calendar #{val.publishedAt}
+        //add trending here
       .content.clearfix
         .main-content
           h1.recent-posts-title Recent Posts
-          // second design
-          .blog-post
-            .blog-post__img
-              img(src='images/9.jpg', alt='')
-            |                     
-            .blog-post__info
-              .blog-post__date
-                span Wednesday
-                |                             
-                span March 7 2020
-              |                         
-              h2.blog-post__title Lorem ipsum dolor sit amet.
-              |                         
-              p.blog-post__text
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-                | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-              |                         
-              a.blog-post__cta(href='#') Read More
-          .blog-post
-            .blog-post__img
-              img(src='images/9.jpg', alt='')
-            |                     
-            .blog-post__info
-              .blog-post__date
-                span Wednesday
-                |                             
-                span March 7 2020
-              |                         
-              h2.blog-post__title Lorem ipsum dolor sit amet.
-              |                         
-              p.blog-post__text
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-                | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-              |                         
-              a.blog-post__cta(href='#') Read More
+          //add news here
         .sidebar
           .section.search
             h2.section-title Search
