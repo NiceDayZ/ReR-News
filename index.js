@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 var cors = require('cors');
+const url = require('url');
+
 const staticController = require('./controllers').staticController;
 const globalRouter = require("./routes");
 
@@ -16,7 +18,7 @@ const config = dotenv.config({
   path: `./configs/${ENV}.env`
 }).parsed;
 
-mongoose.connect(process.env.DB_URI, {
+const db = mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex:true,
@@ -40,6 +42,15 @@ const router = new Router();
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended:true }));
+router.use(cors({origin: '*', allowedHeaders : ['Auth-Token','Refresh-Token'], exposedHeaders : ['Auth-Token','Refresh-Token'], methods : "GET,PUT,PATCH,POST,DELETE"}));
+router.use((req, res, next) => {
+    req.db = db;
+    next();
+});
+router.use((req, res, next) => {
+  req.query = url.parse(req.url,true).query;
+  next();
+});
 router.use('/', globalRouter);
 
 
@@ -48,6 +59,7 @@ http.createServer(function (request, response) {
     const filePath = '.' + request.url;
 
     if(path.extname(request.url).length == 0){ 
+      console.log("dinamic");
       router(request, response, finalhandler(request, response));
     }else{
       request.filePath = filePath;

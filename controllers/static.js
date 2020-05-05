@@ -23,7 +23,8 @@ const getStaticFiles = async (request, response) => {
             '.ttf': 'application/font-ttf',
             '.eot': 'application/vnd.ms-fontobject',
             '.otf': 'application/font-otf',
-            '.wasm': 'application/wasm'
+            '.wasm': 'application/wasm',
+            '.xml' : 'text/xml',
         };
   
         const contentType = mimeTypes[extname] || 'application/octet-stream';
