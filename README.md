@@ -132,7 +132,6 @@
 
 ```json
 {
-{
     "success": true,
     "images": [
         {
