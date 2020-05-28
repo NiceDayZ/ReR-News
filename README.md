@@ -4,8 +4,11 @@
 
 ## Fast Travel
 [News Module](#newsmod)
+
 [Images Module](#imgmod)
+
 [Videos Module](#vidmod)
+
 [Books Module](#booksmod)
 
 ## News Module <a id="newsmod">
