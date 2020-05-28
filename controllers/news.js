@@ -2,6 +2,7 @@ const HttpStatusCodes = require("http-status-codes");
 const axios = require('axios');
 var RSS = require('rss');
 const url = require('url');
+const Cache = require('../models').Cache;
 
 //The lines below are for parsing a rss
 
@@ -14,10 +15,12 @@ const url = require('url');
 //         feed.items.forEach(item => {
 //             console.log(item.title + ':' + item.link)
 // });
+const getParsedObjectAndCache = async(req, res) => {
 
+    if(req.cachedDB){
+        return req.cachedDB;
+    }
 
-
-const getTrending = async (req, res) => {
    let categories = [];
    let news = [];
    
@@ -48,7 +51,6 @@ const getTrending = async (req, res) => {
                 }else{
                     //if no keywords are selected
                     for(let i=0; i<categories.length; ++i){
-                        console.log(`${baseURL}&country=${country}&category=${categories[i]}`);
                         const newsAPIResp = await axios.get(`${baseURL}&country=${country}&category=${categories[i]}`);
 
                         news = news.concat(newsAPIResp.data.articles);
@@ -75,85 +77,47 @@ const getTrending = async (req, res) => {
             return (a.publishedAt < b.publishedAt) ? 1 : ((a.publishedAt > b.publishedAt) ? -1 : 0);
         });
 
+        news = news.slice(0, 50);
 
-        
-        
-        res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify(news));
-        
+        const cache = new Cache({
+            request: req.originalUrl.replace("/rss", ""),
+            response: JSON.stringify(news),
+            contentType: 'application/json'
+        });
+
+       
+        const cacheDB = await req.db.Cache.create(cache);
+
+        return news;
+
     }catch(err){
         console.error(err);
-        res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify({
-            success: "false",
-            message: "something bad happened"
-        }));
+        return null;
     }
+}
 
-    
+
+const getTrending = async (req, res) => {
+   
+        const news = await getParsedObjectAndCache(req, res);
+
+        if(news){
+            res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+            return res.end(JSON.stringify({success: true, news: news}));
+        }else{
+            res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+            return res.end(JSON.stringify({
+                success: false,
+                message: "something bad happened"
+            }));
+        }
 }
 
 const getRSS = async (req, res) => {
     
-   let categories = [];
-   let news = [];
-   
-   const country = req.query.country || 'us';
-   const language = req.query.language || 'en';
-   const baseURL = `https://newsapi.org/v2/top-headlines?apikey=${process.env.NEWS_API_KEY}&pageSize=50`;
+    const news = await getParsedObjectAndCache(req, res);
 
-   try{
-        if(req.query.categories){
-            categories = req.query.categories.split(",");
-            console.log(categories);
-        }
-
-        if(req.id){
-            //look for saved rss
-        }
-        
-        if(categories.length < 5 && categories.length > 0){
-                //if there are specific conditions for categories
-                
-                if(req.query.keywords){
-                    
-                    for(let i=0; i<categories.length; ++i){
-                        const newsAPIResp = await axios.get(`${baseURL}&q=${req.query.keywords}&country=${country}&category=${categories[i]}`);
-
-                        news = news.concat(newsAPIResp.data.articles);
-                    }
-                    
-                }else{
-                    //if no keywords are selected
-                    for(let i=0; i<categories.length; ++i){
-                        console.log(`${baseURL}&country=${country}&category=${categories[i]}`);
-                        const newsAPIResp = await axios.get(`${baseURL}&country=${country}&category=${categories[i]}`);
-
-                        news = news.concat(newsAPIResp.data.articles);
-                    }
-                }                             
-        }else{
-            //if all categories are required or no category is specified (in that case all categories will be taken in account)
-            
-            if(req.query.keywords){
-                //if search by keywords
-                const newsAPIResp = await axios.get(`${baseURL}&q=${req.query.keywords}&country=${country}`);
-                
-                news = news.concat(newsAPIResp.data.articles);
-            }else{
-                //if no keywords are selected
-                const newsAPIResp = await axios.get(`${baseURL}&country=${country}`);
-                
-                news = news.concat(newsAPIResp.data.articles);
-            }
-        }
-    
-        //sort by publish date (it is necesary when multiple categories are selected)
-        news.sort((a, b)=>{
-            return (a.publishedAt < b.publishedAt) ? 1 : ((a.publishedAt > b.publishedAt) ? -1 : 0);
-        });
-
-
+    if(news){
         let rssFeed = new RSS({
             title: "BearNews",
             feed_url: req.url,
@@ -161,7 +125,7 @@ const getRSS = async (req, res) => {
             guid: 'LawUyjQEXYiF51EzmEpe',
             date: (new Date()).toISOString()
         });
-
+    
         news.forEach(newsPost => {
             rssFeed.item({
                 title : newsPost.title,
@@ -175,18 +139,18 @@ const getRSS = async (req, res) => {
             })
             
         });
-
+    
+    
         res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'text/xml' });
         return res.end(rssFeed.xml());
-        
-    }catch(err){
-        console.error(err);
+    }else{
         res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify({
-            success: "false",
-            message: "something bad happened"
-        }));
-    }
+            return res.end(JSON.stringify({
+                success: false,
+                message: "something bad happened"
+            }));
+    }  
+   
 }
 
 module.exports = {

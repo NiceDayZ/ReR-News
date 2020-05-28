@@ -4,7 +4,10 @@
   "description": "ReR-News Proiect fain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev:linux": "NODE_ENV=dev node index.js",
+    "dev:windows": "set NODE_ENV=dev&&node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,14 +21,18 @@
   "homepage": "https://github.com/NiceDayZ/ReR-News#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "feed-reader": "^1.1.6",
     "finalhandler": "^1.1.2",
     "http-status-codes": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10",
-    "nodemon": "^2.0.3",
+    "node-schedule": "^1.3.2",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.4",
     "pug": "^2.0.4",
     "router": "^1.3.5",
     "rss": "^1.2.2",

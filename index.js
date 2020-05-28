@@ -5,8 +5,12 @@ const finalhandler = require('finalhandler');
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-var cors = require('cors');
+const cors = require('cors');
 const url = require('url');
+const schedule = require('node-schedule');
+
+const Cache = require('./models').Cache;
+
 
 const staticController = require('./controllers').staticController;
 const globalRouter = require("./routes");
@@ -18,12 +22,14 @@ const config = dotenv.config({
   path: `./configs/${ENV}.env`
 }).parsed;
 
-const db = mongoose.connect(process.env.DB_URI, {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex:true,
   useFindAndModify: false
 }).then(() => console.log("Succesfully connected to DB"));
+
+const db = require("./models");
 
 
 
@@ -42,7 +48,8 @@ const router = new Router();
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended:true }));
-router.use(cors({origin: '*', allowedHeaders : ['Auth-Token','Refresh-Token'], exposedHeaders : ['Auth-Token','Refresh-Token'], methods : "GET,PUT,PATCH,POST,DELETE"}));
+
+router.use(cors({origin: '*', allowedHeaders : ['Auth-Token','Refresh-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'], exposedHeaders : ['Auth-Token','Refresh-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'], methods : "GET,PUT,PATCH,POST,DELETE,OPTIONS"}));
 router.use((req, res, next) => {
     req.db = db;
     next();
@@ -54,12 +61,31 @@ router.use((req, res, next) => {
 router.use('/', globalRouter);
 
 
+
+//Scheduled JOBS
+var invalidateCache = schedule.scheduleJob('*/5 * * * *', async() => {
+  try{
+      const cursor = Cache.find().cursor();
+      console.log("Auto scheduled job. Invalidating Cache");
+      for (let cache = await cursor.next(); cache != null; cache = await cursor.next()) {
+          if(Date.now() - cache.createdAt.getTime() > (1000 * 60 * 30)){
+              await db.Cache.findByIdAndDelete({ 
+                  _id: cache._id
+              });
+          }
+      }
+  }catch(err){
+      console.error(err);
+  }
+});
+
+
 http.createServer(function (request, response) {
     console.log('request ', request.url);
     const filePath = '.' + request.url;
 
-    if(path.extname(request.url).length == 0){ 
-      console.log("dinamic");
+    if(path.extname(request.url).length == 0 || path.extname(request.url).length > 10){
+
       router(request, response, finalhandler(request, response));
     }else{
       request.filePath = filePath;

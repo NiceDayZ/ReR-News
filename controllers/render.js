@@ -14,7 +14,7 @@ const getNewsPage = async (req, res) => {
 
 const getImagePage = async (req, res) => {
     try{
-
+        
     }catch(err){
 
     }
