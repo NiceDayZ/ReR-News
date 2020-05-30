@@ -13,7 +13,7 @@ const validateRSS = async(req, res) => {
         return res.end(JSON.stringify({success: true}));
     }catch(err){
         console.log(err);
-        res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+        res.writeHead(HttpStatusCodes.NOT_ACCEPTABLE, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({
             success: false,
             message: "Invalid RSS"
