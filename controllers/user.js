@@ -4,7 +4,39 @@ const HttpStatusCodes = require("http-status-codes");
 var nodemailer = require('nodemailer');
 
 const User = require('../models').User;
+const Preferences = require('../models').Preference;
 
+
+const profile = async(req, res) => {
+  try{
+    const id = req.user._id;
+    const user = await req.db.User.findOne({
+      _id: id
+    }).populate('preferences');
+
+    const objToBeReturned = {
+      name: user.name,
+      userName: user.userName,
+      email: user.email,
+      gender: user.gender || null,
+      preferences: user.preferences
+    }
+    res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      success: true,
+      user: objToBeReturned
+    }));
+
+  }catch{
+    console.error(error);
+    res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: false,
+        message: "something bad happened"
+    }));
+  }
+  
+}
 
 const login = async (req, res) => {
     console.log(req.body);
@@ -72,13 +104,20 @@ const login = async (req, res) => {
       const salt = await bcrypt.genSalt(10);
       const hashPassword = await bcrypt.hash(req.body.password, salt);
 
+
+      const createdPreferences = new Preferences();
+      const pref = await req.db.Preference.create(createdPreferences);
+
       //Create a new User using given data from Mobile or Web App
       const createdUser = new User({
         name: req.body.name,
         userName: req.body.userName,
         email: req.body.email,
         password: hashPassword,
+        preferences: pref
       });
+
+      
   
       const user = await req.db.User.create(createdUser);
 
@@ -107,7 +146,7 @@ const login = async (req, res) => {
         }
       });
   
-     res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
+     res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
      return res.end(JSON.stringify({
          success: true,
      }));
@@ -133,7 +172,7 @@ const login = async (req, res) => {
             confirmationStatus: true
         });
   
-        res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
+        res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({
             success: true,
         }));
@@ -148,9 +187,300 @@ const login = async (req, res) => {
     }
   }
 
+  const getPreferences = async (req, res) => {
+    try{
+      const id = req.user._id;
+      const user = await req.db.User.findOne({
+        _id: id
+      }).populate("preferences");
+
+      const pref = user.preferences || null;
+
+      res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({
+            success: true,
+            preferences: pref
+        }));
+
+    }catch(err){
+      console.log(err);
+      res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "something bad happened"
+      }));
+    }
+  }
+
+  const setPreferences = async (req, res) => {
+
+    try{
+      const news = req.body.news;
+      const images = req.body.images;
+      const videos = req.body.videos;
+      const books = req.body.books;
+
+      const id = req.user._id;
+      const user = await req.db.User.findOne({
+          _id: id
+      });
+
+      const preff = await req.db.Preference.findOne({
+        _id: user.preferences
+      });
+
+
+
+      const newPref = await req.db.Preference.findOneAndUpdate({
+        _id: user.preferences
+      },
+      {
+        newsPref: news || preff.newsPref,
+        videosPref: videos || preff.videosPref,
+        imagesPref: images || preff.imagesPref,
+        booksPref: books || preff.booksPref
+      }
+      );
+
+        res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({
+            success: true
+        }));
+
+  }catch(err){
+      console.log(err);
+      res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "something bad happened"
+      }));
+  } 
+}
+
+const addRSS = async(req, res) => {
+  try{
+
+    const id = req.user._id;
+    const user = await req.db.User.findOne({
+      _id: id
+    });
+
+    const preff = await req.db.Preference.findOne({
+      _id: user.preferences
+    });
+
+    let actualRSS = preff.customRSS;
+
+    const rssToBeAdded = {
+      link: req.body.rss,
+      enabled: true
+    }
+
+    actualRSS.push(rssToBeAdded);
+
+    const newPref = await req.db.Preference.findOneAndUpdate({
+      _id: user.preferences
+    },
+    {
+      customRSS: actualRSS
+    }
+    );
+
+    res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: true
+    }));
+
+  }catch{
+    console.log(err);
+      res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "something bad happened"
+      }));
+  }
+}
+
+const removeRSS = async(req, res) => {
+  try{
+
+    const id = req.user._id;
+    const user = await req.db.User.findOne({
+      _id: id
+    });
+
+    const preff = await req.db.Preference.findOne({
+      _id: user.preferences
+    });
+
+    let actualRSS = preff.customRSS;
+    let newRSSList = [];
+
+    actualRSS.forEach(rssElement => {
+      if(rssElement.link != req.body.rss){
+        newRSSList.push(rssElement);
+      }
+    });
+
+    const newPref = await req.db.Preference.findOneAndUpdate({
+      _id: user.preferences
+    },
+    {
+      customRSS: newRSSList
+    }
+    );
+
+    res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: true
+    }));
+
+  }catch{
+    console.log(err);
+      res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "something bad happened"
+      }));
+  }
+}
+
+const toggleRSS = async(req, res) => {
+  try{
+
+    const id = req.user._id;
+    const user = await req.db.User.findOne({
+      _id: id
+    });
+
+    const preff = await req.db.Preference.findOne({
+      _id: user.preferences
+    });
+
+    let actualRSS = preff.customRSS;
+    let newRSSList = [];
+
+    actualRSS.forEach(rssElement => {
+      if(rssElement.link == req.body.rss){
+        rssElement.enabled = !rssElement.enabled;
+      }
+      newRSSList.push(rssElement);
+    });
+
+    const newPref = await req.db.Preference.findOneAndUpdate({
+      _id: user.preferences
+    },
+    {
+      customRSS: newRSSList
+    }
+    );
+
+    res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: true
+    }));
+
+  }catch{
+    console.log(err);
+      res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "something bad happened"
+      }));
+  }
+}
+
+
+
+const resetProfile = async(req, res) => {
+  try{
+    const name = req.body.name;
+    const userName = req.body.userName;
+    const gender = req.body.gender;
+
+    const id = req.user._id;
+    const user = await req.db.User.findOne({
+        _id: id
+    });
+
+    await req.db.User.findOneAndUpdate({
+      _id: user._id
+      }, {
+        name: name || user.name,
+        userName: userName || user.userName,
+        gender: gender || user.gender
+      });
+
+      res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: true
+      }));
+
+  }catch(err){
+    console.log(err);
+    res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: false,
+        message: "something bad happened"
+    }));
+  }
+}
+
+const resetPassword = async(req, res) => {
+  try{
+    const oldPass = req.body.oldPassword;
+      const newPass = req.body.newPassword;
+      const userId = req.user._id;
+      
+      const userData = await req.db.User.findOne({
+          _id: userId
+      });
+
+      const validPass = await bcrypt.compare(oldPass, userData.password);
+
+      if(!validPass) {
+        res.writeHead(HttpStatusCodes.UNAUTHORIZED, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({
+            success: false,
+            message: "Old Password Incorrect"
+        }));
+      }
+
+      const salt = await bcrypt.genSalt(10);
+      const hashPassword = await bcrypt.hash(newPass, salt);
+
+      await req.db.User.findOneAndUpdate({
+          _id: userId
+      }, {
+          password: hashPassword
+      });
+
+      res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: true
+      }));
+  }catch(err){
+    console.log(err);
+    res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: false,
+        message: "something bad happened"
+    }));
+  }
+}
+
 
   module.exports={
+      profile,
       login,
       register,
-      confirmRegister
+      confirmRegister,
+      getPreferences,
+      setPreferences,
+      addRSS,
+      removeRSS,
+      toggleRSS,
+      resetProfile,
+      resetPassword
+
   }

@@ -5,9 +5,11 @@ const documents = require('./documents');
 const images = require('./images');
 const validator = require('./validator')
 
+const rssParser = require('./rssParser');
+
 const router = Router();
 
-router.use("/news", news);
+router.use("/news", rssParser, news);
 router.use("/videos", videos);
 router.use("/books", documents);
 router.use("/images", images);

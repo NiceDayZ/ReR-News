@@ -1,4 +1,5 @@
-# Umbrella API Docs
+# Umbrella API Docs (PUBLIC)<a id="publicAPI">
+### Jump to [PRIVATE](#privateAPI)
 
 >Keep in mind that if the response status (success) is false then the object that should be returned is null and the response comes with a message that represent the error
 
@@ -441,3 +442,628 @@
 |social|
 |educational|
 |economics|
+
+
+
+# Umbrella API Docs (PRIVATE)<a id="privateAPI">
+### Jump to [PUBLIC](#publicAPI)
+
+# User Module
+
+## Fast Travel
+
+[Login](#login)
+
+[Register](#Register)
+
+[Change Password](#changepassword)
+
+[Profile](#profile)
+
+[Preferences](#preferences)
+
+[RSS](#rss)
+
+--[Data Types](#datatypes)--
+
+## Login<a id="login">
+
+`POST /user/login`
+
+### Request Body
+
+|FieldName		 |Required| Type|
+|----------------|:-------------------------------:| -|
+|email|yes| String
+|password|yes| String
+
+#### Example Request Body
+
+```json
+{
+	"email": "email@domain.xy",
+	"password": "password1234"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|token|String or null
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true,
+	"token":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWQ5MDdmYzRmNWYxZTcxYTBhOWQwYmMiLCJpYXQiOjE1OTEzOTA5NTF9.E3r2uEKR_PXo20YMnzQoWxsIDWgI3bjqcsLiJ5GfFxw"
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Email or password incorrect"
+}
+```
+
+## Register<a id="register">
+
+`POST /user/register`
+
+### Request Body
+
+|FieldName		 |Required| Type|
+|----------------|:-------------------------------:| -|
+|email|yes| String
+|password|yes| String
+|name|yes|String
+|userName|yes|String
+
+#### Example Request Body
+
+```json
+{
+	"email": "email@domain.xy",
+	"password": "password1234",
+	"name": "Mihai Cosmin",
+	"userName": "Bear"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "User already exists"
+}
+```
+## Change Password<a id="changePassword">
+
+`POST /user/changePassword`
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+|FieldName		 |Required| Type|
+|----------------|:-------------------------------:| -|
+|oldPassword|yes| String
+|newPassword|yes|String
+
+#### Example Request Body
+
+```json
+{
+	"oldPassword": "password1234",
+	"newPassword": "betterpassword1234"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Old password incorrect"
+}
+```
+
+## Profile<a id="profile">
+
+[Get User Profile](#getprofile)
+
+[Change User Profile](#putprofile)
+
+### Get User Profile <a id="getprofile">
+
+`GET /user/profile` 
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+```json
+{
+
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|user| [User](#userType) or null | 
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true,
+    "user": {
+        "name": "Mihai Craciun",
+        "userNmae": "Bear",
+        "email": "craciunmihai40@gmail.com",
+        "gender": "male",
+        "preferences": {
+            "customRSS": [
+                {
+                    "link": "https://www.ziaruldeiasi.ro/rss",
+                    "enabled": true
+                },
+                {
+                    "link": "https://css-tricks.com/feed",
+                    "enabled": true
+                }
+            ],
+            "newsPref": [],
+            "imagesPref": [],
+            "videosPref": [],
+            "booksPref": [],
+            "_id": "5ed907fc4f5f1e71a0a9d0bb",
+            "createdAt": "2020-06-04T14:41:00.395Z",
+            "updatedAt": "2020-06-04T15:30:59.550Z",
+            "__v": 0
+        }
+    }
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+<br>
+<br>
+
+
+
+### Change User Profile <a id="putprofile">
+
+`PUT /user/profile`
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+|FieldName		 |Required| Type|
+|----------------|:-------------------------------:| -|
+|name|no| String
+|userName|no|String
+|gender|no|String ("male" or "female"...miss me with that gender fluid thing)
+
+#### Example request body
+
+```json
+{
+	"userName": "Mike",
+	"gender": "male"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+
+## Preferences<a id="preferences">
+
+[Get User Preferences](#getpreferences)
+
+[Change User Preferences](#putpreferences)
+
+### Get User Preferences<a id="getpreferences">
+
+`GET /user/preferences` 
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+```json
+{
+
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|preferences| [Preferences](#preferencesType) or null | 
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true,
+       "preferences": {
+           "customRSS": [
+               {
+                   "link": "https://www.ziaruldeiasi.ro/rss",
+                   "enabled": true
+               },
+               {
+                   "link": "https://css-tricks.com/feed",
+                   "enabled": true
+               }
+           ],
+			 "newsPref": [
+	            "technology",
+	            "entertainment"
+	        ],
+	        "imagesPref": [
+	            "backgrounds",
+	            "science",
+	            "animals",
+	            "industry",
+	            "computer"
+	        ],
+	        "videosPref": [
+	            "animation",
+	            "art",
+	            "comedy",
+	            "documentary"
+	        ],
+           "booksPref": [],
+           "_id": "5ed907fc4f5f1e71a0a9d0bb",
+           "createdAt": "2020-06-04T14:41:00.395Z",
+           "updatedAt": "2020-06-04T15:30:59.550Z",
+           "__v": 0
+       }
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+<br>
+<br>
+
+
+
+### Change User Preferences<a id="putpreferences">
+
+`PUT /user/profile`
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+|FieldName		 |Required| Type|
+|----------------|:-------------------------------:| -|
+|news|no| Array< String > ([News Categories](#newscat))
+|images|no|Array< String > ([Images Categories](#imgcat))
+|videos|no|Array< String > ([Videos Categories](#vidcat))
+|books|no|Array< String > ([Books Categories](#bookscat))
+
+#### Example request body
+
+```json
+{
+	"images": ["backgrounds", "science", "animals", "industry", "computer"],
+	"videos": ["animation", "art", "comedy", "documentary"]
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+
+## RSS<a id="rss">
+
+[Add RSS to Preferences](#addRSS)
+
+[Delete RSS from Preferences](#deleteRSS)
+
+[Toggle RSS in Preferences](#toggleRSS)
+
+### Add RSS to Preferences<a id="addRSS">
+
+`PUT /user/rss` 
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|rss|String|
+
+#### Example request body
+
+```json
+{
+	"rss": "https://www.ziaruldeiasi.ro/rss"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+<br>
+<br>
+
+### Remove RSS from Preferences<a id="deleteRSS">
+
+`DELETE /user/rss` 
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|rss|String|
+
+#### Example request body
+
+```json
+{
+	"rss": "https://www.ziaruldeiasi.ro/rss"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+<br>
+<br>
+
+### Toggle RSS in Preferences<a id="toggleRSS">
+
+`PATCH /user/rss` 
+
+Auth(Header) : `x-auth-token`
+
+### Request Body
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|rss|String|
+
+#### Example request body
+
+```json
+{
+	"rss": "https://www.ziaruldeiasi.ro/rss"
+}
+```
+
+<br>
+
+### Response
+
+
+|FieldName		 |Datatype						 |
+|----------------|-------------------------------|
+|success|Boolean  			         |
+|message|String or null		             	 |
+
+#### Example Response
+
+```json
+{
+	"success":  true
+}
+```
+
+or
+
+```json
+{
+	"success":  false,
+	"message":  "Invalid Token"
+}
+```
+<br>
+<br>
+
+## Data Types<a id="datatypes">
+
+### User<a id="userType">
+
+|FieldName		 |Datatype						 | Details
+|----------------|-------------------------------|-|
+|name|String|
+|userName|String		             	 ||
+|email|String||
+|gender|String|"male" or "female"|
+|preferences|[Preferences](#preferencesType)|
+
+
+### Preferences<a id="preferencesType">
+
+|FieldName		 |Datatype						 | Details
+|----------------|-------------------------------|-|
+|customRSS|Array<[CustomRSS](#customRSS)>|
+|newsPref|Array< String > | [News Categories](#newscat)
+|imagesPref|Array< String > | [Images Categories](#imgcat)
+|videosPref|Array< String > | [Videos Categories](#vidcat)
+|booksPref|Array< String > | [Books Categories](#bookscat)
+|_id|String|Id from db (not important)
+|createdAt|String|timeStamp (not important)
+|updatedAt|String|timeStamp (not important)
+|__v|Integer| I'm just too lazy to delete this from the response
+
+### CustomRSS<a id="customRSS">
+
+|FieldName		 |Datatype						 | Details
+|----------------|-------------------------------|-|
+|link|String|actual link to the rss
+|enabled|Boolean | if the user wants to see that feed in his feed

@@ -91,7 +91,8 @@ const getParsedObjectAndCache = async(req, res) => {
          const cache = new Cache({
              request: req.originalUrl.replace("/rss", ""),
              response: JSON.stringify(images),
-             contentType: 'application/json'
+             contentType: 'application/json',
+             userId: req.session ? req.session._id : null
          });
  
          const cacheDB = await req.db.Cache.create(cache);

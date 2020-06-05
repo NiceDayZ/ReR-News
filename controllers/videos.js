@@ -113,7 +113,8 @@ const getParsedObjectAndCache = async(req, res) => {
         const cache = new Cache({
             request: req.originalUrl.replace("/rss", ""),
             response: JSON.stringify(formattedVideos),
-            contentType: 'application/json'
+            contentType: 'application/json',
+            userId: req.session ? req.session._id : null
         });
 
        

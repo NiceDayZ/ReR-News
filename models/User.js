@@ -16,6 +16,9 @@ const userSchema = new Schema(
         required: true,
         type: String
     },
+    gender: {
+        type: String
+    },
     password: {
         required: true,
         type: String

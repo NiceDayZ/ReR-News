@@ -4,24 +4,24 @@ const mongoose = require("mongoose");
 const prefSchema = new Schema(
 {
     customRSS: {
-        required: true,
-        type: String
+        type: Array,
+        default: []
     },
     newsPref: {
-        required: true,
-        type: Array
+        type: Array,
+        default: []
     },
     imagesPref: {
-        required: true,
-        type: Array
+        type: Array,
+        default: []
     },
     videosPref: {
-        required: true,
-        type: Array
+        type: Array,
+        default: []
     },
     booksPref: {
         type: Array,
-        default: false
+        default: []
     }
 },
 {

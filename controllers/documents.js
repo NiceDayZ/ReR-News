@@ -90,7 +90,8 @@ const getParsedObjectAndCache = async(req, res) => {
         const cache = new Cache({
             request: req.originalUrl,
             response: JSON.stringify(formattedBooks),
-            contentType: 'application/json'
+            contentType: 'application/json',
+            userId: req.session ? req.session._id : null
         });
 
        

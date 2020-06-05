@@ -22,7 +22,7 @@ const getParsedObjectAndCache = async(req, res) => {
     }
 
    let categories = [];
-   let news = [];
+   let news = req.newsParsed;
    
    const country = req.query.country || 'us';
    const baseURL = `https://newsapi.org/v2/top-headlines?apikey=${process.env.NEWS_API_KEY}&pageSize=50`;
@@ -82,7 +82,8 @@ const getParsedObjectAndCache = async(req, res) => {
         const cache = new Cache({
             request: req.originalUrl.replace("/rss", ""),
             response: JSON.stringify(news),
-            contentType: 'application/json'
+            contentType: 'application/json',
+            userId: req.session ? req.session._id : null
         });
 
        
