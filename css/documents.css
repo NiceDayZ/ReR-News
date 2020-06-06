@@ -61,7 +61,7 @@
     padding-left: 10px;
     padding-bottom: 5px;
 }
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 900px){
     .content .doc-container{
         width: 100%;
     }
