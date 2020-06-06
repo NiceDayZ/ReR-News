@@ -88,7 +88,7 @@ http.createServer(function (request, response) {
 
       router(request, response, finalhandler(request, response));
     }else{
-      request.filePath = filePath;
+      request.filePath = filePath.replace("/pages", "");
       staticController.getStaticFiles(request, response);
     }
 

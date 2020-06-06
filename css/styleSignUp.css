@@ -34,6 +34,9 @@ a{
 header{
     background: #008489;
     height: 66px;
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
 }
 
 header * {
@@ -60,6 +63,7 @@ header .logo-text span{
     height: 100%;
     display: flex;
     flex-direction: row;
+    padding-top: 66px;
 }
 .top_left{
     width: 30%;
@@ -69,9 +73,7 @@ header .logo-text span{
 }
 .box_sign_in{
     width: 100%;
-    margin-top: 20%;
-    margin-left: 20%;
-    margin-bottom: 20%;
+    margin: 20%;
     padding: 0 0 20% 3%;
     border-radius: 20px;
     border : 1px solid #bfbfbf;
@@ -84,7 +86,7 @@ header .logo-text span{
 }
 
 
- .box_sign_in input[type=text] {
+ .box_sign_in input[type=email] {
     width: 90%;
     padding : 2%;
     margin: 12px 10px 15px;
@@ -109,14 +111,15 @@ header .logo-text span{
       color : #99c2ff;
       padding-left: 3%;
       font-size: 0.5em;
+      text-decoration: underline;
       
   }
  .button_sign_in{
-
+    font-family: 'Candal',serif;
      width: 90%;
      display: inline-block;
-     margin : 10% 0 0  ;
-     padding: 2% 35%;
+     margin-top: 10%;
+     padding: 2% ;
      font-size: 0.7em;
      color: white;
      letter-spacing: 1px;
@@ -126,7 +129,7 @@ header .logo-text span{
 .button_sign_in:hover{
     background-image: linear-gradient(to right, #0E94A0 0%, #006669 100%);
     transition: 0.5s;
-    color: white !important;
+    color: white;
 }
 .line{
     width: 95%;
@@ -134,12 +137,13 @@ header .logo-text span{
     margin-left: 2%;
     margin-top: 5%;
 }
-.button_sign_up{
 
+.button_sign_up{
+    font-family: 'Candal',serif;
     width: 90%;
     display: inline-block;
-    margin : 3% 0 0 ;
-    padding: 2% 35%;
+    margin-top : 8% ;
+    padding: 2%;
     font-size: 0.7em;
     color: white;
     letter-spacing: 1px;
@@ -150,7 +154,7 @@ header .logo-text span{
 .button_sign_up:hover{
    background-image: linear-gradient(to right, #006669 0%, #0E94A0 100%);
    transition: 0.5s;
-   color: white !important;
+   color: white;
 }
 
 .box_sign_up{
@@ -171,6 +175,14 @@ header .logo-text span{
     text-align: center;
     font-size: 2em;
 }
+.show input[type="submit"]{
+    background-image: linear-gradient(to left, #006669 0%, #0E94A0 100%);
+
+}
+.show input[type="submit"]:hover{
+    background-image: linear-gradient(to right, #006669 0%, #0E94A0 100%);
+}
+
 .show input[type=text], .show input[type=email] {
     width: 90%;
     padding : 2%;
@@ -178,7 +190,7 @@ header .logo-text span{
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 0.7em;
+    font-size: 0.5em;
     
   }
 
@@ -189,7 +201,7 @@ header .logo-text span{
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 0.7em;
+    font-size: 0.5em;
   }
   .about{
       margin-top: 10%;
@@ -206,6 +218,54 @@ header .logo-text span{
  .text{
      float: left;
      margin-left: 20%;
-     font-size: 0.9em;
+     font-size: 0.7em;
+     margin-bottom: 10%;
      font-family: Arial, Helvetica, sans-serif;
  }
+ .footer .footer-bottom{
+    background: #343a40;
+    color: #686868;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    margin-top: -40px;
+    padding-top: 11px;
+}
+@media only screen and (max-width: 750px){
+  
+    .top{
+        width: 90%;
+        height: 150%;
+        display: block;
+        
+    }
+    .top_left{
+        width: 70%;
+        height: 50%;
+        
+    }
+    .top_right{      
+        width: 70%;
+        
+    }
+    .about{
+        height: 100%;
+        
+    }
+    .text{
+        float: left;
+        margin-left: 0.5%;
+        margin-bottom: 2%;
+    }
+    .media{
+        float:left;
+        position: relative;
+        margin: 1%;
+    }
+    .footer .footer-bottom{
+        position: absolute;
+        top:2000px;
+        height: 30px;
+        margin-top: 2%;
+    }
+}

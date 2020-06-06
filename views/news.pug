@@ -1,164 +1,156 @@
 doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    |     
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    |     
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    |     
-    script(src='https://kit.fontawesome.com/ab4339cff3.js', crossorigin='anonymous')
-    |     
-    link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap', rel='stylesheet')
-    |     
-    link(rel='stylesheet', href='css/style.css')
-    |     
-    title BearNews
-  body
-    header
-      .logo
-        h1.logo-text
-          span Bear
-          | News
-      |         
-      i.fas.fa-bars.menu-toggle
-      |         
-      ul.nav
-        li
-          a(href='#') News
-        |             
-        li
-          a(href='#') Video
-        |             
-        li
-          a(href='#') Images
-        |             
-        li
-          a(href='#') About
-        //
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Login</a></li>
-        li
-          a(href='#')
-            i.fas.fa-user
-            |                     Bear
-            |                     
-            i.fas.fa-chevron-down
-          |                 
-          ul.profile-subnav
-            li
-              a(href='#') Profile
-            |                     
-            li
-              a.logout(href='#') Logout
-    |     
-    .page-wrapper
-      // Carouser
-      .post-slider
-        h1.slider-title Trending Posts
-        |             
-        i#prevButton.fas.fa-chevron-left.prev
-        |             
-        i#nextButton.fas.fa-chevron-right.next
-        |             
-        .post-wrapper
-        //add trending here
-      .content.clearfix
-        .main-content
-          h1.recent-posts-title Recent Posts
-          //add news here
-        .sidebar
-          .section.search
-            h2.section-title Search
-            |                     
-            form(action='index.html', method='post')
-              input.text-input(type='text', name='search-term', placeholder='Search...')
-          |                 
-          .section.topics
-            h2.section-title Topics
-            |                     
-            ul
-              li
-                a(href='#') Tech
-              |                         
-              li
-                a(href='#') Cultural
-              |                         
-              li
-                a(href='#') Politics
-              |                         
-              li
-                a(href='#') Arts
-              |                         
-              li
-                a(href='#') Science
-              |                         
-              li
-                a(href='#') Sports
-    |     
-    .footer
-      .footer-content
-        .footer-section.about
-          h1.logo-text
-            span Bear
-            | News
-          |                 
-          p
-            | Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            | Perspiciatis tenetur consequatur facilis eligendi voluptate quae?
-          |                 
-          .contact
-            span
-              i.fas.fa-envelope
-              |  &nbsp; info@bearnews.com
-          |                 
-          .socials
-            a(href='#')
-              i.fab.fa-facebook
-            |                     
-            a(href='#')
-              i.fab.fa-instagram
-            |                     
-            a(href='#')
-              i.fab.fa-twitter
-        |             
-        .footer-section.links
-          h2 Quick Links
-          |                 
-          br
-          |                 
-          ul
-            a(href='#')
-              li News
-            |                     
-            a(href='#')
-              li Videos
-            |                     
-            a(href='#')
-              li Gallery
-            |                     
-            a(href='#')
-              li Terms and Conditions
-            |                     
-            a(href='#')
-              li Back on Top
-        |             
-        .footer-section.contact-form
-          h2 Contact Us
-          |                 
-          br
-          |                 
-          form(action='index.html', method='post')
-            input#email-input.text-input.contact-input(type='email', name='email', placeholder='email adress...')
-            |                     
-            textarea#message-input.text-input.contact-input(name='message', placeholder='Your message...')
-            |                     
-            button.btn.btn-big.contact-btn(type='submit')
-              i.fas.fa-envelope
-              |                         Send
-      |         
-      .footer-bottom
-        | &copy; Bear with Beard
-    // CustomJS
-    script(src='js/scripts.js')
-    // 
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+  link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='../css/style.css')
+  title BearNews
+header
+  include header.pug
+.page-wrapper
+  // Carouser
+  .post-slider
+    h1.slider-title Trending Posts
+    i#prevButton.fas.fa-chevron-left.prev
+    i#nextButton.fas.fa-chevron-right.next
+    .post-wrapper
+      .post
+        img.slider-image(src='../images/1.jpg' alt='postImage')
+        .post-info
+          h4
+            a(href='single.html')
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          i.far.fa-user Mike Bear
+          i.far.fa-calendar Mar 2, 2020
+      .post
+        img.slider-image(src='../images/2.jpg' alt='postImage')
+        .post-info
+          h4
+            a(href='single.html')
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          i.far.fa-user Mike Bear
+          i.far.fa-calendar Mar 2, 2020
+      .post
+        img.slider-image(src='../images/3.jpg' alt='postImage')
+        .post-info
+          h4
+            a(href='single.html')
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          i.far.fa-user Mike Bear
+          i.far.fa-calendar Mar 2, 2020
+      .post
+        img.slider-image(src='../images/4.jpg' alt='postImage')
+        .post-info
+          h4
+            a(href='single.html')
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          i.far.fa-user Mike Bear
+          i.far.fa-calendar Mar 2, 2020
+      .post
+        img.slider-image(src='../images/5.jpg' alt='postImage')
+        .post-info
+          h4
+            a(href='single.html')
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          i.far.fa-user Mike Bear
+          i.far.fa-calendar Mar 2, 2020
+      .post
+        img.slider-image(src='../images/6.png' alt='postImage')
+        .post-info
+          h4
+            a(href='single.html')
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          i.far.fa-user Mike Bear
+          i.far.fa-calendar Mar 2, 2020
+  // News Post
+  .content.clearfix
+    .main-content
+      h1.recent-posts-title Recent Posts
+      // second design
+      .blog-post
+        .blog-post__img
+          img(src='../images/9.jpg' alt='')
+        .blog-post__info
+          .blog-post__date
+            span Wednesday
+            span March 7 2020
+          h2.blog-post__title Lorem ipsum dolor sit amet.
+          p.blog-post__text
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
+          a.blog-post__cta(href='#') Read More
+      .blog-post
+        .blog-post__img
+          img(src='../images/10.jpg' alt='')
+        .blog-post__info
+          .blog-post__date
+            span Wednesday
+            span March 7 2020
+          h2.blog-post__title Lorem ipsum dolor sit amet.
+          p.blog-post__text
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
+          a.blog-post__cta(href='#') Read More
+      .blog-post
+        .blog-post__img
+          img(src='../images/11.jpg' alt='')
+        .blog-post__info
+          .blog-post__date
+            span Wednesday
+            span March 7 2020
+          h2.blog-post__title Lorem ipsum dolor sit amet.
+          p.blog-post__text
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
+          a.blog-post__cta(href='#') Read More
+      .blog-post
+        .blog-post__img
+          img(src='../images/12.jpg' alt='')
+        .blog-post__info
+          .blog-post__date
+            span Wednesday
+            span March 7 2020
+          h2.blog-post__title Lorem ipsum dolor sit amet.
+          p.blog-post__text
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
+          a.blog-post__cta(href='#') Read More
+      .blog-post
+        .blog-post__img
+          img(src='../images/13.jpg' alt='')
+        .blog-post__info
+          .blog-post__date
+            span Wednesday
+            span March 7 2020
+          h2.blog-post__title Lorem ipsum dolor sit amet.
+          p.blog-post__text
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
+          a.blog-post__cta(href='#') Read More
+    .sidebar
+      .section.search
+        h2.section-title Search
+        form(action='index.html' method='post')
+          input.text-input(type='text' name='search-term' ,='' placeholder='Search...')
+      .section.topics
+        h2.section-title Topics
+        ul
+          li
+            a(href='#') Tech
+          li
+            a(href='#') Cultural
+          li
+            a(href='#') Politics
+          li
+            a(href='#') Arts
+          li
+            a(href='#') Science
+          li
+            a(href='#') Sports
+.footer
+  include footer.pug
+// CustomJS
+script(src='../js/scripts.js')
+// 

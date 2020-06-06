@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: #f6f6f6;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6{
+    font-family: 'Candal', serif;
+    color: #444;
+    margin :15px;
+    text-align: center;
+}
+
+label{
+    color: #444;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    background: #008489;
+    height: 66px;
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+}
+
+header * {
+    color: white;
+}
+
+header .logo{
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+
+}
+
+header .logo-text {
+    margin: 9px;
+    font-family: 'Candal', serif;
+}
+
+header .logo-text span{
+    color: #05f7ff;
+}
+
+header ul{
+    height: 66px;
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+header ul li {
+    float: left;
+}
+
+header ul li a {
+    height: inherit;
+    display: block;
+    padding: 20px;
+    font-size: large;
+    text-decoration: none;
+}
+
+header ul li:hover{
+    height: inherit;
+    background: #006669;
+    transition: 0.5s;
+}
+
+header .menu-toggle{
+    display: none;
+}
+
+.mainPage{
+    min-height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-top: 66px;
+}
+
+#statistic-area {
+    width: 80%;
+    height: 100%;
+    background: white;
+    margin: 2% 10% ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding-left: 3%; 
+
+}
+
+.chart_wrapper h3 {
+    font-weight: 100;
+    color: #0A2239;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.profit_box {
+    width: 95%;
+    height: 100%;
+}
+
+#chart_profit {
+    width: 100%;
+    height: 500px;
+}
+
+#chart_options {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#chart_options button {
+    margin :5%;
+    background: #008080;
+    font-size: 16px;
+    color: white;
+    font-weight: 100;
+    border: none;
+    padding: 10px 32px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 6px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: 0.4s;
+}
+
+#chart_options button:hover {
+    background: #53A2BE;
+}
+.footer .footer-bottom{
+    background: #343a40;
+    color: #686868;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: -40px;
+}
+
+@media only screen and (max-width: 750px){
+    header{
+       position: fixed;
+       width: 100%;
+       z-index: 999999;
+    }
+
+    header ul{
+        width: 100%;
+        background: #0E94A0;
+        max-height: 0px;
+        overflow: hidden;
+    }
+
+    .showing{
+        min-height: 15em;
+    }
+
+    header ul li{
+        width: 100%;
+    }
+
+    header .menu-toggle{
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 1.9em;
+    }
+
+    header .logo{
+
+        margin-left: .5em;
+    }
+    
+}

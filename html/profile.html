@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/ab4339cff3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Candal|Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/profileStyle.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>BearNews</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo-text"> <img src="../images/editabil-umbrela.png" alt="umbrela"
+                    width="35px"><span>Umbr</span>Ella</h1>
+        </div>
+        <i class="fas fa-bars menu-toggle"></i>
+        <ul class="nav">
+            <li><a href="index.html">News</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="images.html">Images</a></li>
+            <li><a href="documents.html">Books</a></li>
+            <li class="login"><a href="signup.html">Login</a></li>
+            <li class="profil">
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    Profile
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="profile-subnav">
+                    <li><a href="profile.html">Settings</a></li>
+                    <li><a href="signup.html" class="logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <div class="wrapper">
+        <div class="profile-wrapper">
+
+            <div class="user-info" id="user-info">
+                <!--aici e imaginea utilizatorului -->
+            </div>
+            <div class="info">
+                <h2><i>John Stievens</i><span class="edit">&nbsp;&nbsp;<a href="#" id="name">Edit Name<img
+                                src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></a></span>
+                </h2>
+                <div class="text-edit-input-name" id="edit-name">
+                    <label for="updated-name">First name:</label>
+                    <input type="text" id="updated-name">
+                    <label for="updated-last-name">Last name:</label>
+                    <input type="text" id="updated-last-name">
+                    <button type="submit" value="Submit" id="submit-name">Save</button>
+                </div>
+                <h2>Bear001<span class="edit">&nbsp;&nbsp;<a href="#" id="username">Edit Username<img
+                                src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></a></span>
+                </h2>
+                <div class="username-edit" id="username-edit">
+                    <label for="new-username">Username:</label>
+                    <input type="text" id="new-username">
+                    <button type="submit" value="Submit" id="submit-username">Save</button>
+                </div>
+                <h2>**********<span class="edit">&nbsp;&nbsp;<a href="#" id="pass-edit-button">Edit Password<img
+                                src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></a></span>
+                </h2>
+                <div class="password-edit" id="password-edit">
+                    <label for="password">Old Password</label>
+                    <input type="password" id="old-password" required>
+                    <label for="password">New Password</label>
+                    <input type="password" id="new-password" required>
+                    <button type="submit" value="Submit" id="submit-password">Save</button>
+
+                </div>
+                <h2>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <span class="edit">&nbsp;&nbsp;<a href="#" id="update-profile">Update<img
+                                src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></a></span>
+                </h2>
+                <h3>john.stievens01@gmail.com</h3>
+            </div>
+
+        </div>
+
+        <div class="set-preferences">
+            <h1>Set up your preferences</h1>
+            <div class="preference">
+                <h2>News</h2>
+                <input type="checkbox" id="Business" name="bussines_news" value="image">
+                <label for="image">Bussines</label>
+                <input type="checkbox" id="Business" name="Entertainment_news" value="video">
+                <label for="video">Entertainment</label>
+                <input type="checkbox" id="Business" name="general" value="news">
+                <label for="news">General</label>
+                <input type="checkbox" id="Business" name="health_news" value="documents">
+                <label for="documents">Health</label>
+                <input type="checkbox" id="Business" name="Science_news" value="documents">
+                <label for="documents">Science</label>
+                <input type="checkbox" id="Business" name="sports_news" value="documents">
+                <label for="documents">Sports</label>
+                <input type="checkbox" id="Business" name="technology_news" value="documents">
+                <label for="documents">Technology</label>
+            </div>
+            <div class="preference">
+                <h2>Images</h2>
+                <input type="checkbox" id="Business" name="Backgrounds" value="image">
+                <label for="image">Backgrounds</label>
+                <input type="checkbox" id="Business" name="fashion" value="video">
+                <label for="video">Fashion</label>
+                <input type="checkbox" id="Business" name="nature" value="news">
+                <label for="news">Nature</label>
+                <input type="checkbox" id="Business" name="science_images" value="documents">
+                <label for="documents">Science</label>
+                <input type="checkbox" id="Business" name="education" value="documents">
+                <label for="documents">Education</label>
+                <input type="checkbox" id="Business" name="feelings" value="documents">
+                <label for="documents">Feelings</label>
+                <input type="checkbox" id="Business" name="health_images" value="documents">
+                <label for="documents">Health</label>
+                <input type="checkbox" id="Business" name="people" value="documents">
+                <label for="documents">People</label>
+                <input type="checkbox" id="Business" name="religion" value="documents">
+                <label for="documents">Religion</label>
+                <input type="checkbox" id="Business" name="places" value="documents">
+                <label for="documents">Places</label>
+                <input type="checkbox" id="Business" name="animals" value="documents">
+                <label for="documents">Animals</label>
+                <input type="checkbox" id="Business" name="industry" value="documents">
+                <label for="documents">Industry</label>
+                <input type="checkbox" id="Business" name="computer" value="documents">
+                <label for="documents">Computer</label>
+                <input type="checkbox" id="Business" name="food_images" value="documents">
+                <label for="documents">Food</label>
+                <input type="checkbox" id="Business" name="sport_images" value="documents">
+                <label for="documents">Sport</label>
+                <input type="checkbox" id="Business" name="transportation" value="documents">
+                <label for="documents">Transportation</label>
+                <input type="checkbox" id="Business" name="travel" value="documents">
+                <label for="documents">Travel</label>
+                <input type="checkbox" id="Business" name="buildings" value="documents">
+                <label for="documents">Buildings</label>
+                <input type="checkbox" id="Business" name="bussines_images" value="documents">
+                <label for="documents">Bussines</label>
+                <input type="checkbox" id="Business" name="music" value="documents">
+                <label for="documents">Music</label>
+            </div>
+            <div class="preference">
+                <h2>Video</h2>
+                <input type="checkbox" id="Business" name="animation" value="image">
+                <label for="image">Animation</label>
+                <input type="checkbox" id="Business" name="art" value="video">
+                <label for="video">Art</label>
+                <input type="checkbox" id="Business" name="cameratechniques" value="news">
+                <label for="news">Cameratechniques</label>
+                <input type="checkbox" id="Business" name="comedy_video" value="documents">
+                <label for="documents">Comedy</label>
+                <input type="checkbox" id="Business" name="documentary" value="documents">
+                <label for="documents">Documentary</label>
+                <input type="checkbox" id="Business" name="experimental" value="documents">
+                <label for="documents">Experimental</label>
+                <input type="checkbox" id="Business" name="fashion" value="documents">
+                <label for="documents">Fashion</label>
+                <input type="checkbox" id="Business" name="food" value="documents">
+                <label for="documents">Food</label>
+                <input type="checkbox" id="Business" name="instructionals" value="documents">
+                <label for="documents">Instructionals</label>
+                <input type="checkbox" id="Business" name="music_video" value="documents">
+                <label for="documents">Music</label>
+                <input type="checkbox" id="Business" name="narrative" value="documents">
+                <label for="documents">Narrative</label>
+                <input type="checkbox" id="Business" name="personal" value="documents">
+                <label for="documents">Personal</label>
+                <input type="checkbox" id="Business" name="journalism" value="documents">
+                <label for="documents">Journalism</label>
+                <input type="checkbox" id="Business" name="sports_video" value="documents">
+                <label for="documents">Sports</label>
+                <input type="checkbox" id="Business" name="talks" value="documents">
+                <label for="documents">Talks</label>
+                <input type="checkbox" id="Business" name="travel" value="documents">
+                <label for="documents">Travel</label>
+            </div>
+            <div class="preference">
+                <h2>Books</h2>
+                <input type="checkbox" id="Business" name="comedy_books" value="documents">
+                <label for="documents">Comedy</label>
+                <input type="checkbox" id="Business" name="adventure" value="documents">
+                <label for="documents">Adventure</label>
+                <input type="checkbox" id="Business" name="drama" value="documents">
+                <label for="documents">Drama</label>
+                <input type="checkbox" id="Business" name="horror" value="documents">
+                <label for="documents">Horror</label>
+                <input type="checkbox" id="Business" name="romance" value="documents">
+                <label for="documents">Romance</label>
+                <input type="checkbox" id="Business" name="action" value="documents">
+                <label for="documents">Action</label>
+                <input type="checkbox" id="Business" name="science" value="documents">
+                <label for="documents">Science</label>
+                <input type="checkbox" id="Business" name="fiction" value="documents">
+                <label for="documents">Fiction</label>
+                <input type="checkbox" id="Business" name="science_fiction" value="documents">
+                <label for="documents">Science Fiction</label>
+                <input type="checkbox" id="Business" name="detective" value="documents">
+                <label for="documents">Detective</label>
+                <input type="checkbox" id="Business" name="biography" value="documents">
+                <label for="documents">Biography</label>
+                <input type="checkbox" id="Business" name="psychology" value="documents">
+                <label for="documents">Psychology</label>
+                <input type="checkbox" id="Business" name="arts_books" value="documents">
+                <label for="documents">Arts</label>
+                <input type="checkbox" id="Business" name="dictionary" value="documents">
+                <label for="documents">Dictionary</label>
+                <input type="checkbox" id="Business" name="parenting" value="documents">
+                <label for="documents">Parenting</label>
+                <input type="checkbox" id="Business" name="poetry" value="documents">
+                <label for="documents">Poetry</label>
+                <input type="checkbox" id="Business" name="critics" value="documents">
+                <label for="documents">Critics</label>
+                <input type="checkbox" id="Business" name="sport_books" value="documents">
+                <label for="documents">Sport</label>
+                <input type="checkbox" id="Business" name="health_books" value="documents">
+                <label for="documents">Health</label>
+                <input type="checkbox" id="Business" name="crime" value="documents">
+                <label for="documents">Crime</label>
+                <input type="checkbox" id="Business" name="mistery" value="documents">
+                <label for="documents">Mistery</label>
+                <input type="checkbox" id="Business" name="social" value="documents">
+                <label for="documents">Social</label>
+                <input type="checkbox" id="Business" name="educational" value="documents">
+                <label for="documents">Educational</label>
+                <input type="checkbox" id="Business" name="economics" value="documents">
+                <label for="documents">Economics</label>
+            </div>
+
+            <button>Update</button>
+        </div>
+
+    </div>
+    <div class="request-site-related">
+        <div class="preference2">
+            <h2>Make a website request</h2>
+            <input type="text" id="website" name="website" value="https://www.ziaruldeiasi.ro/"><br>
+            <input type="submit" value="Submit">
+        </div>
+        <div class="rss-personal-links">
+            <h2>Personal links</h2>
+            <div class="box-for-links">
+                <ul>
+                    <li><a href="https://www.ziaruldeiasi.ro/">Ziarul de Iasi</a>
+                        <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" />
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </li><br>
+                    <li><a href="https://www.ziaruldeiasi.ro/">Ziarul de Iasi</a>
+                        <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" />
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </li><br>
+                    <li><a href="https://www.ziaruldeiasi.ro/">Ziarul de Iasi</a>
+                        <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" />
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </li><br>
+                    <li><a href="https://www.ziaruldeiasi.ro/">Ziarul de Iasi</a>
+                        <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" />
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </li><br>
+                    <li><a href="https://www.ziaruldeiasi.ro/">Ziarul de Iasi</a>
+                        <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" />
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </li><br>
+                    <li><a href="https://www.ziaruldeiasi.ro/">Ziarul de Iasi</a>
+                        <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" />
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </li><br>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h1 class="logo-text"><span>Bear</span>News</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Perspiciatis tenetur consequatur facilis eligendi voluptate quae?
+                </p>
+                <div class="contact">
+                    <span><i class="fas fa-envelope"></i> &nbsp; info@bearnews.com</span>
+                </div>
+                <!-- <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div> -->
+            </div>
+            <!-- <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <a href="#">
+                        <li>News</li>
+                    </a>
+                    <a href="#">
+                        <li>Videos</li>
+                    </a>
+                    <a href="#">
+                        <li>Gallery</li>
+                    </a>
+                    <a href="#">
+                        <li>Terms and Conditions</li>
+                    </a>
+                    <a href="#">
+                        <li>Back on Top</li>
+                    </a>
+                </ul>
+            </div> -->
+            <div class="footer-section contact-form">
+                <h2>Contact Us</h2>
+                <br>
+                <form action="index.html" method="post">
+                    <input type="email" name="email" class="text-input contact-input" id="email-input"
+                        placeholder="email adress...">
+                    <textarea name="message" id="message-input" class="text-input contact-input"
+                        placeholder="Your message..."></textarea>
+                    <button type="submit" class="btn btn-big contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Bear with Beard
+        </div>
+    </div>
+    <script src="../js/profile.js"></script>
+</body>
+
+</html>

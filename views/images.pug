@@ -1,0 +1,141 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+  link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='../css/style.css')
+  title BearNews
+header
+  include header.pug
+.page-wrapper
+  .content.clearfix
+    .grid
+      h1.recent-images-title Recent Images
+      article
+        a(href='../images/1.jpg' target='_blank')
+          section
+            .images
+              img(src='../images/1.jpg')
+            .overlay-effect
+              .overlay-text Limbo
+        a(href='../images/1v.jpg' target='_blank')
+          section
+            .images
+              img(src='../images/1v.jpg')
+            .overlay-effect
+              .overlay-text Legends Of Zelda: Breath of the Wild
+        section
+          .images
+            img(src='../images/2.jpg')
+          .overlay-effect
+            .overlay-text Minecraft
+        section
+          .images
+            img(src='../images/3.jpg')
+          .overlay-effect
+            .overlay-text Worms Armagedon
+        section
+          .images
+            img(src='../images/4.jpg')
+          .overlay-effect
+            .overlay-text Transistor
+        section
+          .images
+            img(src='../images/5.jpg')
+          .overlay-effect
+            .overlay-text Rime
+        section
+          .images
+            img(src='../images/6.png')
+          .overlay-effect
+            .overlay-text Inside
+        section
+          .images
+            img(src='../images/7.png')
+          .overlay-effect
+            .overlay-text Stardew Valley
+        section
+          .images
+            img(src='../images/8.png')
+          .overlay-effect
+            .overlay-text Hollow Knight
+        section
+          .images
+            img(src='../images/9.jpg')
+          .overlay-effect
+            .overlay-text Need for Speed
+        section
+          .images
+            img(src='../images/2v.jpg')
+          .overlay-effect
+            .overlay-text Legends of Zelda
+        section
+          .images
+            img(src='../images/10.jpg')
+          .overlay-effect
+            .overlay-text Heroes of Might and Magic
+        section
+          .images
+            img(src='../images/11.jpg')
+          .overlay-effect
+            .overlay-text Lovers in a dangerous space adventure
+        section
+          .images
+            img(src='../images/12.jpg')
+          .overlay-effect
+            .overlay-text World of Goo
+        section
+          .images
+            img(src='../images/13.jpg')
+          .overlay-effect
+            .overlay-text Last day of June
+        section
+          .images
+            img(src='../images/15.jpeg')
+          .overlay-effect
+            .overlay-text A tale of two Brothers
+        section
+          .images
+            img(src='../images/16.jpg')
+          .overlay-effect
+            .overlay-text Monument Valley
+        section
+          .images
+            img(src='../images/17.jpg')
+          .overlay-effect
+            .overlay-text Celeste
+        section
+          .images
+            img(src='../images/18.jpg')
+          .overlay-effect
+            .overlay-text Tales Runner
+        section
+          .images
+            img(src='../images/19.jpg')
+          .overlay-effect
+            .overlay-text Rayman Adventures
+    .sidebar
+      .section.search
+        h2.section-title Search
+        form(action='index.html' method='post')
+          input.text-input(type='text' name='search-term' ,='' placeholder='Search...')
+      .section.topics
+        h2.section-title Categories
+        ul
+          li
+            a(href='#') Tech
+          li
+            a(href='#') Cultural
+          li
+            a(href='#') Politics
+          li
+            a(href='#') Arts
+          li
+            a(href='#') Science
+          li
+            a(href='#') Sports
+.footer
+  include footer.pug
+script(src='../js/scripts.js')

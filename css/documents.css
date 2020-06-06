@@ -1,0 +1,72 @@
+.doc-wrapper{
+    padding-top: 66px;
+}
+
+.doc-container{
+    width: 70%;
+    float: left;
+    margin-top: 4%;
+    border-radius: 0.8rem;
+    height: 80%;
+   
+}
+
+.documents-list{
+    list-style: none;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.book-container{
+    width: 100%;
+    background-color: white;
+    min-height: 200px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.book-image img{
+    float: left; 
+    height: 160px;
+    width: 140px;
+    object-fit: contain;
+    margin: 0px 10px 0px 0px;
+}
+
+.book-title h2 a{
+    text-decoration: none;
+    color: rgb(59, 59, 59);
+    font-size: 85%; 
+    font-family: 'Candal', serif;
+}
+.autor{
+    padding-top:5px;
+    padding-bottom:5px;
+    display: inline-block;
+}
+.book-info{
+    font-size: 100%;
+    padding: 2px 7px 10px;
+    color:rgba(0,0,0,.7);
+    text-align: justify;
+    text-justify: inter-word;
+}
+.book-date{
+    font-size: 80%;
+    color: rgba(0,0,0,.5);
+    padding-top: 7px;
+    font-weight: 600;
+    display: inline-block;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+@media only screen and (max-width: 750px){
+    .content .doc-container{
+        width: 100%;
+    }
+    .documents-list{
+        width: 100%;
+    }
+  
+}

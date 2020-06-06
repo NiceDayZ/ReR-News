@@ -1,0 +1,46 @@
+.video-wrapper{
+    padding-top: 66px;
+}
+
+.content{
+    width:95%;
+
+}
+
+.content .video-container{
+    width: 68%;
+    float: left;
+    padding: 30px;
+}
+.grid-item {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0px;
+  margin-bottom: 20px;
+  } 
+
+.grid-item iframe{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+
+.sidebar{
+    width: 100%;
+   
+    margin-top: 68px;
+    padding-left: 10px;
+}
+
+@media only screen and (max-width: 900px){
+
+    .content .video-container{
+        width: 100%;
+    }   
+}

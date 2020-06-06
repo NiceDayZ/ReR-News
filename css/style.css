@@ -43,6 +43,10 @@ a{
 header{
     background: #008489;
     height: 66px;
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+    
 }
 
 header * {
@@ -76,7 +80,16 @@ header ul li {
     position: relative;
 }
 
+.login{
+    display: none;
+}
+
+/* .profil{
+    display: none;
+}  */
+
 header ul li ul {
+    
     position: absolute;
     top: 66px;
     right: 0px;
@@ -95,8 +108,8 @@ header ul li ul li {
 
 header ul li ul li a{
     padding: 10px;
-    background: white;
-    color: #444;
+    background: #008489;
+    color:white;
 }
 
 header ul li ul li a.logout{
@@ -104,7 +117,8 @@ header ul li ul li a.logout{
 }
 
 header ul li ul li a:hover{
-    background: #d5d6d6;
+    background: #006669;
+    transition: 0.5s;
 }
 
 header ul li a {
@@ -125,6 +139,7 @@ header .menu-toggle{
 
 .page-wrapper{
     min-height: 100%;
+    padding-top: 66px;
 }
 
 .page-wrapper a:hover{
@@ -587,9 +602,10 @@ section:active .overlay-effect{
  
 }
 
-@media only screen and (max-width: 750px){
-    header{
-        position: relative;
+@media only screen and (max-width: 790px){
+    header{      
+        position: fixed;
+        z-index: 999999;
     }
 
     header ul{

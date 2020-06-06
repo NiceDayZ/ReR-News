@@ -1,0 +1,56 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+  link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='../css/videoStyle.css')
+  link(rel='stylesheet' href='../css/style.css')
+  title BearNews
+header
+  include header.pug
+.video-wrapper
+  .content.clearfix
+    .video-container
+      .grid-item
+        iframe(src='https://player.vimeo.com/video/248633434' width='640' height='360' frameborder='0' allow='autoplay; fullscreen' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .grid-item
+        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+    .sidebar
+      .section.search
+        h2.section-title Search
+        form(action='index.html' method='post')
+          input.text-input(type='text' name='search-term' ,='' placeholder='Search...')
+      .section.topics
+        h2.section-title Topics
+        ul
+          li
+            a(href='#') Tech
+          li
+            a(href='#') Cultural
+          li
+            a(href='#') Politics
+          li
+            a(href='#') Arts
+          li
+            a(href='#') Science
+          li
+            a(href='#') Sports
+.footer
+  include footer.pug
+script(src='../js/video.js')

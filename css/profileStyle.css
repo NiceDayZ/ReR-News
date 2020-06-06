@@ -1,0 +1,248 @@
+.wrapper{
+    height: 100%;
+    width: 100%;
+    padding-top: 66px;
+}
+.profile-wrapper{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+.username{
+    display: block;
+}
+.user-info{
+    margin: 2% 5%;
+    width: 14%;
+    height: 60%;
+    border-radius: 250px;
+    background-image: url('../images/profile-man-avatar.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.info{
+    width: 100%;
+    height: 40%;
+    margin-top: 5%;
+    padding-left: 3%;
+}
+.info h2,h3,h4{
+    margin-bottom: 1%;
+}
+.info h5{
+    display: inline;
+}
+span.edit{
+    margin-left: 2%;
+    font-family: Roboto; 
+    font-size: 0.7em; 
+    color: cornflowerblue; 
+    letter-spacing: 0.05em;
+}
+span.edit img{
+    width: 16px;
+}
+.set-preferences{
+    width: 90%;
+    height: 50%;
+    margin : 2% 5% 5%;
+}
+.preference{
+    margin-top: 1%;
+    margin-left: 2%;
+    width: 70%;
+
+}
+.set-preferences button{
+    font-family: 'Candal',sans-serif;
+    color: white;
+    background-image: linear-gradient(to right, #0E94A0 0%, #006669 100%);
+    font-size: 1.5em;
+    border-radius: 25px;
+    padding: 0.5% 3%;
+    margin-top: 2%;
+    cursor: pointer;
+}
+.request-site-related{
+    width: 100%;
+    height: 40%;
+      
+}
+.preference2{
+    margin-left: 5%;
+    margin-top: 10%;
+    width: 30%;
+    display: inline-block;
+
+}
+.preference2 input[type=text]{
+    width: 80%;
+    padding: 2%;
+    font-size: 1em;
+}
+.preference2 input[type=submit]{
+    padding: 1% 2%;
+    margin-top : 1%;
+    font-size: 1em;
+    background-image: linear-gradient(to right, #0E94A0 0%, #006669 100%);
+    color: white;
+    border-radius: 10px;
+}
+.rss-personal-links{
+    margin-right:25%;
+    width: 15%;
+    height: 35%;
+    float: right;
+    margin-top: 5%;
+    position: relative;
+}
+.box-for-links{
+    width: 150%;
+    height: 150%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0.8rem;
+    overflow-y: auto;
+}
+.box-for-links ul{
+    list-style-type: none;
+}
+.box-for-links img{
+    position: relative;
+    margin-right: 10%;
+    width: 25px;
+    float: right;
+}
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 15%;
+    height: 2%;
+  }
+
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 70%;
+    width: 35%;
+    left: 20%;
+    bottom: 20%;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color:#008080;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #008080;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+  }
+  
+
+  .slider.round {
+    border-radius: 15px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .text-edit-input-name,.username-edit, .password-edit{
+      display: none;
+      font-family: 'Candal',sans-serif;
+  }
+  .text-edit-input-name input[type="text"], .password-edit input[type="password"]{
+      display: block;
+  }
+  .text-edit-input-name button,.username-edit button, .password-edit button{
+    background-image: linear-gradient(to right, #0E94A0 0%, #006669 100%);
+    color: white;
+    padding : 0.3% 1%;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: block;
+  }
+  @media only screen and (max-width: 700px){
+    .wrapper{
+        height: 230%;
+        width: 100%;
+        
+    }
+    .profile-wrapper{
+        width: 100%;
+        height: 35%;
+        display:block;
+    }
+    .user-info{
+        margin-left: 10%;
+        width: 15%;
+        height: 35%;
+    }
+    .set-preferences{
+        width: 80%;
+        height: 60%;
+        margin :0;
+    }
+    .preference{
+        margin-top: 1%;
+        margin-left: 2%;
+        width: 70%;
+        
+        display: block;
+       
+    }
+    .request-site-related{
+        width: 100%;
+        height: 100%;
+          
+    }
+    .preference2{
+        width: 100%;
+    }
+    .rss-personal-links{
+        
+        height: 50%;
+        width: 50%;
+        float: left;
+        overflow-y: auto;
+        margin-left: 10%;
+        
+    }
+    .box-for-links{
+        width: 100%;
+    }
+    .box-for-links img{
+        margin-left: 3%;
+    }
+  }
+
+ 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ab4339cff3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap" rel="stylesheet">
+    <link href="../css/adminStatistic.css" rel="stylesheet">
+    <title>Admin statistics</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo-text"> <img src="../images/editabil-umbrela.png" alt="umbrela"
+                width="35px"><span>Umbr</span>Ella</h1>
+        </div>
+        <nav>
+            <i class="fas fa-bars menu-toggle"></i>
+            <ul class="nav">
+                <li><a href="#">Statistics</a></li>
+                <li><a href="adminMail.html">Mailbox</a></li>
+                <li><a href="signup.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="mainPage">
+        <div id="statistic-area">
+            <h2>ReR News Statistic</h2>
+            <div class="chart_wrapper">
+                <h3 id="chart_title">Your application usage.</h3>
+
+                <div class="profit_box">
+                    <canvas id="chart_profit"></canvas>
+                </div>
+                <div id="chart_options">
+                    <button id="weekly_profit_btn">Weekly Usage</button>
+                    <button id="monthly_profit_btn">Monthly Usage</button>
+                    <button id="annual_profit_btn">Annual Usage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-bottom">
+            &copy; ReR Project
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="../js/adminStatistic.js"></script>
+</body>
+
+</html>

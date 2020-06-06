@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://kit.fontawesome.com/ab4339cff3.js', crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap', rel='stylesheet')
+    link(href='../css/styleSignUp.css', rel='stylesheet')
+    title SignUpPage
+  body
+    header
+      .logo
+        h1.logo-text
+          img(src='../images/editabil-umbrela.png', alt='umbrela', width='35px')
+          span Umbr
+          | Ella
+    // Sign in box
+    .top
+      .top_left
+        #login.box_sign_in
+          form
+            p Sign in now
+            p
+              input(type='email', placeholder='Email', name='email', required='')
+              input(type='password', placeholder='Password', name='password', required='')
+              a.forgot(href='#', for='password') Forgot password?
+              br
+              input.button_sign_in(type='submit', value='Sign in')
+            .line
+            input#change_login.button_sign_up(type='submit', value='Sign up')
+        #register.box_sign_up
+          #onscreen.show
+            form
+              p Sign up now
+              input(type='text', placeholder='Enter Your Name (e.g. Joe Stevens)', name='name', required='')
+              input(type='email', placeholder='Enter Your Email', name='email', required='')
+              input(type='text', placeholder='Choose Username', name='username', required='')
+              input(type='password', placeholder='Choose Password', name='password', required='')
+              br
+              input.button_sign_in(type='submit', value='Sign up')
+              .line
+              input#change_register.button_sign_up(type='submit', value='Sign in')
+              // am pus aici butoanele invers pt ca pastreaza proprietatile de afisaj corespunzatoare
+      .top_right
+        .about
+          p Read more about us
+          .text
+            .media
+              img(src='../images/media.jpg', alt='')
+            p
+              i "You tell us your preferences, we give you content"
+              |  - a browser extension that
+              |                         provides you data(video, images, news, documents  
+              i etc.
+              | ).
+            p
+              | Once installed you will be notified in real-time when something you might like
+              | has been posted on social media. Also, you can choose your own sites from which
+              | you can receive content.
+            p
+              | Cool, isn't it? No more feed scrolling, no more constant searching for something to
+              | watch, just friendly notifications to look forward to.
+            p Give it a go!
+    footer.footer
+      .footer-bottom
+        | © ReR Project
+    script(src='../js/scriptsSign.js')

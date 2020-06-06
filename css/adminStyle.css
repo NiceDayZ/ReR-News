@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: 'Lora', serif;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: #f6f6f6;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6{
+    font-family: 'Candal', serif;
+    color: #444;
+    margin :15px;
+    text-align: center;
+}
+
+label{
+    color: #444;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    position: fixed;
+    z-index: 10000;
+    background: #008489;
+    height: 66px;
+    width: 100%;
+}
+
+header * {
+    color: white;
+}
+
+header .logo{
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+
+}
+
+header .logo-text {
+    margin: 9px;
+    font-family: 'Candal', serif;
+}
+
+header .logo-text span{
+    color: #05f7ff;
+}
+
+header nav{
+    float: right;
+    height: inherit;
+    margin-right: 2em;
+}
+
+header nav:hover{
+    background: #006669;
+}
+header nav a{
+   position: relative;
+   top:20px;
+   padding: 10px;
+   font-size: large;
+}
+.mainPage{
+    min-height: 100%; 
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.view {
+    margin: 30px;
+    height: 400px;
+    width: 450px;
+    border : 1px solid #bfbfbf;    
+    background-image: url("../images/statistic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px grey;
+    padding: 5%;
+
+}
+.text{
+    transition: .5s ease;
+    opacity: 0;
+    font-family: 'Candal',serif;
+    font-size: 200%; 
+    text-align: center;
+}
+.view:hover .text{
+    opacity: 1;
+}
+.view:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+    transition:  .5s ease;
+    box-shadow: 10px 10px 10px grey;
+}
+
+.mailbox{
+    margin: 30px;
+    height: 400px;
+    width: 450px;
+    border : 1px solid #bfbfbf;    
+    background-image: url("../images/mailbox.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px grey;
+    padding: 5%;
+}
+.mailbox:hover .text{
+    opacity: 1;
+}
+.mailbox:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    transition:  .5s ease;
+    box-shadow: 10px 10px 10px grey;
+}
+
+.footer .footer-bottom{
+    background: #343a40;
+    color: #686868;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    margin-top: -40px;
+    padding-top: 11px;
+}
+
+@media only screen and (max-width: 1140px){
+
+    .mainPage{
+       position: relative;
+       top: 100px;
+    }
+    .mailbox{
+        margin-bottom: 100px;
+    }
+
+    .footer .footer-bottom{
+        position: relative;
+        top:100px;
+    }
+
+}
