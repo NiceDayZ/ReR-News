@@ -132,48 +132,6 @@ const login = async (req, res) => {
         to: user.email, // list of receivers //TO BE CHANGED TO user.email
         subject: 'Umbrella Email Verification', // Subject line
         html: `
-        <style>
-          .confirmationWrapper{
-            width: 100%;
-            height: 100%;    
-            background-color: #006669;
-            color: white;
-            text-align: center;
-        }
-        h1{
-            font-family: 'Candal', serif;
-            padding-top: 5%;
-        }
-        .confirmationWrapper span{
-            color: #05f7ff;
-        }
-        .text{
-            width: 100%;
-            height: 60%;
-            text-align: center;
-        
-        }
-        .text {
-            font-size: 1.2em;
-        }
-        p{
-            padding-bottom: 1%;
-        }
-        .text img{
-            position: relative;
-            top : 10px;
-        }
-        .text button{
-            font-family: 'Candal', serif; 
-            font-size: 1.5em;
-            color: white;
-            background-color: #00ace6;
-            opacity: 0.7;
-            padding: 1%;
-            border-radius: 25px;
-        
-        }
-        </style>
         <div class="confirmationWrapper">
         
             <h1>Welcome to <img src="https://rer-umbrella.herokuapp.com/images/editabil-umbrela.png" alt="umbrela" width="35"><span>Umbr</span>Ella</h1>
