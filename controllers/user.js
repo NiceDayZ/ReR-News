@@ -131,9 +131,26 @@ const login = async (req, res) => {
         from: process.env.EMAIL, // sender address
         to: user.email, // list of receivers //TO BE CHANGED TO user.email
         subject: 'Umbrella Email Verification', // Subject line
-        html: `<h3>Welcome to Umbrella. Please confirm your email address by clicking this <a href="${process.env.API_URL}/user/confirmRegister/${token}">link</a></h3>`// plain text body
+        html: `<div class="confirmationWrapper">
+        
+            <h1>Welcome to <img src="https://rer-umbrella.herokuapp.com/images/editabil-umbrela.png" alt="umbrela" width="35"><span>Umbr</span>Ella</h1>
+            <div class="text">
+                <p><img src="https://rer-umbrella.herokuapp.com/images/fundal-patrat.png" alt="" width="40">
+                    Welcome to the greatest media experience. This is your
+                    confirmation email,<br>
+                    by clicking the button bellow you will be soon redirected to your account on Umbrella.</p>
+                <p><img src="https://rer-umbrella.herokuapp.com/images/fundal-patrat.png" alt="" width="40">
+                    Thank you for using our resources, we guarantee a user friendly experience and interesting content.<br>
+                    Don't wait, tell your friends about us and enjoy it together.</p>
+                <p><img src="https://rer-umbrella.herokuapp.com/images/fundal-patrat.png" alt="" width="40">
+                    Get it all together, under the Umbrella </p>
+        
+                <a href="${process.env.API_URL}/user/confirmRegister/${token}"><button>CONFIRM </button></a>
+            </div>
+        
+        </div>`// plain text body
       };
-
+      
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
