@@ -6,7 +6,7 @@ html(lang='en')
     script(src='https://kit.fontawesome.com/ab4339cff3.js', crossorigin='anonymous')
     link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap', rel='stylesheet')
     link(href='../css/styleSignUp.css', rel='stylesheet')
-    title SignUpPage
+    title UmbrElla
   body
     header
       .logo
@@ -18,19 +18,18 @@ html(lang='en')
     .top
       .top_left
         #login.box_sign_in
-          form
+          form#login_form
             p Sign in now
             p
               input(type='email', placeholder='Email', name='email', required='')
               input(type='password', placeholder='Password', name='password', required='')
-              a.forgot(href='#', for='password') Forgot password?
               br
               input.button_sign_in(type='submit', value='Sign in')
             .line
             input#change_login.button_sign_up(type='submit', value='Sign up')
         #register.box_sign_up
           #onscreen.show
-            form
+            form#register_form
               p Sign up now
               input(type='text', placeholder='Enter Your Name (e.g. Joe Stevens)', name='name', required='')
               input(type='email', placeholder='Enter Your Email', name='email', required='')

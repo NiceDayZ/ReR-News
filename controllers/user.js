@@ -21,7 +21,7 @@ const profile = async(req, res) => {
       gender: user.gender || null,
       preferences: user.preferences
     }
-    res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
+    res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({
       success: true,
       user: objToBeReturned
@@ -39,7 +39,6 @@ const profile = async(req, res) => {
 }
 
 const login = async (req, res) => {
-    console.log(req.body);
     try {
       const { email, password } = req.body;
   
@@ -48,6 +47,7 @@ const login = async (req, res) => {
       });
   
       if (!user) {
+        console.log("User incorrect");
         res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({
             success: false,
@@ -59,6 +59,7 @@ const login = async (req, res) => {
       const validPass = await bcrypt.compare(password, user.password);
 
       if(!validPass) {
+        console.log("Pass incorrect");
         res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({
             success: false,
@@ -69,7 +70,8 @@ const login = async (req, res) => {
       //Create and assign a token
       const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
 
-      res.writeHead(HttpStatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
+      res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+      console.log("Returning ok");
       return res.end(JSON.stringify({
           success: true,
           token: token

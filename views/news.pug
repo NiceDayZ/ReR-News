@@ -11,62 +11,10 @@ header
   include header.pug
 .page-wrapper
   // Carouser
-  .post-slider
-    h1.slider-title Trending Posts
-    i#prevButton.fas.fa-chevron-left.prev
-    i#nextButton.fas.fa-chevron-right.next
-    .post-wrapper
-      .post
-        img.slider-image(src='../images/1.jpg' alt='postImage')
-        .post-info
-          h4
-            a(href='single.html')
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          i.far.fa-user Mike Bear
-          i.far.fa-calendar Mar 2, 2020
-      .post
-        img.slider-image(src='../images/2.jpg' alt='postImage')
-        .post-info
-          h4
-            a(href='single.html')
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          i.far.fa-user Mike Bear
-          i.far.fa-calendar Mar 2, 2020
-      .post
-        img.slider-image(src='../images/3.jpg' alt='postImage')
-        .post-info
-          h4
-            a(href='single.html')
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          i.far.fa-user Mike Bear
-          i.far.fa-calendar Mar 2, 2020
-      .post
-        img.slider-image(src='../images/4.jpg' alt='postImage')
-        .post-info
-          h4
-            a(href='single.html')
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          i.far.fa-user Mike Bear
-          i.far.fa-calendar Mar 2, 2020
-      .post
-        img.slider-image(src='../images/5.jpg' alt='postImage')
-        .post-info
-          h4
-            a(href='single.html')
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          i.far.fa-user Mike Bear
-          i.far.fa-calendar Mar 2, 2020
-      .post
-        img.slider-image(src='../images/6.png' alt='postImage')
-        .post-info
-          h4
-            a(href='single.html')
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          i.far.fa-user Mike Bear
-          i.far.fa-calendar Mar 2, 2020
+  .post-slider#trending-slider
   // News Post
   .content.clearfix
-    .main-content
+    .main-content#recent-posts
       h1.recent-posts-title Recent Posts
       // second design
       .blog-post
@@ -153,4 +101,5 @@ header
   include footer.pug
 // CustomJS
 script(src='../js/scripts.js')
+script(src='../js/news.js')
 // 

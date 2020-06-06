@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
             let listOfRSSPromises = [];
             user.preferences.customRSS.forEach(customRSS => {
                 if(customRSS.enabled){
-                    const url = req.body.rssFeed;
+                    const url = customRSS.link;
                     listOfRSSPromises.push(parser.parseURL(url));
                 }
             });
@@ -34,7 +34,7 @@ module.exports = async (req, res, next) => {
                             id: feed.title,
                             name: feed.title
                         },
-                        author: item.creator,
+                        author: item.creator || null,
                         title: item.title,
                         description: item.content,
                         url: item.link,

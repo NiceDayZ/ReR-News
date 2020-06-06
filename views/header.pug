@@ -18,10 +18,10 @@ ul.nav
   li.profil
     a(href='#')
       i.fas.fa-user
-      |                     Profile
+      |          Profile
       i.fas.fa-chevron-down
-    ul.profile-subnav
-      li
-        a(href='profile.html') Settings
-      li
-        a.logout(href='signup.html') Logout
+    ul#profile_list.profile-subnav
+      //li
+        a(href='/login') Login
+      //li
+        a#logOutButton.logout(href='signup.html') Logout

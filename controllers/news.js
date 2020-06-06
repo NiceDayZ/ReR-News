@@ -79,6 +79,12 @@ const getParsedObjectAndCache = async(req, res) => {
 
         news = news.slice(0, 50);
 
+        news.forEach(element => {
+            if(!element.urlToImage){
+                element.urlToImage = "/images/1.jpg"
+            }
+        });
+
         const cache = new Cache({
             request: req.originalUrl.replace("/rss", ""),
             response: JSON.stringify(news),
