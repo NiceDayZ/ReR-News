@@ -202,7 +202,7 @@ function getNews(categories, keywords){
         
     }//we save the lastRequest for the RSS
     
-    if(token){
+    if(token && !keywords){
         xmlhttp.setRequestHeader('x-auth-token', token) 
     }
 
@@ -271,7 +271,7 @@ ready(function(){
             };
         
             xmlhttp.open('GET', '/user/preferences', true);
-            xmlhttp.setRequestHeader('x-auth-token', token) 
+            xmlhttp.setRequestHeader('x-auth-token', token);
             xmlhttp.send();
         }else{
             listOfCategories = document.getElementsByClassName("category");
