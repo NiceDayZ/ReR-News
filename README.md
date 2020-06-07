@@ -830,7 +830,7 @@ or
 
 ### Change User Preferences<a id="putpreferences">
 
-`PUT /user/profile`
+`PUT /user/preferences`
 
 Auth(Header) : `x-auth-token`
 

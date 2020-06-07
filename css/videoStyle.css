@@ -38,6 +38,15 @@
     padding-left: 10px;
 }
 
+#downloadRss{
+    float : right;
+}
+
+.content .sidebar .section.topics ul li a.selected{
+    padding-left: 10px;
+    color: #006669;
+}
+
 @media only screen and (max-width: 900px){
 
     .content .video-container{

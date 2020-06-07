@@ -171,7 +171,7 @@ function getNews(categories, keywords){
                populateNews(data.news);
            }
            else {
-               alert('Something bad happened while trying to receive your preferences');
+               alert('Something bad happened while trying to receive your news');
            }
         }
     };

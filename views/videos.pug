@@ -12,45 +12,51 @@ header
   include header.pug
 .video-wrapper
   .content.clearfix
-    .video-container
+    .video-container#videos
       .grid-item
-        iframe(src='https://player.vimeo.com/video/248633434' width='640' height='360' frameborder='0' allow='autoplay; fullscreen' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-      .grid-item
-        iframe(src='https://www.youtube.com/embed/Qyca2RB9Kek' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
     .sidebar
       .section.search
         h2.section-title Search
-        form(action='index.html' method='post')
-          input.text-input(type='text' name='search-term' ,='' placeholder='Search...')
+        form#search_videos(action='index.html' method='post')
+          input.text-input(type='text' name='search_term' placeholder='Search...')
       .section.topics
         h2.section-title Topics
+          button#downloadRss
+            img.rss-image(src='../images/rss.png' alt='rss' width='25')
         ul
           li
-            a(href='#') Tech
+            a.category(href="javascript:void(0);" x-id="animation") Animation
           li
-            a(href='#') Cultural
+            a.category(href="javascript:void(0);" x-id="art") Art
           li
-            a(href='#') Politics
+            a.category(href="javascript:void(0);" x-id="cameratechniques") Camera Techniques
           li
-            a(href='#') Arts
+            a.category(href="javascript:void(0);" x-id="comedy") Comedy
           li
-            a(href='#') Science
+            a.category(href="javascript:void(0);" x-id="documentary") Documentary
           li
-            a(href='#') Sports
+            a.category(href="javascript:void(0);" x-id="experimental") Experimental
+          li
+            a.category(href="javascript:void(0);" x-id="fashion") Fashion
+          li
+            a.category(href="javascript:void(0);" x-id="food") Food
+          li
+            a.category(href="javascript:void(0);" x-id="instructionals") Instructionals
+          li
+            a.category(href="javascript:void(0);" x-id="music") Music
+          li
+            a.category(href="javascript:void(0);" x-id="narrative") Narrative
+          li
+            a.category(href="javascript:void(0);" x-id="personal") Personal
+          li
+            a.category(href="javascript:void(0);" x-id="journalism") Journalism
+          li
+            a.category(href="javascript:void(0);" x-id="sports") Sports
+          li
+            a.category(href="javascript:void(0);" x-id="talks") Talks
+          li
+            a.category(href="javascript:void(0);" x-id="travel") Travel
 .footer
   include footer.pug
 script(src='../js/video.js')
+script(src='../js/videosPage.js')

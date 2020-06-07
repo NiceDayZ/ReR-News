@@ -16,6 +16,17 @@ const url = require('url');
 //             console.log(item.title + ':' + item.link)
 // });
 
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
 const getParsedObjectAndCache = async(req, res) => {
     let categories = [];
    let images = [];
@@ -51,10 +62,12 @@ const getParsedObjectAndCache = async(req, res) => {
                     if(categories.length > 0){
                     
                         for(let i=0; i<categories.length; ++i){
-                            const imageAPIResp = await axios.get(`${baseURL}&q=subject:${categories[i]}_${req.query.keywords}`);
+                            console.log(`${baseURL}&q=subject:${categories[i]}_${req.query.keywords}`);
+                            const imageAPIResp = await axios.get(`${baseURL}&q=subject:${categories[i]}+${req.query.keywords}`);
                             images = images.concat(imageAPIResp.data.items);
                         }
                      } else {
+                        console.log("ceva");
                         const imageAPIResp = await axios.get(`${baseURL}&q=${req.query.keywords}`);
                         images = images.concat(imageAPIResp.data.items);
                      }
@@ -62,31 +75,34 @@ const getParsedObjectAndCache = async(req, res) => {
                 }else{
                     //if no keywords are selected
                     for(let i=0; i<categories.length; ++i){
-                        console.log(`${baseURL}&q=subject:${categories[i]}`);
                         const imageAPIResp = await axios.get(`${baseURL}&q=subject:${categories[i]}`);
-
                         images = images.concat(imageAPIResp.data.items);
                     }
                 }   
                 
-        
-     
         let formattedBooks = [];
-        images.forEach((book,index) => {
-            const bookObj = {
-                title: book.volumeInfo.title,
-                author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'unknown',
-                publishedDate: book.volumeInfo.publishedDate,
-                description: book.volumeInfo.description,
-                image: book.volumeInfo.thumbnail,
-                pages: book.volumeInfo.pageCount,
-                link: book.accessInfo.pdf.isAvailable ? book.accessInfo.pdf.acsTokenLink : (book.accessInfo.epub.isAvailable ? book.accessInfo.epub.acsTokenLink : (book.saleInfo.saleability == 'FOR_SALE' ? book.saleInfo.buyLink : null)),
-                preview: book.accessInfo.webReaderLink || null,
-                image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null
-            };
-            formattedBooks.push(bookObj);
-        });
+
+        if(images[0]){
+            images.forEach((book,index) => {
+                const bookObj = {
+                    title: book.volumeInfo.title,
+                    author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'unknown',
+                    publishedDate: book.volumeInfo.publishedDate,
+                    description: book.volumeInfo.description,
+                    image: book.volumeInfo.thumbnail,
+                    pages: book.volumeInfo.pageCount,
+                    link: book.accessInfo.pdf.isAvailable ? book.accessInfo.pdf.acsTokenLink : (book.accessInfo.epub.isAvailable ? book.accessInfo.epub.acsTokenLink : (book.saleInfo.saleability == 'FOR_SALE' ? book.saleInfo.buyLink : null)),
+                    preview: book.accessInfo.webReaderLink || null,
+                    image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null
+                };
+                formattedBooks.push(bookObj);
+            });
+        }
+        
        
+        formattedBooks = shuffle(formattedBooks);
+        formattedBooks = formattedBooks.slice(0, 70);
+
         const cache = new Cache({
             request: req.originalUrl,
             response: JSON.stringify(formattedBooks),

@@ -87,15 +87,25 @@ const getParsedObjectAndCache = async(req, res) => {
                 }
             }                             
         
+        
+        let unique = [];
+        let names = [];
+
+        videos.forEach(video => {
+            if(!names.includes(video.name)){
+                unique.push(video);
+                names.push(video.name);
+            }
+        });
      
-        videos.sort((a, b)=>{
+        unique.sort((a, b)=>{
             return (a.modified_time < b.modified_time) ? 1 : ((a.modified_time > b.modified_time) ? -1 : 0);
         });
-        videos = videos.slice(0, 30);
+        unique = unique.slice(0, 30);
 
 
         const formattedVideos = [];
-        videos.forEach(video => {
+        unique.forEach(video => {
             formattedVideos.push({
                 name: video.name,
                 description: video.description,
@@ -108,7 +118,6 @@ const getParsedObjectAndCache = async(req, res) => {
 
             });
         });
-
 
         const cache = new Cache({
             request: req.originalUrl.replace("/rss", ""),
@@ -134,7 +143,8 @@ const getParsedObjectAndCache = async(req, res) => {
 
 const getVideos = async (req, res) => {
 
-   
+    let cats = req.query.categories;
+    console.log(cats);
     const videos = await getParsedObjectAndCache(req, res);
 
     if(videos){
@@ -142,13 +152,13 @@ const getVideos = async (req, res) => {
         return res.end(JSON.stringify({success: true, videos: videos}));
         
     }else{
-        if(req.categories.split(',').length > 5){
+        if(cats.split(',').length > 5){
             res.writeHead(HttpStatusCodes.BAD_REQUEST, { 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({
                 success: false,
                 message: "Too many categories (max = 5)"
             }));
-        }else if(!req.categories && req.keywords){
+        }else if(!cats && req.keywords){
             res.writeHead(HttpStatusCodes.BAD_REQUEST, { 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({
                 success: false,
@@ -197,7 +207,7 @@ const getRSS = async (req, res) => {
         return res.end(rssFeed.xml());
         
     }else{
-        if(req.categories.split(',').length > 5){
+        if(req.query.categories.split(',').length > 5){
             res.writeHead(HttpStatusCodes.BAD_REQUEST, { 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({
                 success: false,

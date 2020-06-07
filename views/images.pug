@@ -13,129 +13,62 @@ header
   .content.clearfix
     .grid
       h1.recent-images-title Recent Images
-      article
-        a(href='../images/1.jpg' target='_blank')
-          section
-            .images
-              img(src='../images/1.jpg')
-            .overlay-effect
-              .overlay-text Limbo
-        a(href='../images/1v.jpg' target='_blank')
-          section
-            .images
-              img(src='../images/1v.jpg')
-            .overlay-effect
-              .overlay-text Legends Of Zelda: Breath of the Wild
-        section
-          .images
-            img(src='../images/2.jpg')
-          .overlay-effect
-            .overlay-text Minecraft
-        section
-          .images
-            img(src='../images/3.jpg')
-          .overlay-effect
-            .overlay-text Worms Armagedon
-        section
-          .images
-            img(src='../images/4.jpg')
-          .overlay-effect
-            .overlay-text Transistor
-        section
-          .images
-            img(src='../images/5.jpg')
-          .overlay-effect
-            .overlay-text Rime
-        section
-          .images
-            img(src='../images/6.png')
-          .overlay-effect
-            .overlay-text Inside
-        section
-          .images
-            img(src='../images/7.png')
-          .overlay-effect
-            .overlay-text Stardew Valley
-        section
-          .images
-            img(src='../images/8.png')
-          .overlay-effect
-            .overlay-text Hollow Knight
-        section
-          .images
-            img(src='../images/9.jpg')
-          .overlay-effect
-            .overlay-text Need for Speed
-        section
-          .images
-            img(src='../images/2v.jpg')
-          .overlay-effect
-            .overlay-text Legends of Zelda
-        section
-          .images
-            img(src='../images/10.jpg')
-          .overlay-effect
-            .overlay-text Heroes of Might and Magic
-        section
-          .images
-            img(src='../images/11.jpg')
-          .overlay-effect
-            .overlay-text Lovers in a dangerous space adventure
-        section
-          .images
-            img(src='../images/12.jpg')
-          .overlay-effect
-            .overlay-text World of Goo
-        section
-          .images
-            img(src='../images/13.jpg')
-          .overlay-effect
-            .overlay-text Last day of June
-        section
-          .images
-            img(src='../images/15.jpeg')
-          .overlay-effect
-            .overlay-text A tale of two Brothers
-        section
-          .images
-            img(src='../images/16.jpg')
-          .overlay-effect
-            .overlay-text Monument Valley
-        section
-          .images
-            img(src='../images/17.jpg')
-          .overlay-effect
-            .overlay-text Celeste
-        section
-          .images
-            img(src='../images/18.jpg')
-          .overlay-effect
-            .overlay-text Tales Runner
-        section
-          .images
-            img(src='../images/19.jpg')
-          .overlay-effect
-            .overlay-text Rayman Adventures
+      article#imgContainer
     .sidebar
       .section.search
         h2.section-title Search
-        form(action='index.html' method='post')
-          input.text-input(type='text' name='search-term' ,='' placeholder='Search...')
+        form#search_images(action='index.html' method='post')
+          input.text-input(type='text' name='search_term' placeholder='Search...')
+          input#selected(type='checkbox' name='select_prefference_search')
+          label(for='selected') Search only in preffered categories
+          br
       .section.topics
         h2.section-title Categories
+          button#downloadRss
+            img.rss-image(src='../images/rss.png' alt='rss' width='25')
         ul
           li
-            a(href='#') Tech
+            a.category(href="javascript:void(0);" x-id="backgrounds") Backgrounds
           li
-            a(href='#') Cultural
+            a.category(href="javascript:void(0);" x-id="fashion") Fashion
           li
-            a(href='#') Politics
+            a.category(href="javascript:void(0);" x-id="nature") Nature
           li
-            a(href='#') Arts
+            a.category(href="javascript:void(0);" x-id="science") Science
           li
-            a(href='#') Science
+            a.category(href="javascript:void(0);" x-id="education") Education
           li
-            a(href='#') Sports
+            a.category(href="javascript:void(0);" x-id="feelings") Feelings
+          li
+            a.category(href="javascript:void(0);" x-id="health") Health
+          li
+            a.category(href="javascript:void(0);" x-id="people") People
+          li
+            a.category(href="javascript:void(0);" x-id="religion") Religion
+          li
+            a.category(href="javascript:void(0);" x-id="places") Places
+          li
+            a.category(href="javascript:void(0);" x-id="animals") Animals
+          li
+            a.category(href="javascript:void(0);" x-id="industry") Industry
+          li
+            a.category(href="javascript:void(0);" x-id="computer") Computer
+          li
+            a.category(href="javascript:void(0);" x-id="food") Food
+          li
+            a.category(href="javascript:void(0);" x-id="sports") Sports
+          li
+            a.category(href="javascript:void(0);" x-id="travel") Travel
+          li
+            a.category(href="javascript:void(0);" x-id="buildings") Buildings
+          li
+            a.category(href="javascript:void(0);" x-id="business") Business
+          li
+            a.category(href="javascript:void(0);" x-id="music") Music
+          li
+            a.category(href="javascript:void(0);" x-id="transportation") Transportation
 .footer
   include footer.pug
 script(src='../js/scripts.js')
+script(src='../js/imagesPage.js')
+
