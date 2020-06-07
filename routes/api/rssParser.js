@@ -34,7 +34,7 @@ module.exports = async (req, res, next) => {
                             id: feed.title,
                             name: feed.title
                         },
-                        author: item.creator || null,
+                        author: item.creator || feed.title ||null,
                         title: item.title,
                         description: item.content,
                         url: item.link,
