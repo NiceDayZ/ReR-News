@@ -38,6 +38,7 @@ a{
     line-height: 1.5rem;
     font-size: 1.2em;
     font-family: 'Lora', serif;
+    margin-bottom: 10px;
 }
 
 header{
@@ -240,7 +241,7 @@ header ul li a i.fa-chevron-down{
 
 .content .sidebar{
     width: 30%;
-    float: left;
+    float: right;
     margin-top: 68px;
 }
 
@@ -535,6 +536,15 @@ section:active .overlay-effect{
 .content .sidebar .section.topics ul li a:hover{
     padding-left: 10px;
     transition: all 0.3s;
+}
+
+.content .sidebar .section.topics ul li a.selected{
+    padding-left: 10px;
+    color: #006669;
+}
+
+#downloadRss{
+    float : right;
 }
 
 /*Media queries*/

@@ -102,6 +102,7 @@ document.getElementById("register_form").onsubmit = function(e){
         if (xmlhttp.readyState == 4) {   
            if (xmlhttp.status == 200) {
                alert('An Email was send in your inbox for confirmation');
+               location.reload();
            }
            else if (xmlhttp.status != 500) {
               const data = JSON.parse(xmlhttp.responseText);

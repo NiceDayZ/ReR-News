@@ -15,88 +15,33 @@ header
   // News Post
   .content.clearfix
     .main-content#recent-posts
-      h1.recent-posts-title Recent Posts
-      // second design
-      .blog-post
-        .blog-post__img
-          img(src='../images/9.jpg' alt='')
-        .blog-post__info
-          .blog-post__date
-            span Wednesday
-            span March 7 2020
-          h2.blog-post__title Lorem ipsum dolor sit amet.
-          p.blog-post__text
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-          a.blog-post__cta(href='#') Read More
-      .blog-post
-        .blog-post__img
-          img(src='../images/10.jpg' alt='')
-        .blog-post__info
-          .blog-post__date
-            span Wednesday
-            span March 7 2020
-          h2.blog-post__title Lorem ipsum dolor sit amet.
-          p.blog-post__text
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-          a.blog-post__cta(href='#') Read More
-      .blog-post
-        .blog-post__img
-          img(src='../images/11.jpg' alt='')
-        .blog-post__info
-          .blog-post__date
-            span Wednesday
-            span March 7 2020
-          h2.blog-post__title Lorem ipsum dolor sit amet.
-          p.blog-post__text
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-          a.blog-post__cta(href='#') Read More
-      .blog-post
-        .blog-post__img
-          img(src='../images/12.jpg' alt='')
-        .blog-post__info
-          .blog-post__date
-            span Wednesday
-            span March 7 2020
-          h2.blog-post__title Lorem ipsum dolor sit amet.
-          p.blog-post__text
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-          a.blog-post__cta(href='#') Read More
-      .blog-post
-        .blog-post__img
-          img(src='../images/13.jpg' alt='')
-        .blog-post__info
-          .blog-post__date
-            span Wednesday
-            span March 7 2020
-          h2.blog-post__title Lorem ipsum dolor sit amet.
-          p.blog-post__text
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-            | sint quo magnam possimus labore blanditiis totam porro ullam numquam voluptate minima
-          a.blog-post__cta(href='#') Read More
     .sidebar
       .section.search
         h2.section-title Search
-        form(action='index.html' method='post')
-          input.text-input(type='text' name='search-term' ,='' placeholder='Search...')
+        form#search_news
+          input.text-input(type='text' name='search_term' ,='' placeholder='Search...')
+          input#selected(type='checkbox' name='select_prefference_search')
+          label(for='selected') Search only in preffered categories
+          br
       .section.topics
         h2.section-title Topics
+          button#downloadRss
+            img.rss-image(src='../images/rss.png' alt='rss' width='25')
         ul
           li
-            a(href='#') Tech
+            a.category(href="javascript:void(0);" x-id="business") Business
           li
-            a(href='#') Cultural
+            a.category(href="javascript:void(0);" x-id="entertainment") Entertainment
           li
-            a(href='#') Politics
+            a.category(href="javascript:void(0);" x-id="general") General
           li
-            a(href='#') Arts
+            a.category(href="javascript:void(0);" x-id="health") Health
           li
-            a(href='#') Science
+            a.category(href="javascript:void(0);" x-id="science") Science
           li
-            a(href='#') Sports
+            a.category(href="javascript:void(0);" x-id="sports") Sports
+          li
+            a.category(href="javascript:void(0);" x-id="technology") Technology
 .footer
   include footer.pug
 // CustomJS
