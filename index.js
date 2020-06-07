@@ -58,7 +58,6 @@ const router = new Router();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended:true }));
 
-router.use(cors({origin: '*', allowedHeaders : ['Auth-Token','Refresh-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'], exposedHeaders : ['Auth-Token','Refresh-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'], methods : "GET,PUT,PATCH,POST,DELETE,OPTIONS"}));
 router.use((req, res, next) => {
     req.db = db;
     next();
