@@ -48,6 +48,10 @@ const router = new Router();
 
 //router.use(cors({credentials: true, origin: "*", allowedHeaders : ['x-auth-token', 'Content-Type', 'Access-Control-Allow-Headers', 'Authorization', 'X-Requested-With'], exposedHeaders : ['x-auth-token','Content-Type', 'Access-Control-Allow-Headers', 'Authorization', 'X-Requested-With'], methods : "GET,PUT,PATCH,POST,DELETE,OPTIONS"}));
 
+ router.use(function(req, res, next){
+  console.log(req.headers);
+ });
+
  router.use(function(req, res, next) {
    res.setHeader("Access-Control-Allow-Origin", "*");
    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-auth-token");
