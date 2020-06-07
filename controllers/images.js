@@ -38,7 +38,7 @@ const getParsedObjectAndCache = async(req, res) => {
         return req.cachedDB;
     }
     
-    const baseURL = `https://pixabay.com/api?key=${process.env.PIXBAY_API_KEY}`;
+    const baseURL = `https://pixabay.com/api?key=${process.env.PIXBAY_API_KEY}&safesearch=true`;
  
     try{
          if(req.query.categories){
