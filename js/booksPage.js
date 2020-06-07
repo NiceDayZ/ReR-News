@@ -135,6 +135,7 @@ ready(function(){
         logoutAnchor.classList.add("logout");
         logoutNode.addEventListener('click', function(){
             localStorage.removeItem('x-auth-token');
+            localStorage.removeItem('preferences');
             location.reload();
         });
         logoutNode.appendChild(logoutAnchor);
