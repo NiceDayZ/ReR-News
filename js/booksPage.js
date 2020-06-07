@@ -157,6 +157,15 @@ ready(function(){
                        const data = JSON.parse(xmlhttp.responseText);
                        localStorage.setItem('preferences', JSON.stringify(data.preferences));
                        preferences = data.preferences;
+
+                       listOfCategories = document.getElementsByClassName("category");
+
+                       for(let i = 0; i<listOfCategories.length; i++){
+                           if(preferences.booksPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                               listOfCategories[i].classList.add("selected");
+                           }
+                       }
+                       
                        getBooks(preferences.booksPref, null);
                    }
                    else {
