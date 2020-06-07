@@ -46,6 +46,8 @@ const router = new Router();
 //     });
 // });
 
+router.use(cors({credentials: true, origin: true, allowedHeaders : ['x-auth-token', 'Content-Type', 'Access-Control-Allow-Headers', 'Authorization', 'X-Requested-With'], exposedHeaders : ['x-auth-token','Content-Type', 'Access-Control-Allow-Headers', 'Authorization', 'X-Requested-With'], methods : "GET,PUT,PATCH,POST,DELETE,OPTIONS"}));
+
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended:true }));
 
