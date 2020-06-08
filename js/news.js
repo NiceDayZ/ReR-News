@@ -222,8 +222,9 @@ function ready(fn) {
 //When the page loads we load news with either stored preferences (if the user is logged) or with no preferences at all (if user is not logged or no preferences are set)
 ready(function(){
 
-    //token is needed only for stored RSS. It should not be used for the rest of the pages as it serves no other purposes
+    let preferences = JSON.parse(localStorage.getItem('preferences'));
     const token = localStorage.getItem('x-auth-token');
+
     if(token){
         let navList = document.getElementById("profile_list");
 
@@ -250,8 +251,6 @@ ready(function(){
         navList.appendChild(settingsNode);
         navList.appendChild(logoutNode);
 
-        //look for preferences in local storage
-        let preferences = JSON.parse(localStorage.getItem('preferences'));
 
         //if there are no preferences in the local storage we ask the private API for the user's preferences
         if(!preferences){
@@ -306,9 +305,27 @@ ready(function(){
         loginAnchor.innerHTML = "Login";
         loginNode.appendChild(loginAnchor);
 
+        let settingsNode = document.createElement("LI");
+        let settingsAnchor = document.createElement("A");
+        settingsAnchor.setAttribute("href", "/profile");
+        settingsAnchor.innerHTML = "Settings";
+        settingsNode.appendChild(settingsAnchor);
+
+        navList.appendChild(settingsNode);
         navList.appendChild(loginNode);
 
-        getNews([], null);
+        if(preferences){
+            listOfCategories = document.getElementsByClassName("category");
+            for(let i = 0; i<listOfCategories.length; i++){
+                if(preferences.newsPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                    listOfCategories[i].classList.add("selected");
+                }
+            }
+            getNews(preferences.newsPref, null);
+        }else{
+            getNews([], null);
+        }
+        
     }
 });
 

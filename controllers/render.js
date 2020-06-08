@@ -55,9 +55,12 @@ const getAdminPage = async (req, res) => {
 
 const getProfilePage = async (req, res) => {
     try{
-
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        var html = pug.renderFile('./views/profile.pug');
+        res.end(html, 'utf-8');
     }catch(err){
-
+        console.log(err);
+        //return pug.renderFile('../views/500.pug');
     }
 }
 

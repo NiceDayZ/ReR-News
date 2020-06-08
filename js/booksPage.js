@@ -116,7 +116,6 @@ function ready(fn) {
 
 ready(function(){
 
-    //token is needed only for stored RSS. It should not be used for the rest of the pages as it serves no other purposes
     const token = localStorage.getItem('x-auth-token');
     if(token){
         let navList = document.getElementById("profile_list");

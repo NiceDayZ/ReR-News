@@ -46,10 +46,21 @@ document.getElementById("pass-edit-button").addEventListener("click", function (
 })
 
 document.getElementById("update-profile").addEventListener("click", function () {
+    let gender = '';
     if (document.getElementById("male").checked === true) {
         document.getElementById("user-info").style.backgroundImage = 'url(../images/profile-man-avatar.jpg)';
+        gender = 'male';
     }
     else {
         document.getElementById("user-info").style.backgroundImage = 'url(../images/profile-woman-avatar.jpg)';
+        gender = 'female';
+    }
+
+    if(gender!=''){
+        const json = JSON.stringify({
+            gender: gender
+        });
+
+        updateUserInfo(json);
     }
 })

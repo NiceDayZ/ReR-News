@@ -62,6 +62,7 @@ document.getElementById("login_form").onsubmit = function(e){
            if (xmlhttp.status == 200) {
                const data = JSON.parse(xmlhttp.responseText);
                localStorage.setItem('x-auth-token', data.token);
+               localStorage.removeItem('preferences');
                window.location.href = '/';
            }
            else if (xmlhttp.status != 500) {

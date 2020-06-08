@@ -89,7 +89,7 @@ const getParsedObjectAndCache = async(req, res) => {
                     author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'unknown',
                     publishedDate: book.volumeInfo.publishedDate,
                     description: book.volumeInfo.description,
-                    image: book.volumeInfo.thumbnail,
+                    image: book.volumeInfo.thumbnail == 'null' ? '/images/bookCover.png' : book.volumeInfo.thumbnail,
                     pages: book.volumeInfo.pageCount,
                     link: book.accessInfo.pdf.isAvailable ? book.accessInfo.pdf.acsTokenLink : (book.accessInfo.epub.isAvailable ? book.accessInfo.epub.acsTokenLink : (book.saleInfo.saleability == 'FOR_SALE' ? book.saleInfo.buyLink : null)),
                     preview: book.accessInfo.webReaderLink || null,
