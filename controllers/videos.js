@@ -144,7 +144,6 @@ const getParsedObjectAndCache = async(req, res) => {
 const getVideos = async (req, res) => {
 
     let cats = req.query.categories;
-    console.log(cats);
     const videos = await getParsedObjectAndCache(req, res);
 
     if(videos){

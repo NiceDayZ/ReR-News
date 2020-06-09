@@ -44,6 +44,7 @@ function populateUserInfo(userInfo){
 }
 
 function populateCustom(customRSS){
+    const token = localStorage.getItem('x-auth-token');
     let listOfRSS = document.getElementById("RSSlinks");
     listOfRSS.innerHTML = '';
 
@@ -67,12 +68,43 @@ function populateCustom(customRSS){
         deleteImg.setAttribute('src', 'https://img.icons8.com/dusk/64/000000/delete-forever.png');
         deleteImg.setAttribute('alt', 'delete rss');
 
+        deleteImg.addEventListener('click', function(){
+            const deleteConfirm = confirm(`Are you sure you want to delete this feed (${rssAnchor.innerHTML})?`);
+
+            if(deleteConfirm){
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4) {   
+                        if (xmlhttp.status == 200) {
+                            listOfRSS.removeChild(container);
+                        }
+                        else if (xmlhttp.status != 500) {
+                            const data = JSON.parse(xmlhttp.responseText);
+                            rssInput.setAttribute('checked', !rssInput.getAttribute('checked'));
+                            alert(data.message);
+                        }
+                        else {
+                            rssInput.setAttribute('checked', !rssInput.getAttribute('checked'));
+                            alert('Something bad happened. Try again later');
+                        }
+                    }
+                };
+            
+                xmlhttp.open('DELETE', '/user/rss', true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+                xmlhttp.setRequestHeader('x-auth-token', token);
+                xmlhttp.send(JSON.stringify({
+                    rss: rssAnchor.innerHTML
+                }));
+            }
+        });
+
         let rssLabel = document.createElement("LABEL");
         rssLabel.classList.add('switch');
         
         let rssInput = document.createElement("INPUT");
         rssInput.setAttribute('type', 'checkbox');
-        rssInput.setAttribute('checked', rss.enabled);
+        rssInput.checked = rss.enabled;
 
         let rssSpan = document.createElement("SPAN");
         rssSpan.classList.add('slider');
@@ -89,6 +121,33 @@ function populateCustom(customRSS){
         container.appendChild(breakLine);
 
         listOfRSS.appendChild(container);
+
+        rssInput.addEventListener('click', function(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4) {   
+                    if (xmlhttp.status == 200) {
+                        //
+                    }
+                    else if (xmlhttp.status != 500) {
+                        const data = JSON.parse(xmlhttp.responseText);
+                        rssInput.setAttribute('checked', !rssInput.getAttribute('checked'));
+                        alert(data.message);
+                    }
+                    else {
+                        rssInput.setAttribute('checked', !rssInput.getAttribute('checked'));
+                        alert('Something bad happened. Try again later');
+                    }
+                }
+            };
+        
+            xmlhttp.open('PATCH', '/user/rss', true);
+            xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            xmlhttp.setRequestHeader('x-auth-token', token);
+            xmlhttp.send(JSON.stringify({
+                rss: rssAnchor.innerHTML
+            }));
+        });
     });
 }
 
@@ -175,7 +234,9 @@ ready(function(){
 
         navList.appendChild(loginNode);
 
-        populateTicks(preferences);
+        if(preferences){
+            populateTicks(preferences);
+        }
     }
 });
 
@@ -360,3 +421,52 @@ function updateUserInfo(json){
         xmlhttp.send(json);
 }
 
+document.getElementById('websiteButton').addEventListener('click', function(){
+    const token = localStorage.getItem('x-auth-token');
+    const rss = document.getElementById('website').value;
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4) {   
+            if (xmlhttp.status == 200) {
+                var xmlhttpAdd = new XMLHttpRequest();
+                xmlhttpAdd.onreadystatechange = function() {
+                    if (xmlhttpAdd.readyState == 4) {   
+                       if (xmlhttp.status == 200) {
+                           location.reload();
+                       }
+                       else if (xmlhttpAdd.status != 500) {
+                          const data = JSON.parse(xmlhttpAdd.responseText);
+                          alert(data.message);
+                       }
+                       else {
+                           alert('Something bad happened. Try again later');
+                       }
+                    }
+                };
+
+                xmlhttpAdd.open('PUT', '/user/rss', true);
+                xmlhttpAdd.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+                xmlhttpAdd.setRequestHeader('x-auth-token', token);
+                xmlhttpAdd.send(JSON.stringify({
+                    rss: rss
+                }));
+            }
+            else if (xmlhttp.status != 500) {
+                alert("The link you provided is not a valid feed. We need a valid RSS to subscribe it to our platform.")
+            }
+            else {
+                alert('Something bad happened. Try again later');
+            }
+        }
+    };
+
+    xmlhttp.open('POST', '/api/validator/rss', true);
+    xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+    xmlhttp.setRequestHeader('x-auth-token', token);
+    xmlhttp.send(JSON.stringify({
+        rssFeed: rss
+    }));
+    
+});

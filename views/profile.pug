@@ -121,7 +121,7 @@ header
       label(for='music') Music
     .preference
       h2 Video
-      input.videoTick#animation(type='checkbox' name=' animation')
+      input.videoTick#animation(type='checkbox' name='animation')
       label(for='animation') Animation
       input.videoTick#art(type='checkbox' name='art')
       label(for='art') Art
@@ -207,9 +207,9 @@ header
 #customPref.request-site-related.hide
   .preference2
     h2 Make a website request
-    input#website(type='text' name='website' placeholder='(eg. https://css-tricks.com/feeddelete rss)')
+    input#website(type='text' name='website' placeholder='(eg. https://css-tricks.com/feed)')
     br
-    input(type='submit' value='Submit')
+    input#websiteButton(type='submit' value='Submit')
   .rss-personal-links
     h2 Personal links
     .box-for-links

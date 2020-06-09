@@ -151,6 +151,12 @@ header ul li a i.fa-chevron-down{
     font-size: 0.9em;
 }
 
+
+header ul li a i .header-category{
+    margin-left: 5px;
+    display: inline;
+}
+
 /*POST SLIDER*/
 
 .post-slider{

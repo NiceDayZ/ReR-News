@@ -117,6 +117,9 @@ function ready(fn) {
 ready(function(){
 
     const token = localStorage.getItem('x-auth-token');
+    //look for preferences in local storage
+    let preferences = JSON.parse(localStorage.getItem('preferences'));
+
     if(token){
         let navList = document.getElementById("profile_list");
 
@@ -142,9 +145,6 @@ ready(function(){
 
         navList.appendChild(settingsNode);
         navList.appendChild(logoutNode);
-
-        //look for preferences in local storage
-        let preferences = JSON.parse(localStorage.getItem('preferences'));
 
         //if there are no preferences in the local storage we ask the private API for the user's preferences
         if(!preferences){
@@ -200,9 +200,26 @@ ready(function(){
         loginAnchor.innerHTML = "Login";
         loginNode.appendChild(loginAnchor);
 
+        let settingsNode = document.createElement("LI");
+        let settingsAnchor = document.createElement("A");
+        settingsAnchor.setAttribute("href", "/profile");
+        settingsAnchor.innerHTML = "Settings";
+        settingsNode.appendChild(settingsAnchor);
+
+        navList.appendChild(settingsNode);
         navList.appendChild(loginNode);
 
-        getBooks([], null);
+        if(preferences){
+            listOfCategories = document.getElementsByClassName("category");
+            for(let i = 0; i<listOfCategories.length; i++){
+                if(preferences.booksPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                    listOfCategories[i].classList.add("selected");
+                }
+            }
+            getBooks(preferences.booksPref, null);
+        }else{
+            getBooks([], null);
+        }
     }
 
 });
