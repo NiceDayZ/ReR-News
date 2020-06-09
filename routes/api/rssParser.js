@@ -2,6 +2,7 @@ let Parser = require('rss-parser');
 const HttpStatusCodes = require("http-status-codes");
 const User = require('../../models').User;
 
+var problems = false;
 
 let parser = new Parser();
 
@@ -16,15 +17,31 @@ module.exports = async (req, res, next) => {
             const user = req.session;
    
             let listOfRSSPromises = [];
-            user.preferences.customRSS.forEach(customRSS => {
-                if(customRSS.enabled){
-                    const url = customRSS.link;
-                    listOfRSSPromises.push(parser.parseURL(url));
-                }
-            });
+            let listOfRSSParsed = [];
 
+            // user.preferences.customRSS.forEach(customRSS => {
+            //     if(customRSS.enabled){
+            //         const url = customRSS.link;
+            //         const parsedPromise = parser.parseURL(url);
+            //         listOfRSSPromises.push(parsedPromise);
+            //     }
+            // });
+
+            for(let i=0; i<user.preferences.customRSS.length; i++){
+                if(user.preferences.customRSS[i].enabled){
+                    const url = user.preferences.customRSS[i].link;
+
+                    try{
+                        const parsed = await parser.parseURL(url);
+                        listOfRSSParsed = push(parsed);
+                    }catch(err){
+                        console.log(err);
+                    }
+
+                }
+            }
             
-            listOfRSSParsed = await Promise.all(listOfRSSPromises);
+            // listOfRSSParsed = await Promise.all(listOfRSSPromises);
 
 
             listOfRSSParsed.forEach(feed => {
@@ -51,12 +68,10 @@ module.exports = async (req, res, next) => {
         next();
 
     }catch(err){
-        console.log(err);
-        res.writeHead(HttpStatusCodes.NOT_ACCEPTABLE, { 'Content-Type': 'application/json' });
+        res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({
             success: false,
-            message: "Invalid RSS"
+            message: "something bad happened"
         }));
     }
-
 }

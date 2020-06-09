@@ -293,25 +293,34 @@ const addRSS = async(req, res) => {
 
     let actualRSS = preff.customRSS;
 
-    const rssToBeAdded = {
-      link: req.body.rss,
-      enabled: true
+    if(req.body.rss && req.body.rss!=''){
+      const rssToBeAdded = {
+        link: req.body.rss,
+        enabled: true
+      }
+  
+      actualRSS.push(rssToBeAdded);
+  
+      const newPref = await req.db.Preference.findOneAndUpdate({
+        _id: user.preferences
+      },
+      {
+        customRSS: actualRSS
+      }
+      );
+  
+      res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: true
+      }));
+    }else{
+      res.writeHead(HttpStatusCodes.BAD_REQUEST, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "Please provide a valid RSS"
+      }));
     }
-
-    actualRSS.push(rssToBeAdded);
-
-    const newPref = await req.db.Preference.findOneAndUpdate({
-      _id: user.preferences
-    },
-    {
-      customRSS: actualRSS
-    }
-    );
-
-    res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify({
-        success: true
-    }));
+    
 
   }catch{
     console.log(err);

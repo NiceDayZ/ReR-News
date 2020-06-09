@@ -155,6 +155,7 @@ header ul li a i.fa-chevron-down{
 header ul li a i .header-category{
     margin-left: 5px;
     display: inline;
+    font-weight: 400;
 }
 
 /*POST SLIDER*/
