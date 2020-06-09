@@ -282,6 +282,8 @@ const login = async (req, res) => {
 const addRSS = async(req, res) => {
   try{
 
+    console.log("DEBUG: " + "RSS = " + req.body.rss);
+
     const id = req.user._id;
     const user = await req.db.User.findOne({
       _id: id
