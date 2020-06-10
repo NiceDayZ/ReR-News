@@ -1,8 +1,9 @@
 var Router = require('router');
 const userController = require("../controllers").userController;
 
-const verifyEmail = require("./verifyEmail")
+const verifyEmail = require("./verifyEmail");
 const verifyToken = require("./verifyToken");
+const checkSession = require("./checkSession");
 
 
 const router = new Router();
@@ -14,6 +15,7 @@ router.get('/preferences', verifyToken, userController.getPreferences);
 router.post('/login', verifyEmail, userController.login);
 router.post('/register', userController.register);
 router.post('/changePassword', verifyToken, userController.resetPassword);
+router.post('/message', checkSession, userController.sendMessage);
 
 router.put('/profile', verifyToken, userController.resetProfile);
 router.put('/preferences', verifyToken, userController.setPreferences)

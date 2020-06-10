@@ -30,6 +30,10 @@ const userSchema = new Schema(
     preferences:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "preferences"
+    },
+    superUser: {
+        type: Boolean,
+        default: false
     }
 },
 {

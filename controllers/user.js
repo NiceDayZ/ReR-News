@@ -4,6 +4,7 @@ const HttpStatusCodes = require("http-status-codes");
 var nodemailer = require('nodemailer');
 
 const User = require('../models').User;
+const Message = require('../models').Message;
 const Preferences = require('../models').Preference;
 
 
@@ -502,6 +503,52 @@ const resetPassword = async(req, res) => {
   }
 }
 
+const sendMessage = async(req, res)=>{
+  const email = req.body.email;
+  const message = req.body.message;
+  let userName = null;
+
+  try{
+    if(email && message){
+      if(req.session){
+        userName = req.session.userName;
+      }
+    
+      const messageObj = new Message({
+        email: email,
+        userName: userName,
+        message: message,
+        isUser: userName ? true : false
+      });
+
+      const dbMessage = await req.db.Message.create(messageObj);
+
+      res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: true
+      }));
+
+
+    }else{
+      res.writeHead(HttpStatusCodes.BAD_REQUEST, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+          success: false,
+          message: "You should provide a valid email address and message"
+      }));
+    }
+  }catch(err){
+    console.log(err);
+    res.writeHead(HttpStatusCodes.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: false,
+        message: "something bad happened"
+    }));
+  }
+  
+ 
+
+}
+
 
   module.exports={
       profile,
@@ -514,6 +561,7 @@ const resetPassword = async(req, res) => {
       removeRSS,
       toggleRSS,
       resetProfile,
-      resetPassword
+      resetPassword,
+      sendMessage
 
   }

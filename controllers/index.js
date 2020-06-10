@@ -5,6 +5,7 @@ const renderController = require('./render');
 const videoController = require('./videos');
 const documentsController = require('./documents');
 const userController = require('./user');
+const adminController = require('./admin');
 const validator = require('./validator');
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
     videoController,
     documentsController,
     userController,
+    adminController,
     validator
 }

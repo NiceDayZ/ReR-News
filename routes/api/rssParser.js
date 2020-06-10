@@ -29,11 +29,12 @@ module.exports = async (req, res, next) => {
 
             for(let i=0; i<user.preferences.customRSS.length; i++){
                 if(user.preferences.customRSS[i].enabled){
+                    console.log(user.preferences.customRSS[i].link);
                     const url = user.preferences.customRSS[i].link;
 
                     try{
                         const parsed = await parser.parseURL(url);
-                        listOfRSSParsed = push(parsed);
+                        listOfRSSParsed.push(parsed);
                     }catch(err){
                         console.log(err);
                     }

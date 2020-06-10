@@ -67,7 +67,6 @@ const getParsedObjectAndCache = async(req, res) => {
                             images = images.concat(imageAPIResp.data.items);
                         }
                      } else {
-                        console.log("ceva");
                         const imageAPIResp = await axios.get(`${baseURL}&q=${req.query.keywords}`);
                         images = images.concat(imageAPIResp.data.items);
                      }
@@ -84,18 +83,20 @@ const getParsedObjectAndCache = async(req, res) => {
 
         if(images[0]){
             images.forEach((book,index) => {
-                const bookObj = {
-                    title: book.volumeInfo.title,
-                    author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'unknown',
-                    publishedDate: book.volumeInfo.publishedDate,
-                    description: book.volumeInfo.description,
-                    image: book.volumeInfo.thumbnail == 'null' ? '/images/bookCover.png' : book.volumeInfo.thumbnail,
-                    pages: book.volumeInfo.pageCount,
-                    link: book.accessInfo.pdf.isAvailable ? book.accessInfo.pdf.acsTokenLink : (book.accessInfo.epub.isAvailable ? book.accessInfo.epub.acsTokenLink : (book.saleInfo.saleability == 'FOR_SALE' ? book.saleInfo.buyLink : null)),
-                    preview: book.accessInfo.webReaderLink || null,
-                    image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null
-                };
-                formattedBooks.push(bookObj);
+                if(book){
+                    const bookObj = {
+                        title: book.volumeInfo.title,
+                        author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'unknown',
+                        publishedDate: book.volumeInfo.publishedDate,
+                        description: book.volumeInfo.description,
+                        image: (!book.volumeInfo.thumbnail || book.volumeInfo.thumbnail == 'null') ? '/images/bookCover.png' : book.volumeInfo.thumbnail,
+                        pages: book.volumeInfo.pageCount,
+                        link: book.accessInfo.pdf.isAvailable ? book.accessInfo.pdf.acsTokenLink : (book.accessInfo.epub.isAvailable ? book.accessInfo.epub.acsTokenLink : (book.saleInfo.saleability == 'FOR_SALE' ? book.saleInfo.buyLink : null)),
+                        preview: book.accessInfo.webReaderLink || null,
+                        image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null
+                    };
+                    formattedBooks.push(bookObj);
+                }
             });
         }
         

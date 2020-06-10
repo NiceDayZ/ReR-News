@@ -3,11 +3,13 @@ var Router = require('router');
 
 const router = new Router();
 
-//TO BE ADDED: Middleware to check if superuser
 
-router.get('/stats', newsController.getNewsPage);
-router.get('/messages', newsController.getNewsPage);
-router.post('/respond', newsController.getNewsPage);
+const checkIfSuperUser = require("./checkIfSuperUser");
+const adminController = require('../controllers').adminController;
+
+router.get('/stats', checkIfSuperUser, adminController.getStats);
+router.get('/messages', checkIfSuperUser, adminController.getMessages);
+router.put('/messages', checkIfSuperUser, adminController.respondToMessage);
 
 
 module.exports = router;
