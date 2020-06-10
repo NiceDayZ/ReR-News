@@ -516,7 +516,7 @@ const sendMessage = async(req, res)=>{
     
       const messageObj = new Message({
         email: email,
-        userName: userName,
+        username: userName,
         message: message,
         isUser: userName ? true : false
       });
