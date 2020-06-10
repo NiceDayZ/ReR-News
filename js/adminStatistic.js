@@ -9,13 +9,13 @@ const annual_profit_btn = document.getElementById("annual_profit_btn");
 // construim graficul pe baza ctx si config
 let ctx = document.getElementById('chart_profit').getContext('2d');
 let config = {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
         datasets: [{
             label: 'Usage',
             data: [12, 19, 3, 5, 2, 3, 7],
-            borderColor: '#6200ea',
+            backgroundColor: '#6200ea',
             borderWidth: 2,
             fill: false
         }

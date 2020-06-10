@@ -225,10 +225,18 @@ const respondToMessage = async(req, res) => {
     }
 }
 
+const grantPermition = async(req,res) => {
+    res.writeHead(HttpStatusCodes.OK, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+        success: true,
+    }));
+}
+
 
 
 module.exports = {
     getStats,
     getMessages,
-    respondToMessage
+    respondToMessage,
+    grantPermition
 }

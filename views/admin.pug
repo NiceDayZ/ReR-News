@@ -1,0 +1,32 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(src='../js/adminPage.js' crossorigin='anonymous')
+  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+  link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+  link(href='../css/adminStyle.css' rel='stylesheet')
+  title AdminPage
+header
+  .logo
+    h1.logo-text
+      span Bear
+      | News
+  nav
+    a(href='#') Logout
+.mainPage
+  .view#viewButton.hide
+    form
+      .text
+        a(href='/adminStats')
+          p
+            | View Statistics
+  .mailbox#mailboxButton.hide
+    form
+      .text
+        a(href='/adminMail')
+          p
+            | Check Mailbox
+footer.footer
+  .footer-bottom
+    | &copy; ReR Project

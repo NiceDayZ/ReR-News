@@ -147,6 +147,10 @@ header nav a{
     padding-top: 11px;
 }
 
+.hide{
+    display: none;
+}
+
 @media only screen and (max-width: 1140px){
 
     .mainPage{

@@ -7,7 +7,7 @@ function toggle_visibility(id) {
     for (let i = 0; i < e.length; ++i) {
         if (e[i].style.display === 'none') {
             e[i].style.display = 'block';
-            document.getElementById("green-bullet").src = "https://img.icons8.com/material-two-tone/24/000000/circle-thin.png";
+            document.getElementsByClassName('green-bullet').src = "https://img.icons8.com/material-two-tone/24/000000/circle-thin.png";
         }
         else {
             e[i].style.display = 'none';

@@ -9,6 +9,8 @@ const adminController = require('../controllers').adminController;
 
 router.get('/stats', checkIfSuperUser, adminController.getStats);
 router.get('/messages', checkIfSuperUser, adminController.getMessages);
+router.get('/check', checkIfSuperUser, adminController.grantPermition);
+
 router.put('/messages', checkIfSuperUser, adminController.respondToMessage);
 
 

@@ -14,10 +14,10 @@ module.exports = async (req, res, next) => {
             const user = await req.db.User.findOne({
                 _id: verified._id
             });
-
             if(user.superUser){
-                next();
+                next();   
             }else{
+                console.log("NOT SUPER USER");
                 res.writeHead(HttpStatusCodes.FORBIDDEN, { 'Content-Type': 'application/json' });
                 return res.end(JSON.stringify({
                     success: false,
