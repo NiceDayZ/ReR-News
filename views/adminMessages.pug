@@ -1,0 +1,47 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(src='../js/adminMailPage.js' crossorigin='anonymous')
+  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+  link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+  link(href='../css/adminMail.css' rel='stylesheet')
+  title AdminMail
+header
+  .logo
+    h1.logo-text
+      img(src='../images/editabil-umbrela.png' alt='umbrela' width='35')
+      span Umbr
+      | Ella
+  nav
+    i.fas.fa-bars.menu-toggle
+    ul.nav
+      li
+        a(href='adminStatistic.html') Statistics
+      li
+        a(href='#') Mailbox
+      li
+        a(href='#') Logout
+.mainPage#pageWrapper.hide
+  #receive-mails.body-mail
+    h2
+      | MailBox 
+      button#csvButton
+        img(src='https://img.icons8.com/color/50/000000/csv.png' alt='' width='25')
+    .mail-table
+      ul#received-list
+  #sent-mails.body-mail-hidden
+    h2 MailBox
+    .mail-table
+      ul#sent-list
+  .mail-menu
+    button#received-button
+      | Received 
+      img(src='https://img.icons8.com/color/48/000000/reading-confirmation.png' alt='Received')
+    button#send-button
+      | Sent 
+      img(src='https://img.icons8.com/plasticine/100/000000/sent.png' alt='sent')
+.footer
+  .footer-bottom
+    | &copy; ReR Project
+script(src='../js/adminMail.js')

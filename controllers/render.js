@@ -56,6 +56,28 @@ const getAdminPage = async (req, res) => {
     }
 }
 
+const getAdminMail = async (req, res) => {
+    try{
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        var html = pug.renderFile('./views/adminMessages.pug');
+        res.end(html, 'utf-8');
+    }catch(err){
+        console.log(err);
+        //return pug.renderFile('../views/500.pug');
+    }
+}
+
+const getAdminStats = async (req, res) => {
+    try{
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        var html = pug.renderFile('./views/admin.pug');
+        res.end(html, 'utf-8');
+    }catch(err){
+        console.log(err);
+        //return pug.renderFile('../views/500.pug');
+    }
+}
+
 const getProfilePage = async (req, res) => {
     try{
         res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -82,6 +104,7 @@ module.exports = {
     getNewsPage,
     getImagePage,
     getAdminPage,
+    getAdminMail,
     getDocumentsPage,
     getLoginPage,
     getProfilePage,
