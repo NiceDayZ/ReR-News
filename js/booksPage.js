@@ -41,7 +41,7 @@ function populateBooks(books){
 
         let bookInfo = document.createElement("DIV");
         bookInfo.classList.add("book-info");
-        bookInfo.innerHTML = element.description;
+        bookInfo.innerHTML = element.description || ' ';
 
         bookImageDiv.appendChild(bookImage);
         bookTitle.appendChild(bookTitleAnchor);
