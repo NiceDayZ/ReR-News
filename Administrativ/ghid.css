@@ -1,0 +1,14 @@
+#title {
+    margin: 9px;
+    font-family: 'Candal', serif;
+    color: gray;
+}
+#title span{
+
+    font-family: 'Candal', serif;
+    color: #05f7ff;;
+}
+p{
+    margin-left: 5%;
+    margin-right: auto;
+}

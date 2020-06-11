@@ -1,0 +1,496 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    width: 450px;
+    min-height: 601px;
+    background-color:#e6e6e6;;
+    font-family: 'Lora', serif;
+}
+
+
+h1{
+    font-family: 'Candal', serif;
+    color: #444;
+    margin: 5px;
+}
+
+header{
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    background: #008489;
+    z-index: 10000000;
+
+}
+
+header *{
+    color: white;
+}
+
+header #logo {
+    float: left;
+    height: 70px;
+    margin-left: 0;
+}
+
+header #logo h1{
+    margin: 18px 9px 9px 5px;
+    font-family: 'Candal', serif;
+    font-size: 23px;
+}
+
+header #logo h1 span{
+    color: #05f7ff;
+}
+
+
+header ul{
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+ 
+}  
+
+header ul li{
+    float: left;
+    text-align: center;
+ 
+}
+
+header ul li a{  
+    display: block;
+    padding: 5px;
+    padding-top: 13px;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    height: 70px;
+}
+header ul li a .name{ 
+    padding-top: 5px; 
+
+}
+header ul li a [class^="fa"]{  
+    font-size: 20px;
+}
+header ul li a:hover{
+    background: #006669;
+    transition: 0.5s;
+}
+header ul li a .icon span{
+    float: right;
+    background-color: rgb(211, 41, 18);
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 10px;
+    position: relative;
+    left: -10px;
+    top: -4px;
+    z-index: 100;
+    display: none;
+} 
+
+
+
+#news-list{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 70px;
+    left: 0;
+    height:auto;
+    width: 100%;
+}
+
+#add-rss,
+.search
+{
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 0px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.fa-search{
+  display: inline-block;
+  position: relative;
+  right: -25px;
+  color: rgb(168, 168, 168);
+}
+.text-input{
+    border: none;
+    font-size: 15px;
+    padding: 6px 10px;
+    padding-left: 28px;
+    border-radius: 4px;
+}
+
+#user-input{
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+#add-user-rss{
+    font-size:10px;
+     padding: 2px;
+}
+
+.switch {
+    margin-left: 15px;
+position: relative;
+display: inline-block;
+top: 3px;
+width: 30px;
+height: 14px;
+}
+
+.switch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+border-radius: 34px;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 6px;
+width: 6px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+border-radius: 50%;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+transform: translateX(16px);
+}
+
+.news-block{  
+   min-height: 120px;
+    width: 100%;
+    display: block;
+    background-color:white;   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 7px;
+    overflow: hidden;
+}
+
+ .x-exit{
+    float: right;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 7px;
+    right: 3px; 
+    text-align: center;
+    cursor: pointer;
+}
+.x-exit .fa-times{
+    display: none;
+    color: rgb(200, 202, 202);;
+    font-size: 20px;
+}
+
+.x-exit:hover .fa-times{
+    display: block;
+}
+
+.news-block .news-image img{
+    float: left; 
+    height: 100px;
+    width: 100px;
+    object-fit: cover; /*decupeaza imaginea (crop), ca sa setez care bucata sa o pastreze folosesc object-position: ; */
+    margin: 10px 10px 0px 10px;
+    border-radius: 5px;
+}
+
+.news-block .news-title h2 a{
+    /* text-decoration: none; */
+    color: rgb(59, 59, 59);
+    font-size: 85%; 
+    font-family: 'Candal', serif;
+}
+
+.news-block .news-info{
+    font-size: 100%;
+    padding: 2px 7px 10px;
+    color:rgba(0,0,0,.7);
+    text-align: justify;
+    text-justify: inter-word;
+}
+.news-block .news-time{
+    font-size: 80%;
+    color: rgba(0,0,0,.5);
+    padding-top: 7px;
+    font-weight: 600;
+}
+
+#no-rss{
+    display: none;
+}
+/* incepe css pt images page */
+
+#search-img{
+    position: absolute;
+    top:70px; 
+}
+
+#images-container{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 110px; /* merg mai jos decat headerul pt ca sa las loc si casetei de search */
+    left: 0;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 10px 10px; 
+   
+}
+
+#images-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.figure-medium{
+    grid-column: span 3;
+}
+
+.figure-small{
+    grid-column: span 2;
+}
+
+#images-container img:hover{
+   object-fit: contain;
+   transform: scale(1.5);
+    z-index:1000;
+}
+
+/* INCEPE CODUL PT POPUP-VIDEOS */
+
+#search-video{
+    padding-top: 0px;
+}
+
+#videos-container{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 70px;
+    left: 0;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+#videos-container .video-wrapper{
+    position: relative;
+    padding-top: 25px ;
+    padding-bottom: 56.25%;
+    height: 0px; 
+}
+
+#videos-container .video-wrapper iframe{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 10px;
+    border: none;
+}
+/* de aici incepe codul pt pagina popup-docs */
+
+#docs-container{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 70px;
+    left: 0;
+    height: auto;;
+    width: 100%;
+}
+
+#docs-container .news-block{
+    min-height: 140px;
+}
+.autor{
+    padding-top:5px;
+    padding-bottom:5px;
+    display: inline-block;
+}
+
+#docs-container .news-time{
+    display: inline-block;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+#docs-container .news-title{
+    margin-top: 10px;
+    padding-left: 20px;
+    
+}
+
+#docs-container .news-title h2 a{
+    text-decoration: none;
+}
+
+#docs-container .news-block .news-image img{
+    height: 120px;
+    width: 100px;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+
+/* de aici incepe css pt pagina popup-settings */
+
+#settings-container{
+    position: absolute; /*headerul are poz fixa, dupa pozitia lui ma ghidez*/
+    top: 70px;
+    left: 0;
+    height: auto;
+    width: 100%;
+}
+
+#settings-container .login{
+    height: auto;
+    min-height: 100px;
+    width: 100%;
+    display: block;
+    background-color:white;   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+   
+}
+
+#settings-container .login input{
+    margin: 10px;
+    width: 90%;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #008489; 
+}
+
+#settings-container  input[type='submit']{
+    border: none;
+    background: #008489;
+    color: white;
+    border-radius: 2px;
+    transition: 1s;
+    font-size: 14px;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#settings-container input[type='submit']:hover{
+    background-color: rgb(103, 141, 158);
+}
+
+#error{
+    color: red;
+    font-weight: bold;
+
+}
+#settings-container .button{
+    text-align: center;
+    padding: 5px;
+}
+
+#settings-container .logged-in{
+    height: 50px;
+    width: 100%;
+    display: block;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;  
+    display: none;
+}
+
+
+#settings-container .logged-in h2{
+    float: left;
+    padding-top: 5px;
+}
+#settings-container .logged-in input{
+    float: right;
+    margin-right: 20px;
+}
+
+
+#settings-container .choices
+{
+    height: auto;
+    min-height: 100px;
+    width: 100%;
+    display: block;
+    background-color:white;   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  
+}
+
+#settings-container .news-choices,
+#settings-container .image-choices,
+#settings-container .video-choices,
+#settings-container .docs-choices
+{
+    padding-top: 10px;
+}
+
+
+#settings-container h2
+{
+    font-size: 15px;
+}
+
+#settings-container #h-principal{
+    font-size: 18px;
+}
+
+#settings-container .areas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#settings-container .area{
+    margin: 5px;
+}
+
+#settings-container .area label{
+    font-size: 13px;
+}

@@ -1,0 +1,15 @@
+html {
+    font-family: 'Candal',sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+@media screen and (max-width : 750px){
+    body{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img{
+        width: 350px;
+        height: 700px;
+    }
+}

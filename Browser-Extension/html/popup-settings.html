@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+   <link rel="stylesheet" href="../css/font-awsome.css">
+   <link href="https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/popup-style.css">
+</head>
+<body>
+
+ 
+    <header>
+        <div id="logo">
+            <h1 class="logo-text"> <img src="../images/editabil-umbrela.png" alt="umbrela" width="25"><span>Umbr</span>Ella</h1>
+        </div>
+        
+        <nav>
+            <ul >
+                <li>
+                    <a href="popup.html">
+                        <div class="icon">
+                            <i class="far fa-newspaper" ></i>
+                        </div>
+                        <div class="name"><span data-text="News">News</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="popup-videos.html">
+                        <div class="icon">                   
+                            <i class="fab fa-youtube"></i>                  
+                        </div>
+                        <div class="name"><span data-text="Videos">Video</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="popup-images.html">
+                        <div class="icon">
+                            <i class="far fa-image"></i>
+                        </div>
+                        <div class="name"><span data-text="Images">Images</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="popup-docs.html">
+                        <div class="icon">                   
+                            <i class="fas fa-book"></i>            
+                        </div>
+                        <div class="name"><span data-text="Docs">Books</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon">                   
+                            <i class="fas fa-cogs"></i>                   
+                        </div>
+                        <div class="name"><span data-text="Settings">Settings</span></div>
+                    </a>
+                </li>
+            </ul>   
+        </nav>
+    </header>
+    <div id="settings-container">
+        <div class="login">
+            <h2>Login</h2>
+            <form id="login-form">
+               <input type="email" name="email" id="email" placeholder="Enter your email address..." required>
+                <input type="password" name="password" id="password" placeholder="Enter your password..." required>
+                <span id='error'></span><br>
+                <input type="submit" value="Sign In" id="login-submit">
+            </form>
+            <h3>Don't have an account yet?<br> Visit our website <a href="https://rer-umbrella.herokuapp.com/login" target="_blank">here</a> and register now!</h3>
+        </div>
+  
+        <div class="logged-in">
+            <h2>You are logged in as <span id="userName"></span></h2>
+            <input id="logout" type="submit" value="Logout">
+        </div>
+        <div class="choices">
+            <h2 id="h-principal" >Set up your preferences</h2>
+    
+            <div class="news-choices">
+                <h2>News</h2>
+                <div class="areas">
+                    <div class="area">
+                        <input   type="checkbox" name="business" id="n-business">
+                        <label for="n-business">Business</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="entertainment" id="n-entertainment">
+                        <label for="n-entertainment">Entertainment</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="general" id="n-general">
+                        <label for="n-general">General</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="health" id="n-health">
+                        <label for="n-health">Health</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="science" id="n-science">
+                        <label for="n-science">Science</label>  
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="sports" id="n-sports">
+                        <label for="n-sports">Sports</label>  
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="technology" id="n-tech">
+                        <label for="n-tech">Technology</label>  
+                    </div>
+
+                </div>
+              
+            </div>
+            <hr>
+            <div class="image-choices">
+                <h2>Images</h2>
+                <div class="areas">
+                    <div class="area">
+                        <input   type="checkbox" name="backgrounds" id="img-backgr">
+                        <label for="img-backgr">Backgrounds</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="fashion" id="img-fashion">
+                        <label for="img-fashion">Fashion</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="nature" id="img-nature">
+                        <label for="img-nature">Nature</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="science" id="img-science">
+                        <label for="img-science">Science</label>
+                    </div>
+
+                    <div class="area">
+                        <input   type="checkbox" name="education" id="img-education">
+                        <label for="img-education">Education</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="feelings" id="img-feelings">
+                        <label for="img-feelings">Feelings</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="health" id="img-health">
+                        <label for="img-health">Health</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="people" id="img-people">
+                        <label for="img-people">People</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="religion" id="img-religion">
+                        <label for="img-religion">Religion</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="places" id="img-places">
+                        <label for="img-places">Places</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="animals" id="img-animals">
+                        <label for="img-animals">Animals</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="industry" id="img-industry">
+                        <label for="img-industry">Industry</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="computer" id="img-computer">
+                        <label for="img-computer">Computer</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="food" id="img-food">
+                        <label for="img-food">Food</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="sports" id="img-sports">
+                        <label for="img-sports">Sports</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="transportation" id="img-transport">
+                        <label for="img-transport">Transportation</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="travel" id="img-travel">
+                        <label for="img-travel">Travel</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="buildings" id="img-building">
+                        <label for="img-building">Buildings</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="business" id="img-business">
+                        <label for="img-business">Business</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="music" id="img-music">
+                        <label for="img-music">Music</label>
+                    </div>
+                    
+                </div>    
+            </div>
+            <hr>
+            <div class="video-choices">
+                <h2>Video</h2>
+                <div class="areas">
+                    <div class="area">
+                        <input  type="checkbox" name="animation" id="v-animation">
+                        <label for="v-animation">Animation</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="art" id="v-art">
+                        <label for="v-art">Art</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="cameratechniques" id="v-camera">
+                        <label for="v-camera">Camera Techniques</label>
+                    </div>
+                    <div class="area">
+                        <input  type="checkbox" name="comedy" id="v-comedy">
+                        <label for="v-comedy">Comedy</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="documentary" id="v-documentary">
+                        <label for="v-documentary">Documentary</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="experimental" id="v-experimental">
+                        <label for="v-experimental">Experimental</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="fashion" id="v-fashion">
+                        <label for="v-fashion">Fashion</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="food" id="v-food">
+                        <label for="v-food">Food</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="instructionals" id="v-instructional">
+                        <label for="v-instructional">Instructionals</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="music" id="v-music">
+                        <label for="v-music">Music</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="narrative" id="v-narrative">
+                        <label for="v-narrative">Narrative</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="personal" id="v-personal">
+                        <label for="v-personal">Personal</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="journalism" id="v-journalism">
+                        <label for="v-journalism">Journamlism</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="sports" id="v-sports">
+                        <label for="v-sports">Sports</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="talks" id="v-talks">
+                        <label for="v-talks">Talks</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="travel" id="v-travel">
+                        <label for="v-travel">Travel</label>
+                    </div>
+
+                </div>
+               
+            </div>
+            <hr>
+            <div class="docs-choices">
+                <h2>Books</h2>
+                <div class="areas">
+                    <div class="area">
+                        <input  type="checkbox" name="comedy" id="b-comedy">
+                        <label for="b-comedy">Comedy</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="adventure" id="b-adventure">
+                        <label for="b-adventure">Adventure</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="drama" id="b-drama">
+                        <label for="b-drama">Drama</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="horror" id="b-horror">
+                        <label for="b-horror">Horror</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="romance" id="b-romance">
+                        <label for="b-romance">Romance</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="action" id="b-action">
+                        <label for="b-action">Action</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="science" id="b-science">
+                        <label for="b-science">Science</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="fiction" id="b-fiction">
+                        <label for="b-fiction">Fiction</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="science_fiction" id="b-sf">
+                        <label for="b-sf">Science Fiction</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="detective" id="b-detective">
+                        <label for="b-detective">Detective</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="biography" id="b-bioagraphy">
+                        <label for="b-bioagraphy">Biography</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="psychology" id="b-psychology">
+                        <label for="b-psychology">Psychology</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="self_help" id="b-self-help">
+                        <label for="b-self-help">Self Help</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="philosophy" id="b-philosophy">
+                        <label for="b-philosophy">Philosophy</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="arts" id="b-arts">
+                        <label for="b-arts">Arts</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="dictionary" id="b-dictionary">
+                        <label for="b-dictionary">Dictionary</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="parenting" id="b-parenting">
+                        <label for="b-parenting">Parenting</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="poetry" id="b-poetry">
+                        <label for="b-poetry">Poetry</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="critics" id="b-critics">
+                        <label for="b-critics">Critics</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="sport" id="b-sport">
+                        <label for="b-sport">Sport</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="health" id="b-health">
+                        <label for="b-health">Health</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="crime" id="b-crime">
+                        <label for="b-crime">Crime</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="mystery" id="b-mystery">
+                        <label for="b-mystery">Mystery</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="social" id="b-social">
+                        <label for="b-social">Social</label>
+                    </div>
+                    <div class="area">
+                        <input  type="checkbox" name="educational" id="b-educational">
+                        <label for="b-educational">Educational</label>
+                    </div>
+
+                    <div class="area">
+                        <input  type="checkbox" name="economics" id="b-economics">
+                        <label for="b-economics">Economics</label>
+                    </div>
+
+                </div>
+               
+            </div>
+
+            <div class="button">
+                <input id='save-pref' type="submit" value="Save">
+            </div>
+          </div>
+
+    </div> 
+    <script src="../js/settings-script.js"></script>
+</body>
+
+</html>

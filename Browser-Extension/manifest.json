@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "ReR UmbrElla",
+    "version": "1.0",
+    "author": "Mandici Rahela",
+    "icons":{    "1080": "images/editabil-umbrela.png"
+    }, 
+
+    "description": "We find news, video, images and books based on your preferences. Come under UmbrElla and save your time!",
+    "browser_action": {
+        "default_icon": {             
+          "1080": "images/editabil-umbrela.png"  
+        },
+        "default_title": "ReR UmbrElla",
+        "default_popup": "html/popup.html"
+    },
+    
+    "permissions": [
+      "storage",
+      "activeTab"
+    ]  
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link href="./raport.css" type="text/css" rel="stylesheet">
+    <title>Scholarly HTML Report</title>
+</head>
+
+<body>
+    <article>
+        <header>
+
+            <h1>ReR (UmbrElla)</h1>
+        </header>
+        <div role="contentinfo">
+            <ol role="directory">
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#introducere">Introducere</a></li>
+                <li><a href="#module">Module</a>
+                    <ol role="directory">
+                        <li><a href="#login">Login/Register</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#images">Images</a></li>
+                        <li><a href="#books">Books</a></li>
+                        <li><a href="#settings">Profile Settings</a></li>
+                        <li><a href="#extensie">Extensie</a></li>
+                        <li><a href="#admin">Administrator</a>
+                            <ol role="directory">
+                                <li><a href="#adminStatistic">Admin Statistics</a></li>
+                                <li><a href="#adminMail">Admin Mails</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#api">API</a></li>
+                    </ol>
+                </li>
+                <li><a href="#mvc">Arhitectura MVC</a></li>
+                <li><a href="#tehnologii">Tehnologii utilizate</a></li>
+                <li><a href="#etape">Etape de implementare</a></li>
+                <li><a href="#bibliografie">Bibliografie</a></li>
+                <li><a href="#autori">Autori</a></li>
+            </ol>
+
+        </div>
+        <section id="abstract" role="doc-abstract" typeof="sa:Abstract">
+            <h2>1. Abstract</h2>
+            <p>ReR (UmbrElla) - O platformă WEB care recomandă colecții de resurse utilizatorilor, conform domeniilor de
+                interes.</p>
+        </section>
+
+        <section id="introducere" role="doc-introduction">
+            <h2>2. Introducere</h2>
+            <p>De câte ori am întâmpinat problema să căutăm prea mult o imagine sau o știre de care avem nevoie ? </p>
+            <p>Aplicația noastră realizează un management a resurselor și soluționează problema de mai sus, dând
+                recomandări prin notificări live utilizatorilor.
+                Aceasta poate fi utilizată și de clienții logați,cât și de cei nelogați, diferența fiind că cei logați
+                au privilegiul de a adăuga propriile site-uri
+                de interes, dezactivarea altora, memorarea permanentă a preferințelor etc. De asemenea platforma WEB
+                include și o extensie la Chrome, care la fel include majoritatea funcționalităților site-ului.
+            </p>
+
+            <p>Modulul de admin al platformei WEB, prezent în aplicație, administrează statisticile și eventualele
+                mailuri de la utilizatori.</p>
+            <p>De ce <b>UmbrElla</b>? Pentru că aducem resurse și "le unim" sub o umbrelă. <i>Get it all together, under
+                    the
+                    UmbrElla</i></p>
+        </section>
+        <section id="module">
+            <h2>3. Module</h2>
+            <p>Toate modulele din site dispun de un design user-friendly, iar diversele fluxuri de resurse/ recomandari
+                sunt expuse în format RSS.</p>
+            <section id="login">
+                <h3>3.1. Login/Register</h3>
+                <p>Utilizatorii accesează această pagină pentru a se loga/înregistra. Se loghează cu ajutorul unei
+                    adrese de
+                    email (după care și sunt identificați în baza de date),
+                    iar pentru înregistrare mai completează câteva câmpuri (nume și username).
+                </p>
+            </section>
+            <section id="news">
+                <h3>3.2. News</h3>
+                <p>Modul al platformei WEB care oferă recomandări de știri, preluate de la API. Include 6 topicuri :
+                    <i>business, entertainment, general, health, science, sports și technology</i>. Se permite căutarea
+                    unor știri după cuvinte cheie, iar partea de sus a paginii e afișat un carusel care rulează ultimile
+                    10 știri
+                    cele mai recente.
+                </p>
+            </section>
+            <section id="video">
+                <h3>3.3. Video</h3>
+                <p>Modul al platformei WEB care oferă recomandări de video, preluate de la API. Include următoarele
+                    topicuri :
+                    <i>animation, art, camera techniques, comedy, documentary, experimental, fashion, food,
+                        instructionals,
+                        music, narrative, personal, journalism, sports, talks și
+                        travel.</i> Majoritatea disponibile in calitate HD.
+                </p>
+            </section>
+            <section id="images">
+                <h3>3.4. Images</h3>
+                <p> Modul al platformei WEB care oferă recomandări de imagini pentru utilizatori. Oferă o gamă larga de
+                    tematici, acestea
+                    fiind : <i>backgrounds, fashion, nature, science, education, feelings, health, people, religion,
+                        places,
+                        animals, industry, computer,
+                        food, sports, travel, buildings, business, music și transportation.</i> E disponibilă căutarea
+                    imaginilor după anumite
+                    cuvinte cheie, la fel si selectarea acestora dupa anumite topicuri, în principiu ca și pe celelalte
+                    pagini ale site-ului.
+                </p>
+            </section>
+            <section id="books">
+                <h3>3.5. Books</h3>
+                <p> Modul al platformei WEB care oferă recomandări de cărți pentru utilizatori. Acest modul dispune de
+                    cea
+                    mai larga gamă
+                    de tematici, acestea
+                    fiind : <i>comedy, adventure, drama, horror, romance, action, science, fiction, science fiction,
+                        detective, biography,
+                        psychology, self help, philosophy, arts, dictionary, parenting, poetry, critics, sport, health,
+                        crime, mystery,
+                        social, educational și economics.</i> După cum am menționat anterior și la alte module, se
+                    păstrează
+                    aceleași funcționalități
+                    de căutare și selectare.
+                </p>
+            </section>
+            <section id="settings">
+                <h3>3.6. Profile Settings</h3>
+                <p> În acest modul al aplicației utilizatorii își pot seta preferințele. Pot folosi această această
+                    pagină
+                    atât utiliatorii logați,
+                    cât și cei nelogați, având totuși câteva aspecte ce diferă. Utilizatorii logați, au posibilitatea de
+                    a-și schimba datele personale,
+                    precum nume, prenume, parolă, username, pe lângă acestea există posibilitatea de a-și seta propriile
+                    domenii de interes, de a adăuga propriile
+                    link-uri, pe lângă cele predefinite, ce oferă resurse și de a dezactiva/activa și șterge pe altele
+                    din listă.
+                </p>
+                <p> Diferența este ca utilizatorii nelogați care au acces la setări, pot seta doar domeniile de interes
+                    preferate, acestea fiind
+                    salvate in local storage, respectiv acestea nu vor fi memorate în baza de date, ca să poată fi
+                    accesate după un timp, cum se întâmplă la
+                    cei care au deja un cont pe platformă.
+                </p>
+                <p> Având în vedere că discutăm despre modulul de profil, e de menționat că orice utilizator poate
+                    trimite un mail
+                    către administrația platformei WEB, eventual pentru feedback sau anumite nelămuriri.
+                </p>
+            </section>
+            <section id="extensie">
+                <h3>3.7. Extensie</h3>
+                <p>
+                    Aplicația noastră WEB include și o extensie la browser care reușește să ofere toate
+                    funcționalitățile și modulele enumerate mai sus. E posibilă afișarea și navigarea știrilor,
+                    video-urilor, imaginilor și a recomandărilor de cărți. Prezintă un design mai minimalist față de
+                    paginile WEB, însă la fel de user-friendly și suficient de complex ca să cuprindă funcționalitățile
+                    principale.
+                </p>
+                <p>Ca și pe paginile din site e posibilă căutarea resurselor dupa anumite cuvinte-cheie, setarea
+                    preferințelor,
+                    care funcționează după aceleași principii ca și pe pagină pentru utilizatorii logați și nelogați. În
+                    compartimentul de setări
+                    al extensiei se enumeră și posibilitatea de logare, incluzând și o referință la website, eventual
+                    pentru utilizatorii
+                    care vor sa folosească website-ul sau doresc să își creeze un cont nou.
+                </p>
+
+            </section>
+            <section id="admin">
+                <h3>3.8. Administrator</h3>
+                <p>
+                    Modulul de administrare al platformei, include funcționalități proprii care determină un lucru mai
+                    eficient al aplicației noastre WEB. Pentru a asigura conceptele de securitate, datorită faptului că
+                    încărcăm paginile dinamic reușim să
+                    verificăm dacă utilizatorul curent este într-adevăr administratorul, daca da pagina se încarcă,
+                    altfel utilizatorul e redirectat pe pagina principala a website-ului.
+                </p>
+                <section id="adminStatistic">
+                    <h3>3.8.1. Admin Statistics</h3>
+                    <p> Modul al platformei WEB, care ne ofera statistici despre cele mai populare domenii de interes
+                        pentru utilizatori.
+                    </p>
+                </section>
+                <section id="adminMail">
+                    <h3>3.8.2. Admin Mails</h3>
+                    <p> Pe această pagină ajung feedback-urile și eventualele de mesaje de la utilizatori trimise din
+                        secțiunea <b>Contact Us</b> de pe pagină.
+                        Administratorul verifică aceste mesaje cu scopul de a remedia eventuale probleme sau gestionarea
+                        aprecierilor.
+                    </p>
+                </section>
+            </section>
+            <section id="api">
+                <h2>3.9. API</h2>
+                <p>
+                    Am optat pentru crearea unui API public. Diversele resurse pe care le recomandă aplicația le preluăm
+                    de la următoarele API-uri, la fel publice,
+                    <i>NewsAPI (știri), PixabayAPI (imagini), VimeoAPI (video) și Google Books
+                        API (cărți)</i>. La rândul nostru, oferim informațiile preluate în format JSON și sub formă de
+                    fluxuri RSS.
+                </p>
+
+            </section>
+        </section>
+        <section id="mvc">
+            <h2>4. Arhitectura MVC</h2>
+            Controllers
+            <ol role="directory">
+                <li>admin.js</li>
+                <li>documents.js</li>
+                <li>images.js</li>
+                <li>news.js</li>
+                <li>render.js</li>
+                <li>static.js</li>
+                <li>user.js</li>
+                <li>validator.js</li>
+                <li>videos.js</li>
+            </ol>
+            Models
+            <ol role="directory">
+                <li>Cache.js</li>
+                <li>Messages.js</li>
+                <li>User.js</li>
+                <li>Preferences.js</li>
+            </ol>
+            Views
+            <ol role="directory">
+                <li>admin.pug</li>
+                <li>adminMessages.pug</li>
+                <li>adminStatistics.pug</li>
+                <li>books.pug</li>
+                <li>footer.pug</li>
+                <li>header.pug</li>
+                <li>images.pug</li>
+                <li>login.pug</li>
+                <li>news.pug</li>
+                <li>profile.pug</li>
+                <li>videos.pug</li>
+            </ol>
+        </section>
+        <section id="tehnologii">
+            <h2>5. Tehnologii utilizate</h2>
+            <p>Pentru afișarea conținutului am folosit suita HTML5, CSS3 și JavaScript.</p>
+            <p>Integrarea paginilor am facut-o cu ajutorul tehnicii AJAX, care ne permitea apelurile asincrone la API
+                nostru. API-ul aplicatiei a fost scris în node.js; am folosit acest limbaj și pentru backend-ul
+                aplicației. De asemenea
+                am utilizat câteva din modulele <b>npm</b> precum : <i>axios, mongoose, pug, router, rss-parser,
+                    node-schedule.</i></p>
+            <p>Baza de date a aplicației a fost creată cu ajutorul MongoDB - un sistem de gestionare a bazelor de date
+                NoSQL.</p>
+            <p>Conținutul paginilor este actualizat o dată șla 30 de minute, astfel asigurăm trimiterea recomandărilor
+                în cel
+                mai scurt timp după apariție.
+            </p>
+            <p>Setarea caracteristicilor esențiale ale extensiei sunt setate în fișierul <i>manifest</i>. La fel pentru
+                extensie am
+                mai folosit chrome.storage API, pentru ca să salvăm date în sync storage area. După cum am menționat și
+                în descrierile anterioare pentru
+                utilizatorii nelogați vom salva aici preferințele setate, pentru cei logați în schimb vom salva tokenul
+                de autentificare cât și
+                preferințele sale - deși acestea se află în baza de date, e mai eficient să le salvăm și aici ca să nu
+                facem prea multe requesturi pentru
+                a afla preferințele respectivului utilizator. Pe lângă acestea, am mai folosit și chrome.tabs API,
+                pentru a afla informații despre
+                tab-ul activ din fereastra curentă a browserului.
+            </p>
+            <p>Statisticile din cadrul modulului de administrator le creăm cu ajutorul librăriei publice
+                <i>Chart.js</i>. De asemenea le exportăm în unul din formatele dechise PDF și CSV; modulul de mailuri la
+                fel poate fi exportat în format CSV.</p>
+            <p>Pentru hostarea paginii folosim heroku.</p>
+        </section>
+        <section id="etape">
+            <h2>6. Etape de implementare</h2>
+            <p>În cadrul echipei am lucrat în paralel, astfel încât să asigurăm o eficiență cât mai mare. Am împărțit
+                proiectul în 3 module mari : front-end, extensie, back-end-ul. Desigur la început ne-am concentrat mai
+                mult
+                pe design-ul aplicației, astfel încât sa se combine armonios extensia si website-ul; în același timp am
+                pus accent pe
+                cum ar trebui construita baza de date și API, astfel încât sa satisfacem toate cerințele.</p>
+            <p>Am atașat mai jos câteva poze cu idei de design care le-am făcut în timpul lucrului, de asemenea și
+                diagrama UML care prezinta arhitectura
+                finala a proiectului ReR.</p>
+            <figure typeof="sa:image">
+                <img src="./mail.jpg" alt="mailBox" width="800" height="600">
+            </figure>
+            <figure typeof="sa:image">
+                <img src="./profil.jpg" alt="profil" width="800" height="600">
+            </figure>
+            <figure typeof="sa:image">
+                <img src="./uml.png" alt="diagrama uml" width="800" height="700">
+            </figure>
+
+        </section>
+        <section id="bibliografie">
+            <h2>7. Bibliografie</h2>
+            <dl>
+                <dt></dt>
+                <dd property="schema:citation" typeof="schema:ScholarlyArticle">
+                    <cite property="schema:name"><a
+                            href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-film.html">https://profs.info.uaic.ro/~busaco/teach/courses/web/web-film.html
+                        </a></cite>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd property="schema:citation" typeof="schema:ScholarlyArticle">
+                    <cite property="schema:name"><a
+                            href="https://w3c.github.io/scholarly-html/">https://w3c.github.io/scholarly-html/
+                        </a></cite>
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd property="schema:citation" typeof="schema:ScholarlyArticle">
+                    <cite property="schema:name"><a
+                            href="https://developer.chrome.com/extensions">https://developer.chrome.com/extensions
+                        </a></cite>
+                </dd>
+            </dl>
+        </section>
+        <section id="autori" typeof="sa:AuthorsList">
+            <h2>Autori</h2>
+            <ul>
+                <li typeof="sa:ContributorRole" property="schema:author">
+                    <span typeof="schema:Person">
+                        <meta property="schema:givenName" content="Mihai">
+                        <meta property="schema:additionalName" content="Cosmin">
+                        <meta property="schema:familyName" content="Crăciun">
+                        <span property="schema:name">Crăciun Mihai-Cosmin</span>
+                    </span>
+                </li>
+                <li typeof="sa:ContributorRole" property="schema:author">
+                    <span typeof="schema:Person">
+                        <meta property="schema:givenName" content="Rahela">
+                        <meta property="schema:familyName" content="Mandici">
+                        <span property="schema:name">Mandici Rahela</span>
+                    </span>
+                </li>
+                <li typeof="sa:ContributorRole" property="schema:author">
+                    <span typeof="schema:Person">
+                        <meta property="schema:givenName" content="Nicoleta">
+                        <meta property="schema:additionalName" content="Tatiana">
+                        <meta property="schema:familyName" content="Trifan">
+                        <span property="schema:name">Trifan Nicoleta-Tatiana</span>
+                    </span>
+                </li>
+            </ul>
+        </section>
+    </article>
+</body>
+
+</html>

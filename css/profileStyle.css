@@ -275,3 +275,11 @@ span.edit img{
         margin-bottom: 10%;
     }
 }
+
+
+@media only screen and (max-width: 400px){
+    .request-site-related{
+        margin-top: 100%;
+        margin-bottom: 10%;
+    }
+}
