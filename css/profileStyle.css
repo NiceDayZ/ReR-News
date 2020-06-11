@@ -111,17 +111,21 @@ span.edit img{
     margin-top: 20px;
 }
 
+.box-for-links ul li{
+    padding-bottom: 10px;
+}
+
 .box-for-links ul li a{
-    margin-right: 10px;
- 
+    padding-right: 5px;
+    float: left;
 }
 
 .box-for-links img{
+    float:right;
+    margin-right: 5%;
+    width: 20px;
+    height: 25px;
     position: relative;
-    margin-right: 10%;
-
-    width: 25px;
-    float: right;
 }
 
 #usernameText{
@@ -131,9 +135,11 @@ span.edit img{
 /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch*/
 .switch {
     position: relative;
-    display: inline-block;
-    width: 15%;
-    height: 2%;
+    float: right;
+    width: 30px;
+    height: 14px;
+    top: 5px;
+    right: 10px;
   }
 
   .switch input { 
@@ -150,7 +156,7 @@ span.edit img{
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
+    border-radius: 34px;
     transition: .4s;
 
   }
@@ -158,12 +164,12 @@ span.edit img{
   .slider:before {
     position: absolute;
     content: "";
-    height: 70%;
-    width: 35%;
-    left: 20%;
-    bottom: 20%;
+    height: 6px;
+    width: 6px;
+    left: 4px;
+    bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
+    border-radius: 50%;
     transition: .4s;
   }
   
@@ -171,24 +177,10 @@ span.edit img{
     background-color:#008080;
   }
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px #008080;
-  }
-  
   input:checked + .slider:before {
-    -webkit-transform: translateX(14px);
-    -ms-transform: translateX(14px);
-    transform: translateX(14px);
+    transform: translateX(16px);
   }
   
-
-  .slider.round {
-    border-radius: 15px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
   .text-edit-input-name,.username-edit, .password-edit{
       display: none;
       font-family: 'Candal',sans-serif;
