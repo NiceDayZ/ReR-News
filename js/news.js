@@ -271,6 +271,7 @@ ready(function(){
                         }
 
                        getNews(preferences.newsPref, null);
+
                    }
                    else {
                        alert('Something bad happened while trying to receive your preferences');
@@ -327,6 +328,8 @@ ready(function(){
         }
         
     }
+
+    callEvery15Mins();
 });
 
 
