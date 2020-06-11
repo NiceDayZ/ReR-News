@@ -70,7 +70,7 @@ const getAdminMail = async (req, res) => {
 const getAdminStats = async (req, res) => {
     try{
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        var html = pug.renderFile('./views/admin.pug');
+        var html = pug.renderFile('./views/adminStatistics.pug');
         res.end(html, 'utf-8');
     }catch(err){
         console.log(err);
@@ -105,6 +105,7 @@ module.exports = {
     getImagePage,
     getAdminPage,
     getAdminMail,
+    getAdminStats,
     getDocumentsPage,
     getLoginPage,
     getProfilePage,

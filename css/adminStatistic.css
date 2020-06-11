@@ -155,6 +155,10 @@ header .menu-toggle{
     margin-top: -40px;
 }
 
+.hide{
+    display: none !important;
+}
+
 @media only screen and (max-width: 750px){
     header{
        position: fixed;
