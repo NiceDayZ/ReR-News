@@ -17,7 +17,7 @@ function populateBooks(books){
 
         let bookImage = document.createElement("IMG");
         bookImage.setAttribute('src', element.image);
-        bookImage.setAttribute('alt', 'cover image of ' + element.title);
+        bookImage.setAttribute('alt', 'cover image of ' + element.title.substr(0,70));
 
         let bookTitleDiv = document.createElement("DIV");
         bookImageDiv.classList.add("book-title");
@@ -27,7 +27,7 @@ function populateBooks(books){
         let bookTitleAnchor = document.createElement("A");
         bookTitleAnchor.setAttribute('href', element.link || element.preview);
         bookTitleAnchor.setAttribute('target', '_blank');
-        bookTitleAnchor.innerHTML = element.title;
+        bookTitleAnchor.innerHTML = element.title.substr(0,70);
 
         let bookAuthorDiv = document.createElement("DIV");
         bookAuthorDiv.classList.add("autor") ;
