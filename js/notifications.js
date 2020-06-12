@@ -81,6 +81,6 @@ function notifyMe() {
         });
       }
 
-    setInterval(notifyMe, 1000 * 60 * 5);
+    setInterval(notifyMe, 1000 * 60 * 15);
 }
 

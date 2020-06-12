@@ -36,6 +36,10 @@ function fillPage(data){
         li.innerHTML=data.videos[i].html;
         video_list.appendChild(li);
     }
+    let iframes=document.getElementsByTagName('iframe');
+    for(let i=0;i<iframes.length;i++){
+        iframes[i].removeAttribute('frameborder');
+    }  
 };
 
 function ready(fn) {

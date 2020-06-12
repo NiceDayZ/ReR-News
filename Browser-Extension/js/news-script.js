@@ -156,7 +156,12 @@ function api_get(url,categories,keyword){
     }
 
     xmlhttp.open("GET",url,true);
-    xmlhttp.send();
+    chrome.storage.sync.get('token',function(obj){
+        if(obj.token!=undefined){
+            xmlhttp.setRequestHeader('x-auth-token', obj.token);
+        }
+        xmlhttp.send();
+    });
 }
 
 function fillPage(data){
