@@ -1,228 +1,229 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
-  link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
-  link(rel='stylesheet' href='../css/profileStyle.css')
-  link(rel='stylesheet' href='../css/style.css')
-  title UmbrElla
-header
-    include header.pug
-.wrapper
-  #profileWrapper.profile-wrapper.hide
-    #user-info.user-info
-      // aici e imaginea utilizatorului
-    .info
-      h2
-        i#nameLabel 
-        span.edit
-          a#name(href='#')
-            | Edit Name
-            img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
-      #edit-name.text-edit-input-name
-        label(for='updated-name') First name:
-        input#updated-name(type='text')
-        label(for='updated-last-name') Last name:
-        input#updated-last-name(type='text')
-        button#submit-name(type='submit' value='Submit') Save
-      h2#usernameLabel
-        #usernameText 
-        span.edit
-          a#username(href='#')
-            | Edit Username
-            img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
-      #username-edit.username-edit
-        label(for='new-username') Username:
-        input#new-username(type='text')
-        button#submit-username(type='submit' value='Submit') Save
-      h2
-        | **********
-        span.edit
-          a#pass-edit-button(href='#')
-            | Edit Password
-            img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
-      #password-edit.password-edit
-        label(for='old-password') Old Password
-        input#old-password(type='password' required='')
-        label(for='new-password') New Password
-        input#new-password(type='password' required='')
-        button#submit-password(type='submit' value='Submit') Save
-      h2
-        input#male(type='radio' name='gender' value='male')
-        label(for='male') Male
-        input#female(type='radio' name='gender' value='female')
-        label(for='female') Female
-        span.edit
-          a#update-profile(href='#')
-            | Update
-            img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
-      h3#emailLabel 
-  .set-preferences
-    h1 Set up your preferences
-    .preference
-      h2 News
-      input.newsTick#bussines_news(type='checkbox' name='business')
-      label(for='bussines_news') Business
-      input.newsTick#entertainment_news(type='checkbox' name='entertainment')
-      label(for='entertainment_news') Entertainment
-      input.newsTick#general(type='checkbox' name='general')
-      label(for='general') General
-      input.newsTick#health_news(type='checkbox' name='health')
-      label(for='health_news') Health
-      input.newsTick#science_news(type='checkbox' name='science')
-      label(for='science_news') Science
-      input.newsTick#sports_news(type='checkbox' name='sports')
-      label(for='sports_news') Sports
-      input.newsTick#technology_news(type='checkbox' name='technology')
-      label(for='technology_news') Technology
-    .preference
-      h2 Images
-      input.imagesTick#backgrounds(type='checkbox' name='backgrounds')
-      label(for='backgrounds') Backgrounds
-      input.imagesTick#fashion(type='checkbox' name='fashion')
-      label(for='fashion') Fashion
-      input.imagesTick#nature(type='checkbox' name='nature')
-      label(for='nature') Nature
-      input.imagesTick#science_images(type='checkbox' name='science')
-      label(for='science_images') Science
-      input.imagesTick#education(type='checkbox' name='education')
-      label(for='education') Education
-      input.imagesTick#feelings(type='checkbox' name='feelings')
-      label(for='feelings') Feelings
-      input.imagesTick#health_images(type='checkbox' name='health')
-      label(for='health_images') Health
-      input.imagesTick#people(type='checkbox' name='people')
-      label(for='people') People
-      input.imagesTick#religion(type='checkbox' name='religion')
-      label(for='religion') Religion
-      input.imagesTick#places(type='checkbox' name='places')
-      label(for='places') Places
-      input.imagesTick#animals(type='checkbox' name='animals')
-      label(for='animals') Animals
-      input.imagesTick#industry(type='checkbox' name='industry')
-      label(for='industry') Industry
-      input.imagesTick#computer(type='checkbox' name='computer')
-      label(for='computer') Computer
-      input.imagesTick#food_images(type='checkbox' name='food')
-      label(for='food_images') Food
-      input.imagesTick#sport_images(type='checkbox' name='sport')
-      label(for='sport_images') Sport
-      input.imagesTick#transportation(type='checkbox' name='transportation')
-      label(for='transportation') Transportation
-      input.imagesTick#travel(type='checkbox' name='travel')
-      label(for='travel') Travel
-      input.imagesTick#buildings(type='checkbox' name='buildings')
-      label(for='buildings') Buildings
-      input.imagesTick#bussines_images(type='checkbox' name='bussines')
-      label(for='bussines_images') Bussines
-      input.imagesTick#music(type='checkbox' name='music')
-      label(for='music') Music
-    .preference
-      h2 Video
-      input.videoTick#animation(type='checkbox' name='animation')
-      label(for='animation') Animation
-      input.videoTick#art(type='checkbox' name='art')
-      label(for='art') Art
-      input.videoTick#cameratechniques(type='checkbox' name='cameratechniques')
-      label(for='cameratechniques') Cameratechniques
-      input.videoTick#comedy_video(type='checkbox' name='comedy')
-      label(for='comedy_video') Comedy
-      input.videoTick#documentary(type='checkbox' name='documentary')
-      label(for='documentary') Documentary
-      input.videoTick#experimental(type='checkbox' name='experimental')
-      label(for='experimental') Experimental
-      input.videoTick#fashion_video(type='checkbox' name='fashion')
-      label(for='fashion_video') Fashion
-      input.videoTick#food(type='checkbox' name='food')
-      label(for='food') Food
-      input.videoTick#instructionals(type='checkbox' name='instructionals')
-      label(for='instructionals') Instructionals
-      input.videoTick#music_video(type='checkbox' name='music')
-      label(for='music_video') Music
-      input.videoTick#narrative(type='checkbox' name='narrative')
-      label(for='narrative') Narrative
-      input.videoTick#personal(type='checkbox' name='personal')
-      label(for='personal') Personal
-      input.videoTick#journalism(type='checkbox' name='journalism')
-      label(for='journalism') Journalism
-      input.videoTick#sports_video(type='checkbox' name='sports')
-      label(for='sports_video') Sports
-      input.videoTick#talks(type='checkbox' name='talks')
-      label(for='talks') Talks
-      input.videoTick#travel_video(type='checkbox' name='travel')
-      label(for='travel_video') Travel
-    .preference
-      h2 Books
-      input.booksTick#comedy_books(type='checkbox' name='comedy')
-      label(for='comedy_books') Comedy
-      input.booksTick#adventure(type='checkbox' name='adventure')
-      label(for='adventure') Adventure
-      input.booksTick#drama(type='checkbox' name='drama')
-      label(for='drama') Drama
-      input.booksTick#horror(type='checkbox' name='horror')
-      label(for='horror') Horror
-      input.booksTick#romance(type='checkbox' name='romance')
-      label(for='romance') Romance
-      input.booksTick#action(type='checkbox' name='action')
-      label(for='action') Action
-      input.booksTick#science_books(type='checkbox' name='science')
-      label(for='science_books') Science
-      input.booksTick#fiction(type='checkbox' name='fiction')
-      label(for='fiction') Fiction
-      input.booksTick#science_fiction(type='checkbox' name='science_fiction')
-      label(for='science_fiction') Science Fiction
-      input.booksTick#detective(type='checkbox' name='detective')
-      label(for='detective') Detective
-      input.booksTick#biography(type='checkbox' name='biography')
-      label(for='biography') Biography
-      input.booksTick#psychology(type='checkbox' name='psychology')
-      label(for='psychology') Psychology
-      input.booksTick#arts_books(type='checkbox' name='arts')
-      label(for='arts_books') Arts
-      input.booksTick#dictionary(type='checkbox' name='dictionary')
-      label(for='dictionary') Dictionary
-      input.booksTick#parenting(type='checkbox' name='parenting')
-      label(for='parenting') Parenting
-      input.booksTick#poetry(type='checkbox' name='poetry')
-      label(for='poetry') Poetry
-      input.booksTick#critics(type='checkbox' name='critics')
-      label(for='critics') Critics
-      input.booksTick#sport_books(type='checkbox' name='sport')
-      label(for='sport_books') Sport
-      input.booksTick#health_books(type='checkbox' name='health')
-      label(for='health_books') Health
-      input.booksTick#crime(type='checkbox' name='crime')
-      label(for='crime') Crime
-      input.booksTick#mistery(type='checkbox' name='mistery')
-      label(for='mistery') Mistery
-      input.booksTick#social(type='checkbox' name='social')
-      label(for='social') Social
-      input.booksTick#educational(type='checkbox' name='educational')
-      label(for='educational') Educational
-      input.booksTick#economics(type='checkbox' name='economics')
-      label(for='economics') Economics
-    button#updatePref Update
-#customPref.request-site-related.hide
-  .preference2
-    h2 Make a website request
-    input#website(type='text' name='website' placeholder='(eg. https://css-tricks.com/feed)')
-    br
-    input#websiteButton(type='submit' value='Submit')
-  .rss-personal-links
-    h2 Personal links
-    .box-for-links
-      ul#RSSlinks
-        li
-          a(href='https://www.ziaruldeiasi.ro/') Ziarul de Iasi
-          img(src='https://img.icons8.com/dusk/64/000000/delete-forever.png' alt='')
-          label.switch
-            input(type='checkbox' checked=false)
-            span.slider.round
-          br
-.footer
-  include footer.pug
-script(src='../js/messageUs.js')
-script(src='../js/profilePage.js')
-script(src='../js/profile.js')
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='../css/profileStyle.css')
+    link(rel='stylesheet' href='../css/style.css')
+    title UmbrElla
+  header
+      include header.pug
+  .wrapper
+    #profileWrapper.profile-wrapper.hide
+      #user-info.user-info
+        // aici e imaginea utilizatorului
+      .info
+        h2
+          i#nameLabel 
+          span.edit
+            a#name(href='#')
+              | Edit Name
+              img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
+        #edit-name.text-edit-input-name
+          label(for='updated-name') First name:
+          input#updated-name(type='text')
+          label(for='updated-last-name') Last name:
+          input#updated-last-name(type='text')
+          button#submit-name(type='submit' value='Submit') Save
+        h2#usernameLabel
+          span#usernameText 
+          span.edit
+            a#username(href='#')
+              | Edit Username
+              img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
+        #username-edit.username-edit
+          label(for='new-username') Username:
+          input#new-username(type='text')
+          button#submit-username(type='submit' value='Submit') Save
+        h2
+          | **********
+          span.edit
+            a#pass-edit-button(href='#')
+              | Edit Password
+              img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
+        #password-edit.password-edit
+          label(for='old-password') Old Password
+          input#old-password(type='password' required='')
+          label(for='new-password') New Password
+          input#new-password(type='password' required='')
+          button#submit-password(type='submit' value='Submit') Save
+        h2
+          input#male(type='radio' name='gender' value='male')
+          label(for='male') Male
+          input#female(type='radio' name='gender' value='female')
+          label(for='female') Female
+          span.edit
+            a#update-profile(href='#')
+              | Update
+              img(src='https://img.icons8.com/ultraviolet/40/000000/edit.png' alt='')
+        h3#emailLabel [Email]
+    .set-preferences
+      h1 Set up your preferences
+      .preference
+        h2 News
+        input.newsTick#bussines_news(type='checkbox' name='business')
+        label(for='bussines_news') Business
+        input.newsTick#entertainment_news(type='checkbox' name='entertainment')
+        label(for='entertainment_news') Entertainment
+        input.newsTick#general(type='checkbox' name='general')
+        label(for='general') General
+        input.newsTick#health_news(type='checkbox' name='health')
+        label(for='health_news') Health
+        input.newsTick#science_news(type='checkbox' name='science')
+        label(for='science_news') Science
+        input.newsTick#sports_news(type='checkbox' name='sports')
+        label(for='sports_news') Sports
+        input.newsTick#technology_news(type='checkbox' name='technology')
+        label(for='technology_news') Technology
+      .preference
+        h2 Images
+        input.imagesTick#backgrounds(type='checkbox' name='backgrounds')
+        label(for='backgrounds') Backgrounds
+        input.imagesTick#fashion(type='checkbox' name='fashion')
+        label(for='fashion') Fashion
+        input.imagesTick#nature(type='checkbox' name='nature')
+        label(for='nature') Nature
+        input.imagesTick#science_images(type='checkbox' name='science')
+        label(for='science_images') Science
+        input.imagesTick#education(type='checkbox' name='education')
+        label(for='education') Education
+        input.imagesTick#feelings(type='checkbox' name='feelings')
+        label(for='feelings') Feelings
+        input.imagesTick#health_images(type='checkbox' name='health')
+        label(for='health_images') Health
+        input.imagesTick#people(type='checkbox' name='people')
+        label(for='people') People
+        input.imagesTick#religion(type='checkbox' name='religion')
+        label(for='religion') Religion
+        input.imagesTick#places(type='checkbox' name='places')
+        label(for='places') Places
+        input.imagesTick#animals(type='checkbox' name='animals')
+        label(for='animals') Animals
+        input.imagesTick#industry(type='checkbox' name='industry')
+        label(for='industry') Industry
+        input.imagesTick#computer(type='checkbox' name='computer')
+        label(for='computer') Computer
+        input.imagesTick#food_images(type='checkbox' name='food')
+        label(for='food_images') Food
+        input.imagesTick#sport_images(type='checkbox' name='sport')
+        label(for='sport_images') Sport
+        input.imagesTick#transportation(type='checkbox' name='transportation')
+        label(for='transportation') Transportation
+        input.imagesTick#travel(type='checkbox' name='travel')
+        label(for='travel') Travel
+        input.imagesTick#buildings(type='checkbox' name='buildings')
+        label(for='buildings') Buildings
+        input.imagesTick#bussines_images(type='checkbox' name='bussines')
+        label(for='bussines_images') Bussines
+        input.imagesTick#music(type='checkbox' name='music')
+        label(for='music') Music
+      .preference
+        h2 Video
+        input.videoTick#animation(type='checkbox' name='animation')
+        label(for='animation') Animation
+        input.videoTick#art(type='checkbox' name='art')
+        label(for='art') Art
+        input.videoTick#cameratechniques(type='checkbox' name='cameratechniques')
+        label(for='cameratechniques') Cameratechniques
+        input.videoTick#comedy_video(type='checkbox' name='comedy')
+        label(for='comedy_video') Comedy
+        input.videoTick#documentary(type='checkbox' name='documentary')
+        label(for='documentary') Documentary
+        input.videoTick#experimental(type='checkbox' name='experimental')
+        label(for='experimental') Experimental
+        input.videoTick#fashion_video(type='checkbox' name='fashion')
+        label(for='fashion_video') Fashion
+        input.videoTick#food(type='checkbox' name='food')
+        label(for='food') Food
+        input.videoTick#instructionals(type='checkbox' name='instructionals')
+        label(for='instructionals') Instructionals
+        input.videoTick#music_video(type='checkbox' name='music')
+        label(for='music_video') Music
+        input.videoTick#narrative(type='checkbox' name='narrative')
+        label(for='narrative') Narrative
+        input.videoTick#personal(type='checkbox' name='personal')
+        label(for='personal') Personal
+        input.videoTick#journalism(type='checkbox' name='journalism')
+        label(for='journalism') Journalism
+        input.videoTick#sports_video(type='checkbox' name='sports')
+        label(for='sports_video') Sports
+        input.videoTick#talks(type='checkbox' name='talks')
+        label(for='talks') Talks
+        input.videoTick#travel_video(type='checkbox' name='travel')
+        label(for='travel_video') Travel
+      .preference
+        h2 Books
+        input.booksTick#comedy_books(type='checkbox' name='comedy')
+        label(for='comedy_books') Comedy
+        input.booksTick#adventure(type='checkbox' name='adventure')
+        label(for='adventure') Adventure
+        input.booksTick#drama(type='checkbox' name='drama')
+        label(for='drama') Drama
+        input.booksTick#horror(type='checkbox' name='horror')
+        label(for='horror') Horror
+        input.booksTick#romance(type='checkbox' name='romance')
+        label(for='romance') Romance
+        input.booksTick#action(type='checkbox' name='action')
+        label(for='action') Action
+        input.booksTick#science_books(type='checkbox' name='science')
+        label(for='science_books') Science
+        input.booksTick#fiction(type='checkbox' name='fiction')
+        label(for='fiction') Fiction
+        input.booksTick#science_fiction(type='checkbox' name='science_fiction')
+        label(for='science_fiction') Science Fiction
+        input.booksTick#detective(type='checkbox' name='detective')
+        label(for='detective') Detective
+        input.booksTick#biography(type='checkbox' name='biography')
+        label(for='biography') Biography
+        input.booksTick#psychology(type='checkbox' name='psychology')
+        label(for='psychology') Psychology
+        input.booksTick#arts_books(type='checkbox' name='arts')
+        label(for='arts_books') Arts
+        input.booksTick#dictionary(type='checkbox' name='dictionary')
+        label(for='dictionary') Dictionary
+        input.booksTick#parenting(type='checkbox' name='parenting')
+        label(for='parenting') Parenting
+        input.booksTick#poetry(type='checkbox' name='poetry')
+        label(for='poetry') Poetry
+        input.booksTick#critics(type='checkbox' name='critics')
+        label(for='critics') Critics
+        input.booksTick#sport_books(type='checkbox' name='sport')
+        label(for='sport_books') Sport
+        input.booksTick#health_books(type='checkbox' name='health')
+        label(for='health_books') Health
+        input.booksTick#crime(type='checkbox' name='crime')
+        label(for='crime') Crime
+        input.booksTick#mistery(type='checkbox' name='mistery')
+        label(for='mistery') Mistery
+        input.booksTick#social(type='checkbox' name='social')
+        label(for='social') Social
+        input.booksTick#educational(type='checkbox' name='educational')
+        label(for='educational') Educational
+        input.booksTick#economics(type='checkbox' name='economics')
+        label(for='economics') Economics
+      button#updatePref Update
+  #customPref.request-site-related.hide
+    .preference2
+      h2 Make a website request
+      input#website(type='text' name='website' placeholder='(eg. https://css-tricks.com/feed)')
+      br
+      input#websiteButton(type='submit' value='Submit')
+    .rss-personal-links
+      h2 Personal links
+      .box-for-links
+        ul#RSSlinks
+          li
+            a(href='https://www.ziaruldeiasi.ro/') Ziarul de Iasi
+            img(src='https://img.icons8.com/dusk/64/000000/delete-forever.png' alt='')
+            label.switch
+              input(type='checkbox' checked=false)
+              span.slider.round
+            br
+  .footer
+    include footer.pug
+  script(src='../js/messageUs.js')
+  script(src='../js/profilePage.js')
+  script(src='../js/profile.js')

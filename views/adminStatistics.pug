@@ -1,47 +1,48 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")
-  link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
-  link(href='../css/adminStatistic.css' rel='stylesheet')
-  title Admin statistics
-header
-  .logo
-    h1.logo-text
-      img(src='../images/editabil-umbrela.png' alt='umbrela' width='35')
-      span Umbr
-      | Ella
-  nav
-    i.fas.fa-bars.menu-toggle
-    ul.nav
-      li
-        a(href='#') Statistics
-      li
-        a(href='/adminMail') Mailbox
-      li
-        a(href='/') HomePage
-.mainPage
-  #statistic-area
-    h2
-      | ReR News Statistic 
-      button#exportPDF
-        img(src='https://img.icons8.com/color/50/000000/pdf.png' alt='' width='25')
-    .chart_wrapper
-      h3#chart_title Stats based on number of user who preffer a category.
-      .profit_box
-        canvas#chart_news
-        canvas#chart_images.hide
-        canvas#chart_videos.hide
-        canvas#chart_books.hide
-      #chart_options
-        button#news_stats News Stats
-        button#images_stats Images Stats
-        button#video_stats Video Stats
-        button#books_stats Books Stats
-.footer
-  .footer-bottom
-    | &copy; UmbrElla
-script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js')
-script(src='../js/adminStatistic.js')
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")
+    link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+    link(href='../css/adminStatistic.css' rel='stylesheet')
+    title Admin statistics
+  header
+    .logo
+      h1.logo-text
+        img(src='../images/editabil-umbrela.png' alt='umbrela' width='35')
+        span Umbr
+        | Ella
+    nav
+      i.fas.fa-bars.menu-toggle
+      ul.nav
+        li
+          a(href='#') Statistics
+        li
+          a(href='/adminMail') Mailbox
+        li
+          a(href='/') HomePage
+  .mainPage
+    #statistic-area
+      h2
+        | ReR News Statistic 
+        button#exportPDF
+          img(src='https://img.icons8.com/color/50/000000/pdf.png' alt='' width='25')
+      .chart_wrapper
+        h3#chart_title Stats based on number of user who preffer a category.
+        .profit_box
+          canvas#chart_news
+          canvas#chart_images.hide
+          canvas#chart_videos.hide
+          canvas#chart_books.hide
+        #chart_options
+          button#news_stats News Stats
+          button#images_stats Images Stats
+          button#video_stats Video Stats
+          button#books_stats Books Stats
+  .footer
+    .footer-bottom
+      | &copy; UmbrElla
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js')
+  script(src='../js/adminStatistic.js')

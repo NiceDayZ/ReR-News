@@ -1,53 +1,54 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
-  link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap' rel='stylesheet')
-  link(rel='stylesheet' href='../css/style.css')
-  title UmbrElla
-header
-  include header.pug
-.page-wrapper
-  // Carouser
-  .post-slider#trending-slider
-  // News Post
-  .content.clearfix
-    .main-content#recent-posts
-    .sidebar
-      .section.search
-        h2.section-title Search
-        form#search_news
-          input.text-input(type='text' name='search_term' placeholder='Search...')
-          input#selected(type='checkbox' name='select_prefference_search')
-          label(for='selected') Search only in preffered categories
-          br
-      .section.topics
-        h2.section-title Topics
-          button#downloadRss
-            img.rss-image(src='../images/rss.png' alt='rss' width='25')
-        ul
-          li
-            a.category(href="javascript:void(0);" x-id="business") Business
-          li
-            a.category(href="javascript:void(0);" x-id="entertainment") Entertainment
-          li
-            a.category(href="javascript:void(0);" x-id="general") General
-          li
-            a.category(href="javascript:void(0);" x-id="health") Health
-          li
-            a.category(href="javascript:void(0);" x-id="science") Science
-          li
-            a.category(href="javascript:void(0);" x-id="sports") Sports
-          li
-            a.category(href="javascript:void(0);" x-id="technology") Technology
-.footer
-  include footer.pug
-// CustomJS
-script(src='../js/scripts.js')
-script(src='../js/messageUs.js')
-script(src='../js/notifications.js')
-script(src='../js/news.js')
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='../css/style.css')
+    title UmbrElla
+  header
+    include header.pug
+  .page-wrapper
+    // Carouser
+    .post-slider#trending-slider
+    // News Post
+    .content.clearfix
+      .main-content#recent-posts
+      .sidebar
+        .section.search
+          h2.section-title Search
+          form#search_news
+            input.text-input(type='text' name='search_term' placeholder='Search...')
+            input#selected(type='checkbox' name='select_prefference_search')
+            label(for='selected') Search only in preffered categories
+            br
+        .section.topics
+          h2.section-title Topics
+            button#downloadRss
+              img.rss-image(src='../images/rss.png' alt='rss' width='25')
+          ul
+            li
+              a.category#business(href="javascript:void(0);") Business
+            li
+              a.category#entertainment(href="javascript:void(0);") Entertainment
+            li
+              a.category#general(href="javascript:void(0);") General
+            li
+              a.category#health(href="javascript:void(0);") Health
+            li
+              a.category#science(href="javascript:void(0);") Science
+            li
+              a.category#sports(href="javascript:void(0);") Sports
+            li
+              a.category#technology(href="javascript:void(0);") Technology
+  .footer
+    include footer.pug
+  // CustomJS
+  script(src='../js/scripts.js')
+  script(src='../js/messageUs.js')
+  script(src='../js/notifications.js')
+  script(src='../js/news.js')
 
-// 
+  // 

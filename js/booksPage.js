@@ -160,7 +160,7 @@ ready(function(){
                        listOfCategories = document.getElementsByClassName("category");
 
                        for(let i = 0; i<listOfCategories.length; i++){
-                           if(preferences.booksPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                           if(preferences.booksPref.includes(listOfCategories[i].id)){
                                listOfCategories[i].classList.add("selected");
                            }
                        }
@@ -180,7 +180,7 @@ ready(function(){
             listOfCategories = document.getElementsByClassName("category");
 
             for(let i = 0; i<listOfCategories.length; i++){
-                if(preferences.booksPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                if(preferences.booksPref.includes(listOfCategories[i].id)){
                     listOfCategories[i].classList.add("selected");
                 }
             }
@@ -212,7 +212,7 @@ ready(function(){
         if(preferences){
             listOfCategories = document.getElementsByClassName("category");
             for(let i = 0; i<listOfCategories.length; i++){
-                if(preferences.booksPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                if(preferences.booksPref.includes(listOfCategories[i].id)){
                     listOfCategories[i].classList.add("selected");
                 }
             }
@@ -236,7 +236,7 @@ for(var index = 0; index<listOfCategories.length; index++){
             listOfSelectedCategories = document.getElementsByClassName('selected');
             let arrOfCategories = [];
             for(let j=0; j<listOfSelectedCategories.length; j++){
-                arrOfCategories.push(listOfSelectedCategories[j].getAttribute("x-id"));
+                arrOfCategories.push(listOfSelectedCategories[j].id);
             }
             getBooks(arrOfCategories, null);
         }
@@ -260,7 +260,7 @@ document.getElementById('search_books').onsubmit = function(e){
             listOfSelectedCategories = document.getElementsByClassName('selected');
             let arrOfCategories = [];
             for(let j=0; j<listOfSelectedCategories.length; j++){
-                arrOfCategories.push(listOfSelectedCategories[j].getAttribute("x-id"));
+                arrOfCategories.push(listOfSelectedCategories[j].id);
             }
             if(searchInCategories){
                 getBooks(arrOfCategories, searchTerms);

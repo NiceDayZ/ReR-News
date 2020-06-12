@@ -1,75 +1,76 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
-  link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap' rel='stylesheet')
-  link(rel='stylesheet' href='../css/style.css')
-  title UmbrElla
-header
-  include header.pug
-.page-wrapper
-  .content.clearfix
-    .grid
-      h1.recent-images-title Recent Images
-      article#imgContainer
-    .sidebar
-      .section.search
-        h2.section-title Search
-        form#search_images(action='index.html' method='post')
-          input.text-input(type='text' name='search_term' placeholder='Search...')
-          input#selected(type='checkbox' name='select_prefference_search')
-          label(for='selected') Search only in preffered categories
-          br
-      .section.topics
-        h2.section-title Categories
-          button#downloadRss
-            img.rss-image(src='../images/rss.png' alt='rss' width='25')
-        ul
-          li
-            a.category(href="javascript:void(0);" x-id="backgrounds") Backgrounds
-          li
-            a.category(href="javascript:void(0);" x-id="fashion") Fashion
-          li
-            a.category(href="javascript:void(0);" x-id="nature") Nature
-          li
-            a.category(href="javascript:void(0);" x-id="science") Science
-          li
-            a.category(href="javascript:void(0);" x-id="education") Education
-          li
-            a.category(href="javascript:void(0);" x-id="feelings") Feelings
-          li
-            a.category(href="javascript:void(0);" x-id="health") Health
-          li
-            a.category(href="javascript:void(0);" x-id="people") People
-          li
-            a.category(href="javascript:void(0);" x-id="religion") Religion
-          li
-            a.category(href="javascript:void(0);" x-id="places") Places
-          li
-            a.category(href="javascript:void(0);" x-id="animals") Animals
-          li
-            a.category(href="javascript:void(0);" x-id="industry") Industry
-          li
-            a.category(href="javascript:void(0);" x-id="computer") Computer
-          li
-            a.category(href="javascript:void(0);" x-id="food") Food
-          li
-            a.category(href="javascript:void(0);" x-id="sports") Sports
-          li
-            a.category(href="javascript:void(0);" x-id="travel") Travel
-          li
-            a.category(href="javascript:void(0);" x-id="buildings") Buildings
-          li
-            a.category(href="javascript:void(0);" x-id="business") Business
-          li
-            a.category(href="javascript:void(0);" x-id="music") Music
-          li
-            a.category(href="javascript:void(0);" x-id="transportation") Transportation
-.footer
-  include footer.pug
-script(src='../js/scripts.js')
-script(src='../js/messageUs.js')
-script(src='../js/imagesPage.js')
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='../css/style.css')
+    title UmbrElla
+  header
+    include header.pug
+  .page-wrapper
+    .content.clearfix
+      .grid
+        h1.recent-images-title Popular Images
+        article#imgContainer
+      .sidebar
+        .section.search
+          h2.section-title Search
+          form#search_images(action='index.html' method='post')
+            input.text-input(type='text' name='search_term' placeholder='Search...')
+            input#selected(type='checkbox' name='select_prefference_search')
+            label(for='selected') Search only in preffered categories
+            br
+        .section.topics
+          h2.section-title Categories
+            button#downloadRss
+              img.rss-image(src='../images/rss.png' alt='rss' width='25')
+          ul
+            li
+              a.category#backgrounds(href="javascript:void(0);") Backgrounds
+            li
+              a.category#fashion(href="javascript:void(0);") Fashion
+            li
+              a.category#nature(href="javascript:void(0);") Nature
+            li
+              a.category#science(href="javascript:void(0);") Science
+            li
+              a.category#education(href="javascript:void(0);") Education
+            li
+              a.category#feelings(href="javascript:void(0);") Feelings
+            li
+              a.category#health(href="javascript:void(0);") Health
+            li
+              a.category#people(href="javascript:void(0);") People
+            li
+              a.category#religion(href="javascript:void(0);") Religion
+            li
+              a.category#places(href="javascript:void(0);") Places
+            li
+              a.category#animals(href="javascript:void(0);") Animals
+            li
+              a.category#industry(href="javascript:void(0);") Industry
+            li
+              a.category#computer(href="javascript:void(0);") Computer
+            li
+              a.category#food(href="javascript:void(0);") Food
+            li
+              a.category#sports(href="javascript:void(0);") Sports
+            li
+              a.category#travel(href="javascript:void(0);") Travel
+            li
+              a.category#buildings(href="javascript:void(0);") Buildings
+            li
+              a.category#business(href="javascript:void(0);") Business
+            li
+              a.category#music(href="javascript:void(0);") Music
+            li
+              a.category#transportation(href="javascript:void(0);") Transportation
+  .footer
+    include footer.pug
+  script(src='../js/scripts.js')
+  script(src='../js/messageUs.js')
+  script(src='../js/imagesPage.js')
 

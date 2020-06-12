@@ -7,6 +7,7 @@ function populateImages(images){
     let container = document.getElementById('imgContainer');
     container.innerHTML = '';
 
+
     images.forEach(element => {
         // article#imgContainer
         // a(href='../images/1.jpg' target='_blank')
@@ -147,7 +148,7 @@ ready(function(){
 
                        listOfCategories = document.getElementsByClassName("category");
                        for(let i = 0; i<listOfCategories.length; i++){
-                            if(preferences.imagesPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                            if(preferences.imagesPref.includes(listOfCategories[i].id)){
                                 listOfCategories[i].classList.add("selected");
                             }
                         }
@@ -167,7 +168,7 @@ ready(function(){
             listOfCategories = document.getElementsByClassName("category");
 
             for(let i = 0; i<listOfCategories.length; i++){
-                if(preferences.imagesPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                if(preferences.imagesPref.includes(listOfCategories[i].id)){
                     listOfCategories[i].classList.add("selected");
                 }
             }
@@ -199,7 +200,7 @@ ready(function(){
         if(preferences){
             listOfCategories = document.getElementsByClassName("category");
             for(let i = 0; i<listOfCategories.length; i++){
-                if(preferences.imagesPref.includes(listOfCategories[i].getAttribute("x-id"))){
+                if(preferences.imagesPref.includes(listOfCategories[i].id)){
                     listOfCategories[i].classList.add("selected");
                 }
             }
@@ -223,7 +224,7 @@ for(var index = 0; index<listOfCategories.length; index++){
             listOfSelectedCategories = document.getElementsByClassName('selected');
             let arrOfCategories = [];
             for(let j=0; j<listOfSelectedCategories.length; j++){
-                arrOfCategories.push(listOfSelectedCategories[j].getAttribute("x-id"));
+                arrOfCategories.push(listOfSelectedCategories[j].id);
             }
             getImages(arrOfCategories, null);
         }
@@ -247,7 +248,7 @@ document.getElementById('search_images').onsubmit = function(e){
             listOfSelectedCategories = document.getElementsByClassName('selected');
             let arrOfCategories = [];
             for(let j=0; j<listOfSelectedCategories.length; j++){
-                arrOfCategories.push(listOfSelectedCategories[j].getAttribute("x-id"));
+                arrOfCategories.push(listOfSelectedCategories[j].id);
             }
             if(searchInCategories){
                 getImages(arrOfCategories, searchTerms);

@@ -76,7 +76,7 @@ function notifyMe() {
   };
 
   function callEvery15Mins() {
-    if (Notification.permission !== "denied") {
+    if (Notification.permission != "denied") {
         Notification.requestPermission().then(function (permission) {
         });
       }

@@ -1,86 +1,87 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
-  link(href='https://fonts.googleapis.com/css?family=Candal|Lora&display=swap' rel='stylesheet')
-  link(rel='stylesheet' href='../css/documents.css')
-  link(rel='stylesheet' href='../css/style.css')
-  title UmbrElla
-header
-  include header.pug
-.doc-wrapper
-  .content.clearfix
-    .doc-container
-      ul.documents-list#books_wrapper
-    .sidebar
-      .section.search
-        h2.section-title Search
-        form#search_books(action='index.html' method='post')
-          input.text-input(type='text' name='search_term' placeholder='Search...')
-          input#selected(type='checkbox' name='select_prefference_search')
-          label(for='selected') Search only in preffered categories
-          br
-      .section.topics
-        h2.section-title Topics
-          button#downloadRss
-            img.rss-image(src='../images/rss.png' alt='rss' width='25')
-        ul
-          li
-            a.category(href="javascript:void(0);" x-id="comedy") Comedy
-          li
-            a.category(href="javascript:void(0);" x-id="adventure") Adventure
-          li
-            a.category(href="javascript:void(0);" x-id="drama") Drama
-          li
-            a.category(href="javascript:void(0);" x-id="horror") Horror
-          li
-            a.category(href="javascript:void(0);" x-id="romance") Romance
-          li
-            a.category(href="javascript:void(0);" x-id="action") Action
-          li
-            a.category(href="javascript:void(0);" x-id="science") Science
-          li
-            a.category(href="javascript:void(0);" x-id="fiction") Fiction
-          li
-            a.category(href="javascript:void(0);" x-id="science_fiction") Science Fiction
-          li
-            a.category(href="javascript:void(0);" x-id="detective") Detective
-          li
-            a.category(href="javascript:void(0);" x-id="biography") Biography
-          li
-            a.category(href="javascript:void(0);" x-id="psychology") Psychology
-          li
-            a.category(href="javascript:void(0);" x-id="self_help") Self Help
-          li
-            a.category(href="javascript:void(0);" x-id="philosophy") Philosophy
-          li
-            a.category(href="javascript:void(0);" x-id="arts") Arts
-          li
-            a.category(href="javascript:void(0);" x-id="dictionary") Dictionary
-          li
-            a.category(href="javascript:void(0);" x-id="parenting") Parenting
-          li
-            a.category(href="javascript:void(0);" x-id="poetry") Poetry
-          li
-            a.category(href="javascript:void(0);" x-id="critics") Critics
-          li
-            a.category(href="javascript:void(0);" x-id="sport") Sport
-          li
-            a.category(href="javascript:void(0);" x-id="health") Health
-          li
-            a.category(href="javascript:void(0);" x-id="crime") Crime
-          li
-            a.category(href="javascript:void(0);" x-id="mystery") Mystery
-          li
-            a.category(href="javascript:void(0);" x-id="social") Social
-          li
-            a.category(href="javascript:void(0);" x-id="educational") Educational
-          li
-            a.category(href="javascript:void(0);" x-id="economics") Economics
-.footer
-  include footer.pug
-script(src='../js/documents.js')
-script(src='../js/messageUs.js')
-script(src='../js/booksPage.js')
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    script(src='https://kit.fontawesome.com/ab4339cff3.js' crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Candal%7CLora&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='../css/documents.css')
+    link(rel='stylesheet' href='../css/style.css')
+    title UmbrElla
+  header
+    include header.pug
+  .doc-wrapper
+    .content.clearfix
+      .doc-container
+        ul.documents-list#books_wrapper
+      .sidebar
+        .section.search
+          h2.section-title Search
+          form#search_books(action='index.html' method='post')
+            input.text-input(type='text' name='search_term' placeholder='Search...')
+            input#selected(type='checkbox' name='select_prefference_search')
+            label(for='selected') Search only in preffered categories
+            br
+        .section.topics
+          h2.section-title Topics
+            button#downloadRss
+              img.rss-image(src='../images/rss.png' alt='rss' width='25')
+          ul
+            li
+              a.category(href="javascript:void(0);" id="comedy") Comedy
+            li
+              a.category(href="javascript:void(0);" id="adventure") Adventure
+            li
+              a.category(href="javascript:void(0);" id="drama") Drama
+            li
+              a.category(href="javascript:void(0);" id="horror") Horror
+            li
+              a.category(href="javascript:void(0);" id="romance") Romance
+            li
+              a.category(href="javascript:void(0);" id="action") Action
+            li
+              a.category(href="javascript:void(0);" id="science") Science
+            li
+              a.category(href="javascript:void(0);" id="fiction") Fiction
+            li
+              a.category(href="javascript:void(0);" id="science_fiction") Science Fiction
+            li
+              a.category(href="javascript:void(0);" id="detective") Detective
+            li
+              a.category(href="javascript:void(0);" id="biography") Biography
+            li
+              a.category(href="javascript:void(0);" id="psychology") Psychology
+            li
+              a.category(href="javascript:void(0);" id="self_help") Self Help
+            li
+              a.category(href="javascript:void(0);" id="philosophy") Philosophy
+            li
+              a.category(href="javascript:void(0);" id="arts") Arts
+            li
+              a.category(href="javascript:void(0);" id="dictionary") Dictionary
+            li
+              a.category(href="javascript:void(0);" id="parenting") Parenting
+            li
+              a.category(href="javascript:void(0);" id="poetry") Poetry
+            li
+              a.category(href="javascript:void(0);" id="critics") Critics
+            li
+              a.category(href="javascript:void(0);" id="sport") Sport
+            li
+              a.category(href="javascript:void(0);" id="health") Health
+            li
+              a.category(href="javascript:void(0);" id="crime") Crime
+            li
+              a.category(href="javascript:void(0);" id="mystery") Mystery
+            li
+              a.category(href="javascript:void(0);" id="social") Social
+            li
+              a.category(href="javascript:void(0);" id="educational") Educational
+            li
+              a.category(href="javascript:void(0);" id="economics") Economics
+  .footer
+    include footer.pug
+  script(src='../js/documents.js')
+  script(src='../js/messageUs.js')
+  script(src='../js/booksPage.js')
